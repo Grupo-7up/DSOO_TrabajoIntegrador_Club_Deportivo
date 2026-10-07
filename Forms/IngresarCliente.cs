@@ -1,4 +1,7 @@
-namespace WinFormsApp1
+using System;
+using System.Windows.Forms;
+
+namespace TrabajoIntegrador
 {
     public partial class IngresarCliente : Form
     {

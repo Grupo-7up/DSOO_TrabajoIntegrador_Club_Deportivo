@@ -46,20 +46,41 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Forms\Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Clases\Persona.cs" />
     <Compile Include="Clases\Cliente.cs" />
     <Compile Include="Clases\Actividad.cs" />
     <Compile Include="Clases\Club.cs" />
     <Compile Include="Clases\Cuota.cs" />
     <Compile Include="Clases\Pago.cs" />
+    <Compile Include="Forms\IngresarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\IngresarCliente.Designer.cs">
+      <DependentUpon>IngresarCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PantallaOpciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PantallaOpciones.Designer.cs">
+      <DependentUpon>PantallaOpciones.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\IngresarCliente.resx">
+      <DependentUpon>IngresarCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PantallaOpciones.resx">
+      <DependentUpon>PantallaOpciones.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

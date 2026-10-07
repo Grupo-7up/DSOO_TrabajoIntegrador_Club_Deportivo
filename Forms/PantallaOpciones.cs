@@ -1,15 +1,18 @@
-namespace Pantalla_De_Opciones
+using System;
+using System.Windows.Forms;
+
+namespace TrabajoIntegrador
 {
-    public partial class Form1 : Form
+    public partial class PantallaOpciones : Form
     {
-        public Form1()
+        public PantallaOpciones()
         {
             InitializeComponent();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            using (var frm = new WinFormsApp1.IngresarCliente())
+            using (var frm = new TrabajoIntegrador.IngresarCliente())
             {
                 frm.ShowDialog();
             }
