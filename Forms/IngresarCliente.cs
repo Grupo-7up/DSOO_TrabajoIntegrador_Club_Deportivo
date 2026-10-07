@@ -1,5 +1,6 @@
 using System;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace TrabajoIntegrador
 {
@@ -22,50 +23,135 @@ namespace TrabajoIntegrador
         {
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnRegistrar_Click(object sender, EventArgs e)
         {
             if (!CamposCompletos())
             {
-                MessageBox.Show("Debe completar todos los campos obligatorios.",
+                MessageBox.Show("Debe completar los campos obligatorios.",
                                 "Datos incompletos",
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Warning);
                 return;
             }
 
-            // acá va la acción de registrar
+            // Identificación del documento para verificación
+            string documento = txtDocumento.Text.Trim();
+
+            // 1. Verificar si el cliente ya existe
+            if (ConexionBD.ExisteCliente(documento))
+            {
+                MessageBox.Show("Ya existe un cliente registrado con ese número de documento.",
+                                "Cliente existente",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                return;
+            }
+
+            try
+            {
+                // 2. Extraer datos de los controles
+                string tipoDoc = cboTipoDoc.SelectedItem.ToString();
+                string nombre = txtNombre.Text.Trim();
+                string apellido = txtApellido.Text.Trim();
+                string email = txtEmail.Text.Trim();
+                string telefono = txtTelefono.Text.Trim();
+
+                // Estado de las Casillas de Selección
+                bool esSocio = chkEsSocio.Checked;
+                bool aptoFisico = chkAptoFisico.Checked;
+
+                // Generación automática del carnet si es socio
+                string nroCarnet = esSocio ? "SOC-" + documento : null;
+                DateTime validez = DateTime.Now.AddDays(30);
+
+                // 3. Insertar registro en la BBDD
+                bool registrado = ConexionBD.RegistrarCliente(
+                    tipoDoc,
+                    documento,
+                    nombre,
+                    apellido,
+                    email,
+                    telefono,
+                    esSocio,
+                    aptoFisico
+                );
+
+                if (registrado)
+                {
+                    MessageBox.Show("Cliente registrado correctamente.",
+                                    "Éxito",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Information);
+                    LimpiarFormulario();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al registrar cliente: " + ex.Message,
+                                "Error de Base de Datos",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
         private bool CamposCompletos()
         {
             errorProvider1.Clear();
-            return ValidarControles(this);
+            return ValidarControlesObligatorios();
         }
 
-        private bool ValidarControles(Control contenedor)
+        private bool ValidarControlesObligatorios()
         {
             bool completo = true;
 
-            foreach (Control c in contenedor.Controls)
+            // Validar Nombre
+            if (string.IsNullOrWhiteSpace(txtNombre.Text))
             {
-                if (c is TextBox txt && string.IsNullOrWhiteSpace(txt.Text))
-                {
-                    errorProvider1.SetError(txt, "Campo obligatorio");
-                    completo = false;
-                }
-                else if (c is ComboBox cmb && cmb.SelectedIndex == -1)
-                {
-                    errorProvider1.SetError(cmb, "Seleccione una opción");
-                    completo = false;
-                }
+                errorProvider1.SetError(txtNombre, "El nombre es obligatorio");
+                completo = false;
+            }
 
-                if ((c is GroupBox || c is Panel) && !ValidarControles(c))
-                {
-                    completo = false;
-                }
+            // Validar Apellido
+            if (string.IsNullOrWhiteSpace(txtApellido.Text))
+            {
+                errorProvider1.SetError(txtApellido, "El apellido es obligatorio");
+                completo = false;
+            }
+
+            // Validar Tipo de Documento
+            if (cboTipoDoc.SelectedIndex == -1)
+            {
+                errorProvider1.SetError(cboTipoDoc, "Seleccione un tipo de documento");
+                completo = false;
+            }
+
+            // Validar Documento
+            if (string.IsNullOrWhiteSpace(txtDocumento.Text))
+            {
+                errorProvider1.SetError(txtDocumento, "El documento es obligatorio");
+                completo = false;
             }
 
             return completo;
+        }
+
+        private void LimpiarFormulario()
+        {
+            txtNombre.Clear();
+            txtApellido.Clear();
+            cboTipoDoc.SelectedIndex = -1;
+            txtDocumento.Clear();
+            txtTelefono.Clear();
+            txtEmail.Clear();
+            chkEsSocio.Checked = false;
+            chkAptoFisico.Checked = false;
+            errorProvider1.Clear();
+            txtNombre.Focus();
         }
     }
 }

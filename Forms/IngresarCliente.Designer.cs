@@ -32,142 +32,160 @@ namespace TrabajoIntegrador
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(IngresarCliente));
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox4 = new TextBox();
-            label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
-            label4 = new Label();
-            label5 = new Label();
-            textBox5 = new TextBox();
-            button2 = new Button();
-            comboBox1 = new ComboBox();
-            button1 = new Button();
-            textBox3 = new TextBox();
-            errorProvider1 = new ErrorProvider(components);
-            ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
-            SuspendLayout();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.txtApellido = new System.Windows.Forms.TextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtTelefono = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.cboTipoDoc = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.txtDocumento = new System.Windows.Forms.TextBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.chkEsSocio = new System.Windows.Forms.CheckBox();
+            this.chkAptoFisico = new System.Windows.Forms.CheckBox();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            this.SuspendLayout();
             // 
-            // textBox1
+            // txtNombre
             // 
-            resources.ApplyResources(textBox1, "textBox1");
-            textBox1.Name = "textBox1";
+            resources.ApplyResources(this.txtNombre, "txtNombre");
+            this.txtNombre.Name = "txtNombre";
             // 
-            // textBox2
+            // txtApellido
             // 
-            resources.ApplyResources(textBox2, "textBox2");
-            textBox2.Name = "textBox2";
+            resources.ApplyResources(this.txtApellido, "txtApellido");
+            this.txtApellido.Name = "txtApellido";
             // 
-            // textBox4
+            // txtEmail
             // 
-            resources.ApplyResources(textBox4, "textBox4");
-            textBox4.Name = "textBox4";
+            resources.ApplyResources(this.txtEmail, "txtEmail");
+            this.txtEmail.Name = "txtEmail";
             // 
             // label1
             // 
-            resources.ApplyResources(label1, "label1");
-            label1.Name = "label1";
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.Name = "label1";
             // 
             // label2
             // 
-            resources.ApplyResources(label2, "label2");
-            label2.Name = "label2";
-            label2.Click += label2_Click;
+            resources.ApplyResources(this.label2, "label2");
+            this.label2.Name = "label2";
             // 
             // label3
             // 
-            resources.ApplyResources(label3, "label3");
-            label3.Name = "label3";
+            resources.ApplyResources(this.label3, "label3");
+            this.label3.Name = "label3";
             // 
             // label4
             // 
-            resources.ApplyResources(label4, "label4");
-            label4.Name = "label4";
+            resources.ApplyResources(this.label4, "label4");
+            this.label4.Name = "label4";
             // 
             // label5
             // 
-            resources.ApplyResources(label5, "label5");
-            label5.Name = "label5";
+            resources.ApplyResources(this.label5, "label5");
+            this.label5.Name = "label5";
             // 
-            // textBox5
+            // txtTelefono
             // 
-            resources.ApplyResources(textBox5, "textBox5");
-            textBox5.Name = "textBox5";
+            resources.ApplyResources(this.txtTelefono, "txtTelefono");
+            this.txtTelefono.Name = "txtTelefono";
             // 
             // button2
             // 
-            resources.ApplyResources(button2, "button2");
-            button2.Name = "button2";
-            button2.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.button2, "button2");
+            this.button2.Name = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.btnVolver_Click);
             // 
-            // comboBox1
+            // cboTipoDoc
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { resources.GetString("comboBox1.Items"), resources.GetString("comboBox1.Items1"), resources.GetString("comboBox1.Items2") });
-            resources.ApplyResources(comboBox1, "comboBox1");
-            comboBox1.Name = "comboBox1";
-            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+            this.cboTipoDoc.FormattingEnabled = true;
+            this.cboTipoDoc.Items.AddRange(new object[] {
+            resources.GetString("cboTipoDoc.Items"),
+            resources.GetString("cboTipoDoc.Items1"),
+            resources.GetString("cboTipoDoc.Items2")});
+            resources.ApplyResources(this.cboTipoDoc, "cboTipoDoc");
+            this.cboTipoDoc.Name = "cboTipoDoc";
             // 
             // button1
             // 
-            resources.ApplyResources(button1, "button1");
-            button1.Name = "button1";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            resources.ApplyResources(this.button1, "button1");
+            this.button1.Name = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.btnRegistrar_Click);
             // 
-            // textBox3
+            // txtDocumento
             // 
-            resources.ApplyResources(textBox3, "textBox3");
-            textBox3.Name = "textBox3";
+            resources.ApplyResources(this.txtDocumento, "txtDocumento");
+            this.txtDocumento.Name = "txtDocumento";
             // 
             // errorProvider1
             // 
-            errorProvider1.ContainerControl = this;
+            this.errorProvider1.ContainerControl = this;
             // 
-            // Form1
+            // chkEsSocio
+            // 
+            resources.ApplyResources(this.chkEsSocio, "chkEsSocio");
+            this.chkEsSocio.Name = "chkEsSocio";
+            this.chkEsSocio.UseVisualStyleBackColor = true;
+            // 
+            // chkAptoFisico
+            // 
+            resources.ApplyResources(this.chkAptoFisico, "chkAptoFisico");
+            this.chkAptoFisico.Name = "chkAptoFisico";
+            this.chkAptoFisico.UseVisualStyleBackColor = true;
+            // 
+            // IngresarCliente
             // 
             resources.ApplyResources(this, "$this");
-            AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(textBox3);
-            Controls.Add(button1);
-            Controls.Add(comboBox1);
-            Controls.Add(button2);
-            Controls.Add(textBox5);
-            Controls.Add(label5);
-            Controls.Add(label4);
-            Controls.Add(label3);
-            Controls.Add(label2);
-            Controls.Add(label1);
-            Controls.Add(textBox4);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
-            Name = "Form1";
-            Load += Form1_Load;
-            ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.chkAptoFisico);
+            this.Controls.Add(this.chkEsSocio);
+            this.Controls.Add(this.txtDocumento);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.cboTipoDoc);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.txtTelefono);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtEmail);
+            this.Controls.Add(this.txtApellido);
+            this.Controls.Add(this.txtNombre);
+            this.Name = "IngresarCliente";
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
 
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox4;
+        private TextBox txtNombre;
+        private TextBox txtApellido;
+        private TextBox txtEmail;
         private Label label1;
         private Label label2;
         private Label label3;
         private Label label4;
         private Label label5;
-        private TextBox textBox5;
+        private TextBox txtTelefono;
         private Button button2;
-        private ComboBox comboBox1;
+        private ComboBox cboTipoDoc;
         private Button button1;
-        private TextBox textBox3;
+        private TextBox txtDocumento;
         private ErrorProvider errorProvider1;
-
-
+        private CheckBox chkEsSocio;
+        private CheckBox chkAptoFisico;
     }
 }

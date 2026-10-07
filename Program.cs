@@ -16,6 +16,9 @@ namespace TrabajoIntegrador
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            DatabaseInitializer.InicializarBaseDeDatos();
+
             Application.Run(new Login());
         }
     }
