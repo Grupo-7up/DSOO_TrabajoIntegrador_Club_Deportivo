@@ -8,7 +8,7 @@ COLLATE utf8mb4_unicode_ci;
 USE club_deportivo_grupo7;
 
 -- =============================================
--- 2. CREACIÓN DE TABLAS (DDL)
+-- 2. CREACIÓN DE TABLAS
 -- =============================================
 
 -- Tabla de Usuarios para Autenticación
