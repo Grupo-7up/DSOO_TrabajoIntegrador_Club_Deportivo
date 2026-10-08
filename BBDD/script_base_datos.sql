@@ -1,5 +1,5 @@
 -- =============================================
--- 1. CREACIÓN Y SELECCIÓN DE BASE DE DATOS
+-- 1. CREACIÓN DE BASE DE DATOS
 -- =============================================
 CREATE DATABASE IF NOT EXISTS club_deportivo_grupo7 
 CHARACTER SET utf8mb4 
@@ -75,7 +75,7 @@ CREATE TABLE IF NOT EXISTS cliente_actividad (
 );
 
 -- =============================================
--- 3. DATOS DE PRUEBA (DML - SEMILLAS)
+-- 3. DATOS DE PRUEBA
 -- =============================================
 
 -- Inserción defensiva de usuario administrador base
@@ -89,7 +89,7 @@ INSERT IGNORE INTO actividades (id_actividad, nombre, cupo, horario, valor_activ
 (3, 'Spinning', 20, '18:00:00', 1800.00);
 
 -- =============================================
--- 4. STORED PROCEDURES (PROCEDIMIENTOS ALMACENADOS)
+-- 4. PROCEDIMIENTOS ALMACENADOS
 -- =============================================
 
 DROP PROCEDURE IF EXISTS sp_ValidarLogin;
