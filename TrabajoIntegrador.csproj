@@ -94,7 +94,6 @@
   <ItemGroup>
     <Compile Include="BBDD\ConexionBD.cs" />
     <Compile Include="BBDD\DatabaseInitializer.cs" />
-    <Compile Include="BBDD\UsuarioDAO.cs" />
     <Compile Include="Clases\Persona.cs" />
     <Compile Include="Clases\Cliente.cs" />
     <Compile Include="Clases\Actividad.cs" />

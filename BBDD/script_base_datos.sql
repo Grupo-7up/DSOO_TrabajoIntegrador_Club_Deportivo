@@ -93,7 +93,6 @@ INSERT IGNORE INTO actividades (id_actividad, nombre, cupo, horario, valor_activ
 -- =============================================
 
 DROP PROCEDURE IF EXISTS sp_ValidarLogin;
-DROP PROCEDURE IF EXISTS sp_RegistrarCuotaMensual;
 
 DELIMITER //
 
@@ -106,23 +105,3 @@ BEGIN
     FROM usuarios 
     WHERE usuario = p_usuario AND clave = p_clave;
 END //
-
-CREATE PROCEDURE sp_RegistrarCuotaMensual(
-    IN p_id_cliente INT,
-    IN p_monto DECIMAL(10,2),
-    IN p_forma_pago VARCHAR(30),
-    IN p_cantidad_cuotas INT,
-    IN p_mes INT,
-    IN p_anio INT,
-    IN p_nueva_validez DATE
-)
-BEGIN
-    INSERT INTO pagos (id_cliente, concepto, monto, tipo_pago, forma_pago, cantidad_cuotas, periodo_mes, periodo_anio, fecha_vencimiento)
-    VALUES (p_id_cliente, 'Cuota Mensual', p_monto, 'Cuota', p_forma_pago, p_cantidad_cuotas, p_mes, p_anio, p_nueva_validez);
-    
-    UPDATE clientes 
-    SET validez = p_nueva_validez 
-    WHERE id_cliente = p_id_cliente;
-END //
-
-DELIMITER ;
