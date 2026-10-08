@@ -57,16 +57,19 @@ namespace TrabajoIntegrador
             // 
             resources.ApplyResources(this.txtNombre, "txtNombre");
             this.txtNombre.Name = "txtNombre";
-            // 
+            this.txtNombre.TabIndex = 0;
+            //
             // txtApellido
-            // 
+            //
             resources.ApplyResources(this.txtApellido, "txtApellido");
             this.txtApellido.Name = "txtApellido";
-            // 
+            this.txtApellido.TabIndex = 1;
+            //
             // txtEmail
-            // 
+            //
             resources.ApplyResources(this.txtEmail, "txtEmail");
             this.txtEmail.Name = "txtEmail";
+            this.txtEmail.TabIndex = 5;
             // 
             // lbl_nombre
             // 
@@ -82,6 +85,7 @@ namespace TrabajoIntegrador
             // 
             resources.ApplyResources(this.lbl_tipoDocumento, "lbl_tipoDocumento");
             this.lbl_tipoDocumento.Name = "lbl_tipoDocumento";
+            this.lbl_tipoDocumento.Click += new System.EventHandler(this.lbl_tipoDocumento_Click);
             // 
             // lbl_mail
             // 
@@ -92,21 +96,24 @@ namespace TrabajoIntegrador
             // 
             resources.ApplyResources(this.lbl_telefono, "lbl_telefono");
             this.lbl_telefono.Name = "lbl_telefono";
+            this.lbl_telefono.Click += new System.EventHandler(this.lbl_telefono_Click);
             // 
             // txtTelefono
             // 
             resources.ApplyResources(this.txtTelefono, "txtTelefono");
             this.txtTelefono.Name = "txtTelefono";
-            // 
+            this.txtTelefono.TabIndex = 4;
+            //
             // btn_volver
-            // 
+            //
             resources.ApplyResources(this.btn_volver, "btn_volver");
             this.btn_volver.Name = "btn_volver";
+            this.btn_volver.TabIndex = 9;
             this.btn_volver.UseVisualStyleBackColor = true;
             this.btn_volver.Click += new System.EventHandler(this.btnVolver_Click);
-            // 
+            //
             // cboTipoDoc
-            // 
+            //
             this.cboTipoDoc.FormattingEnabled = true;
             this.cboTipoDoc.Items.AddRange(new object[] {
             resources.GetString("cboTipoDoc.Items"),
@@ -114,18 +121,21 @@ namespace TrabajoIntegrador
             resources.GetString("cboTipoDoc.Items2")});
             resources.ApplyResources(this.cboTipoDoc, "cboTipoDoc");
             this.cboTipoDoc.Name = "cboTipoDoc";
-            // 
+            this.cboTipoDoc.TabIndex = 2;
+            //
             // btn_registrar
-            // 
+            //
             resources.ApplyResources(this.btn_registrar, "btn_registrar");
             this.btn_registrar.Name = "btn_registrar";
+            this.btn_registrar.TabIndex = 8;
             this.btn_registrar.UseVisualStyleBackColor = true;
             this.btn_registrar.Click += new System.EventHandler(this.btnRegistrar_Click);
-            // 
+            //
             // txtDocumento
-            // 
+            //
             resources.ApplyResources(this.txtDocumento, "txtDocumento");
             this.txtDocumento.Name = "txtDocumento";
+            this.txtDocumento.TabIndex = 3;
             // 
             // errorProvider1
             // 
@@ -135,12 +145,14 @@ namespace TrabajoIntegrador
             // 
             resources.ApplyResources(this.chkEsSocio, "chkEsSocio");
             this.chkEsSocio.Name = "chkEsSocio";
+            this.chkEsSocio.TabIndex = 6;
             this.chkEsSocio.UseVisualStyleBackColor = true;
-            // 
+            //
             // chkAptoFisico
-            // 
+            //
             resources.ApplyResources(this.chkAptoFisico, "chkAptoFisico");
             this.chkAptoFisico.Name = "chkAptoFisico";
+            this.chkAptoFisico.TabIndex = 7;
             this.chkAptoFisico.UseVisualStyleBackColor = true;
             // 
             // IngresarCliente

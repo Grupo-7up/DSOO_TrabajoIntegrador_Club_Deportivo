@@ -10,16 +10,11 @@ namespace TrabajoIntegrador
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btn_inscribirCliente_Click(object sender, EventArgs e)
         {
-            using (var frm = new TrabajoIntegrador.IngresarCliente())
-            {
-                frm.ShowDialog();
-            }
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
+            var frm = new TrabajoIntegrador.IngresarCliente();
+            frm.Show();
+            this.Close();
         }
     }
 }

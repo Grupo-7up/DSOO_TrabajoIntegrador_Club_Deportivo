@@ -96,6 +96,8 @@ namespace TrabajoIntegrador
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
+            var frm = new PantallaOpciones();
+            frm.Show();
             this.Close();
         }
 
@@ -152,6 +154,16 @@ namespace TrabajoIntegrador
             chkAptoFisico.Checked = false;
             errorProvider1.Clear();
             txtNombre.Focus();
+        }
+
+        private void lbl_tipoDocumento_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbl_telefono_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
