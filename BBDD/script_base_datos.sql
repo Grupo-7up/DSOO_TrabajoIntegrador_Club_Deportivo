@@ -1,11 +1,11 @@
 -- =============================================
 -- 1. CREACIÓN Y SELECCIÓN DE BASE DE DATOS
 -- =============================================
-CREATE DATABASE IF NOT EXISTS club_deportivo 
+CREATE DATABASE IF NOT EXISTS club_deportivo_grupo7 
 CHARACTER SET utf8mb4 
 COLLATE utf8mb4_unicode_ci;
 
-USE club_deportivo;
+USE club_deportivo_grupo7;
 
 -- =============================================
 -- 2. CREACIÓN DE TABLAS (DDL)

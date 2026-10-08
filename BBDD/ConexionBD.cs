@@ -7,7 +7,7 @@ namespace TrabajoIntegrador
     public class ConexionBD
     {
         private static readonly string Server = "localhost";
-        private static readonly string Database = "club_deportivo";
+        private static readonly string Database = "club_deportivo_grupo7";
         private static readonly string User = "root";
         private static readonly string Password = "root";
         private static readonly string Port = "3306";
