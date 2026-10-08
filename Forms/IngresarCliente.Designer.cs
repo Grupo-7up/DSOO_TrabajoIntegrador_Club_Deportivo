@@ -37,15 +37,15 @@ namespace TrabajoIntegrador
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtApellido = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lbl_nombre = new System.Windows.Forms.Label();
+            this.lbl_apellido = new System.Windows.Forms.Label();
+            this.lbl_tipoDocumento = new System.Windows.Forms.Label();
+            this.lbl_mail = new System.Windows.Forms.Label();
+            this.lbl_telefono = new System.Windows.Forms.Label();
             this.txtTelefono = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btn_volver = new System.Windows.Forms.Button();
             this.cboTipoDoc = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_registrar = new System.Windows.Forms.Button();
             this.txtDocumento = new System.Windows.Forms.TextBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.chkEsSocio = new System.Windows.Forms.CheckBox();
@@ -68,42 +68,42 @@ namespace TrabajoIntegrador
             resources.ApplyResources(this.txtEmail, "txtEmail");
             this.txtEmail.Name = "txtEmail";
             // 
-            // label1
+            // lbl_nombre
             // 
-            resources.ApplyResources(this.label1, "label1");
-            this.label1.Name = "label1";
+            resources.ApplyResources(this.lbl_nombre, "lbl_nombre");
+            this.lbl_nombre.Name = "lbl_nombre";
             // 
-            // label2
+            // lbl_apellido
             // 
-            resources.ApplyResources(this.label2, "label2");
-            this.label2.Name = "label2";
+            resources.ApplyResources(this.lbl_apellido, "lbl_apellido");
+            this.lbl_apellido.Name = "lbl_apellido";
             // 
-            // label3
+            // lbl_tipoDocumento
             // 
-            resources.ApplyResources(this.label3, "label3");
-            this.label3.Name = "label3";
+            resources.ApplyResources(this.lbl_tipoDocumento, "lbl_tipoDocumento");
+            this.lbl_tipoDocumento.Name = "lbl_tipoDocumento";
             // 
-            // label4
+            // lbl_mail
             // 
-            resources.ApplyResources(this.label4, "label4");
-            this.label4.Name = "label4";
+            resources.ApplyResources(this.lbl_mail, "lbl_mail");
+            this.lbl_mail.Name = "lbl_mail";
             // 
-            // label5
+            // lbl_telefono
             // 
-            resources.ApplyResources(this.label5, "label5");
-            this.label5.Name = "label5";
+            resources.ApplyResources(this.lbl_telefono, "lbl_telefono");
+            this.lbl_telefono.Name = "lbl_telefono";
             // 
             // txtTelefono
             // 
             resources.ApplyResources(this.txtTelefono, "txtTelefono");
             this.txtTelefono.Name = "txtTelefono";
             // 
-            // button2
+            // btn_volver
             // 
-            resources.ApplyResources(this.button2, "button2");
-            this.button2.Name = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.btnVolver_Click);
+            resources.ApplyResources(this.btn_volver, "btn_volver");
+            this.btn_volver.Name = "btn_volver";
+            this.btn_volver.UseVisualStyleBackColor = true;
+            this.btn_volver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
             // cboTipoDoc
             // 
@@ -115,12 +115,12 @@ namespace TrabajoIntegrador
             resources.ApplyResources(this.cboTipoDoc, "cboTipoDoc");
             this.cboTipoDoc.Name = "cboTipoDoc";
             // 
-            // button1
+            // btn_registrar
             // 
-            resources.ApplyResources(this.button1, "button1");
-            this.button1.Name = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.btnRegistrar_Click);
+            resources.ApplyResources(this.btn_registrar, "btn_registrar");
+            this.btn_registrar.Name = "btn_registrar";
+            this.btn_registrar.UseVisualStyleBackColor = true;
+            this.btn_registrar.Click += new System.EventHandler(this.btnRegistrar_Click);
             // 
             // txtDocumento
             // 
@@ -150,15 +150,15 @@ namespace TrabajoIntegrador
             this.Controls.Add(this.chkAptoFisico);
             this.Controls.Add(this.chkEsSocio);
             this.Controls.Add(this.txtDocumento);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btn_registrar);
             this.Controls.Add(this.cboTipoDoc);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btn_volver);
             this.Controls.Add(this.txtTelefono);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lbl_telefono);
+            this.Controls.Add(this.lbl_mail);
+            this.Controls.Add(this.lbl_tipoDocumento);
+            this.Controls.Add(this.lbl_apellido);
+            this.Controls.Add(this.lbl_nombre);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.txtApellido);
             this.Controls.Add(this.txtNombre);
@@ -171,21 +171,21 @@ namespace TrabajoIntegrador
 
         #endregion
 
+        private Label lbl_nombre;
         private TextBox txtNombre;
+        private Label lbl_apellido;
         private TextBox txtApellido;
-        private TextBox txtEmail;
-        private Label label1;
-        private Label label2;
-        private Label label3;
-        private Label label4;
-        private Label label5;
-        private TextBox txtTelefono;
-        private Button button2;
+        private Label lbl_tipoDocumento;
         private ComboBox cboTipoDoc;
-        private Button button1;
         private TextBox txtDocumento;
-        private ErrorProvider errorProvider1;
+        private TextBox txtTelefono;
+        private Label lbl_telefono;
+        private TextBox txtEmail;
+        private Label lbl_mail;
         private CheckBox chkEsSocio;
         private CheckBox chkAptoFisico;
+        private Button btn_registrar;
+        private Button btn_volver;
+        private ErrorProvider errorProvider1;
     }
 }

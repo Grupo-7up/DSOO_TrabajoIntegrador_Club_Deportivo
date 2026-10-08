@@ -33,78 +33,77 @@ namespace TrabajoIntegrador
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PantallaOpciones));
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
-            button4 = new Button();
-            SuspendLayout();
+            this.btn_inscribirCliente = new System.Windows.Forms.Button();
+            this.btn_asignarActividad = new System.Windows.Forms.Button();
+            this.btn_listarVencimiento = new System.Windows.Forms.Button();
+            this.btn_pagarCuota = new System.Windows.Forms.Button();
+            this.SuspendLayout();
             // 
-            // button1
+            // btn_inscribirCliente
             // 
-            button1.AutoSize = true;
-            button1.Location = new Point(52, 61);
-            button1.Name = "button1";
-            button1.Size = new Size(204, 58);
-            button1.TabIndex = 0;
-            button1.Text = "Incribir Cliente";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            this.btn_inscribirCliente.AutoSize = true;
+            this.btn_inscribirCliente.Location = new System.Drawing.Point(59, 65);
+            this.btn_inscribirCliente.Name = "btn_inscribirCliente";
+            this.btn_inscribirCliente.Size = new System.Drawing.Size(233, 62);
+            this.btn_inscribirCliente.TabIndex = 0;
+            this.btn_inscribirCliente.Text = "Incribir Cliente";
+            this.btn_inscribirCliente.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btn_asignarActividad
             // 
-            button2.AccessibleRole = AccessibleRole.OutlineButton;
-            button2.AutoSize = true;
-            button2.Location = new Point(335, 61);
-            button2.Name = "button2";
-            button2.Size = new Size(204, 58);
-            button2.TabIndex = 1;
-            button2.Text = "Asignar Actividad";
-            button2.UseVisualStyleBackColor = true;
+            this.btn_asignarActividad.AccessibleRole = System.Windows.Forms.AccessibleRole.OutlineButton;
+            this.btn_asignarActividad.AutoSize = true;
+            this.btn_asignarActividad.Location = new System.Drawing.Point(383, 65);
+            this.btn_asignarActividad.Name = "btn_asignarActividad";
+            this.btn_asignarActividad.Size = new System.Drawing.Size(233, 62);
+            this.btn_asignarActividad.TabIndex = 1;
+            this.btn_asignarActividad.Text = "Asignar Actividad";
+            this.btn_asignarActividad.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btn_listarVencimiento
             // 
-            button3.AccessibleRole = AccessibleRole.OutlineButton;
-            button3.AutoSize = true;
-            button3.Location = new Point(335, 186);
-            button3.Name = "button3";
-            button3.Size = new Size(204, 58);
-            button3.TabIndex = 2;
-            button3.Text = "Listar Vencimientos";
-            button3.UseVisualStyleBackColor = true;
-            button3.Click += button3_Click;
+            this.btn_listarVencimiento.AccessibleRole = System.Windows.Forms.AccessibleRole.OutlineButton;
+            this.btn_listarVencimiento.AutoSize = true;
+            this.btn_listarVencimiento.Location = new System.Drawing.Point(383, 198);
+            this.btn_listarVencimiento.Name = "btn_listarVencimiento";
+            this.btn_listarVencimiento.Size = new System.Drawing.Size(233, 62);
+            this.btn_listarVencimiento.TabIndex = 2;
+            this.btn_listarVencimiento.Text = "Listar Vencimientos";
+            this.btn_listarVencimiento.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btn_pagarCuota
             // 
-            button4.AccessibleRole = AccessibleRole.OutlineButton;
-            button4.AutoSize = true;
-            button4.Location = new Point(52, 186);
-            button4.Name = "button4";
-            button4.Size = new Size(204, 58);
-            button4.TabIndex = 3;
-            button4.Text = "Pagar Cuota";
-            button4.UseVisualStyleBackColor = true;
+            this.btn_pagarCuota.AccessibleRole = System.Windows.Forms.AccessibleRole.OutlineButton;
+            this.btn_pagarCuota.AutoSize = true;
+            this.btn_pagarCuota.Location = new System.Drawing.Point(59, 198);
+            this.btn_pagarCuota.Name = "btn_pagarCuota";
+            this.btn_pagarCuota.Size = new System.Drawing.Size(233, 62);
+            this.btn_pagarCuota.TabIndex = 3;
+            this.btn_pagarCuota.Text = "Pagar Cuota";
+            this.btn_pagarCuota.UseVisualStyleBackColor = true;
             // 
-            // Form1
+            // PantallaOpciones
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
-            ClientSize = new Size(800, 450);
-            Controls.Add(button4);
-            Controls.Add(button3);
-            Controls.Add(button2);
-            Controls.Add(button1);
-            Name = "Form1";
-            Text = "Form1";
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.ClientSize = new System.Drawing.Size(914, 480);
+            this.Controls.Add(this.btn_pagarCuota);
+            this.Controls.Add(this.btn_listarVencimiento);
+            this.Controls.Add(this.btn_asignarActividad);
+            this.Controls.Add(this.btn_inscribirCliente);
+            this.Name = "PantallaOpciones";
+            this.Text = "Form1";
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
 
-        private Button button1;
-        private Button button2;
-        private Button button3;
-        private Button button4;
+        private Button btn_inscribirCliente;
+        private Button btn_asignarActividad;
+        private Button btn_pagarCuota;
+        private Button btn_listarVencimiento;
     }
 }

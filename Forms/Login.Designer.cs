@@ -36,17 +36,18 @@ namespace TrabajoIntegrador
             this.btnIngresar = new System.Windows.Forms.Button();
             this.txtClave = new System.Windows.Forms.TextBox();
             this.txtUsuario = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lbl_usuario = new System.Windows.Forms.Label();
+            this.lbl_contrasena = new System.Windows.Forms.Label();
+            this.lbl_usuarioRequired = new System.Windows.Forms.Label();
+            this.lbl_contrasenaRequired = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnIngresar
             // 
-            this.btnIngresar.Location = new System.Drawing.Point(207, 189);
+            this.btnIngresar.Location = new System.Drawing.Point(276, 233);
+            this.btnIngresar.Margin = new System.Windows.Forms.Padding(4);
             this.btnIngresar.Name = "btnIngresar";
-            this.btnIngresar.Size = new System.Drawing.Size(64, 20);
+            this.btnIngresar.Size = new System.Drawing.Size(85, 25);
             this.btnIngresar.TabIndex = 2;
             this.btnIngresar.Text = "Ingresar";
             this.btnIngresar.UseVisualStyleBackColor = true;
@@ -54,74 +55,81 @@ namespace TrabajoIntegrador
             // 
             // txtClave
             // 
-            this.txtClave.Location = new System.Drawing.Point(207, 145);
+            this.txtClave.Location = new System.Drawing.Point(276, 178);
+            this.txtClave.Margin = new System.Windows.Forms.Padding(4);
             this.txtClave.Name = "txtClave";
-            this.txtClave.Size = new System.Drawing.Size(86, 20);
+            this.txtClave.Size = new System.Drawing.Size(113, 22);
             this.txtClave.TabIndex = 1;
             this.txtClave.UseSystemPasswordChar = true;
             // 
             // txtUsuario
             // 
-            this.txtUsuario.Location = new System.Drawing.Point(207, 79);
+            this.txtUsuario.Location = new System.Drawing.Point(276, 97);
+            this.txtUsuario.Margin = new System.Windows.Forms.Padding(4);
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(86, 20);
+            this.txtUsuario.Size = new System.Drawing.Size(113, 22);
             this.txtUsuario.TabIndex = 0;
             // 
-            // label1
+            // lbl_usuario
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(207, 53);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 13);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Usuario";
+            this.lbl_usuario.AutoSize = true;
+            this.lbl_usuario.Location = new System.Drawing.Point(276, 65);
+            this.lbl_usuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_usuario.Name = "lbl_usuario";
+            this.lbl_usuario.Size = new System.Drawing.Size(54, 16);
+            this.lbl_usuario.TabIndex = 4;
+            this.lbl_usuario.Text = "Usuario";
             // 
-            // label2
+            // lbl_contrasena
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(207, 120);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 13);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Contraseña";
+            this.lbl_contrasena.AutoSize = true;
+            this.lbl_contrasena.Location = new System.Drawing.Point(276, 148);
+            this.lbl_contrasena.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_contrasena.Name = "lbl_contrasena";
+            this.lbl_contrasena.Size = new System.Drawing.Size(76, 16);
+            this.lbl_contrasena.TabIndex = 5;
+            this.lbl_contrasena.Text = "Contraseña";
             // 
-            // label3
+            // lbl_usuarioRequired
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.ForeColor = System.Drawing.Color.Red;
-            this.label3.Location = new System.Drawing.Point(298, 81);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(11, 13);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "*";
+            this.lbl_usuarioRequired.AutoSize = true;
+            this.lbl_usuarioRequired.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_usuarioRequired.ForeColor = System.Drawing.Color.Red;
+            this.lbl_usuarioRequired.Location = new System.Drawing.Point(397, 100);
+            this.lbl_usuarioRequired.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_usuarioRequired.Name = "lbl_usuarioRequired";
+            this.lbl_usuarioRequired.Size = new System.Drawing.Size(12, 16);
+            this.lbl_usuarioRequired.TabIndex = 6;
+            this.lbl_usuarioRequired.Text = "*";
             // 
-            // label4
+            // lbl_contrasenaRequired
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.ForeColor = System.Drawing.Color.Red;
-            this.label4.Location = new System.Drawing.Point(298, 147);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(11, 13);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "*";
+            this.lbl_contrasenaRequired.AutoSize = true;
+            this.lbl_contrasenaRequired.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_contrasenaRequired.ForeColor = System.Drawing.Color.Red;
+            this.lbl_contrasenaRequired.Location = new System.Drawing.Point(397, 181);
+            this.lbl_contrasenaRequired.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_contrasenaRequired.Name = "lbl_contrasenaRequired";
+            this.lbl_contrasenaRequired.Size = new System.Drawing.Size(12, 16);
+            this.lbl_contrasenaRequired.TabIndex = 7;
+            this.lbl_contrasenaRequired.Text = "*";
             // 
             // Login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(686, 390);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(915, 480);
+            this.Controls.Add(this.lbl_contrasenaRequired);
+            this.Controls.Add(this.lbl_usuarioRequired);
+            this.Controls.Add(this.lbl_contrasena);
+            this.Controls.Add(this.lbl_usuario);
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.txtClave);
             this.Controls.Add(this.btnIngresar);
             this.DoubleBuffered = true;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Login";
             this.Text = "Login";
             this.ResumeLayout(false);
@@ -131,12 +139,12 @@ namespace TrabajoIntegrador
 
         #endregion
 
-        private Button btnIngresar;
-        private TextBox txtClave;
+        private Label lbl_usuario;
         private TextBox txtUsuario;
-        private Label label1;
-        private Label label2;
-        private Label label3;
-        private Label label4;
+        private Label lbl_contrasena;
+        private TextBox txtClave;
+        private Button btnIngresar;
+        private Label lbl_usuarioRequired;
+        private Label lbl_contrasenaRequired;
     }
 }
