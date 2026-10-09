@@ -1,6 +1,8 @@
 using System;
 using System.Windows.Forms;
+using TrabajoIntegrador.Clases;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+
 
 namespace TrabajoIntegrador
 {
@@ -49,36 +51,42 @@ namespace TrabajoIntegrador
 
             try
             {
-                // 2. Extraer datos de los controles
-                string tipoDoc = cboTipoDoc.SelectedItem.ToString();
+                // Extraer y convertir datos del formulario
                 string nombre = txtNombre.Text.Trim();
                 string apellido = txtApellido.Text.Trim();
+                string tipoDoc = cboTipoDoc.SelectedItem.ToString();
                 string email = txtEmail.Text.Trim();
-                string telefono = txtTelefono.Text.Trim();
 
-                // Estado de las Casillas de Selección
+                int.TryParse(txtTelefono.Text.Trim(), out int telefono);
+
+                DateTime fechaNacimiento = DateTime.Now;
+
                 bool esSocio = chkEsSocio.Checked;
                 bool aptoFisico = chkAptoFisico.Checked;
 
-                // Generación automática del carnet si es socio
-                string nroCarnet = esSocio ? "SOC-" + documento : null;
-                DateTime validez = DateTime.Now.AddDays(30);
-
-                // 3. Insertar registro en la BBDD
-                bool registrado = ConexionBD.RegistrarCliente(
-                    tipoDoc,
-                    documento,
+                // Crear el objeto Cliente con los datos ingresados
+                Cliente nuevoCliente = new Cliente(
                     nombre,
                     apellido,
+                    tipoDoc,
+                    documento,
                     email,
                     telefono,
+                    fechaNacimiento,
                     esSocio,
                     aptoFisico
                 );
 
+                // Llamar al método registrar_cliente de la instancia global de Club
+                bool registrado = Program.MiClub.registrar_cliente(nuevoCliente);
+
                 if (registrado)
                 {
-                    MessageBox.Show("Cliente registrado correctamente.",
+                    string mensaje = nuevoCliente.EsSocio
+                        ? $"Socio registrado correctamente.\nNúmero de Carnet: {nuevoCliente.NroCarnet}"
+                        : "Cliente no socio registrado correctamente.";
+
+                    MessageBox.Show(mensaje,
                                     "Éxito",
                                     MessageBoxButtons.OK,
                                     MessageBoxIcon.Information);

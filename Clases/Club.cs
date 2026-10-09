@@ -32,19 +32,41 @@ namespace TrabajoIntegrador.Clases
             get { return actividades; }
         }
 
-        public void registrar_cliente(Cliente cliente)
+        public bool registrar_cliente(Cliente cliente)
         {
 
-            //faltaría validar que no exista otro cliente con el mismo documento, y si es socio, que no exista otro con el mismo nro de carnet
-            //listar_socios, listar_no_socios, listar_todos, buscar_por_documento
-            if (cliente.EsSocio)
+            // Si es socio, le asignamos la lógica de carnet si aún no la tiene
+            if (cliente.EsSocio && string.IsNullOrEmpty(cliente.NroCarnet))
             {
-                socios.Add(cliente);
+                cliente.NroCarnet = "SOC-" + cliente.Documento;
             }
-            else
+
+            // 1. Guardar en Base de Datos usando las propiedades del objeto Cliente (y heredadas de Persona)
+            bool registrado = ConexionBD.RegistrarCliente(
+                cliente.TipoDocumento, // o cliente.tipo_documento según como esté expuesto en Persona
+                cliente.Documento,
+                cliente.Nombre,
+                cliente.Apellido,
+                cliente.Email,
+                cliente.Telefono.ToString(),
+                cliente.EsSocio,
+                cliente.AptoFisico
+            );
+
+            // 2. Si fue exitoso en la BBDD, se agrega a la lista interna en memoria
+            if (registrado)
             {
-                no_socios.Add(cliente);
+                if (cliente.EsSocio)
+                {
+                    socios.Add(cliente);
+                }
+                else
+                {
+                    no_socios.Add(cliente);
+                }
             }
+
+            return registrado;
         }
 
         public void emitir_carnet(Cliente cliente)
