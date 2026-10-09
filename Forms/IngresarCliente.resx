@@ -345,7 +345,7 @@
     <value>81, 34</value>
   </data>
   <data name="btn_volver.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
+    <value>10</value>
   </data>
   <data name="btn_volver.Text" xml:space="preserve">
     <value>Volver</value>
@@ -399,7 +399,7 @@
     <value>88, 34</value>
   </data>
   <data name="btn_registrar.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
+    <value>9</value>
   </data>
   <data name="btn_registrar.Text" xml:space="preserve">
     <value>Registrar</value>
@@ -75177,7 +75177,7 @@
     <value>169, 20</value>
   </data>
   <data name="dtpFechaNacimiento.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
+    <value>6</value>
   </data>
   <data name="&gt;&gt;dtpFechaNacimiento.Name" xml:space="preserve">
     <value>dtpFechaNacimiento</value>
@@ -75228,7 +75228,7 @@
     <value>77, 17</value>
   </data>
   <data name="chkAptoFisico.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="chkAptoFisico.Text" xml:space="preserve">
     <value>Apto físico</value>
@@ -75255,7 +75255,7 @@
     <value>53, 17</value>
   </data>
   <data name="chkEsSocio.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="chkEsSocio.Text" xml:space="preserve">
     <value>Socio</value>
