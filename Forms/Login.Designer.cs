@@ -44,10 +44,10 @@ namespace TrabajoIntegrador
             // 
             // btnIngresar
             // 
-            this.btnIngresar.Location = new System.Drawing.Point(276, 233);
+            this.btnIngresar.Location = new System.Drawing.Point(401, 273);
             this.btnIngresar.Margin = new System.Windows.Forms.Padding(4);
             this.btnIngresar.Name = "btnIngresar";
-            this.btnIngresar.Size = new System.Drawing.Size(85, 25);
+            this.btnIngresar.Size = new System.Drawing.Size(113, 39);
             this.btnIngresar.TabIndex = 2;
             this.btnIngresar.Text = "Ingresar";
             this.btnIngresar.UseVisualStyleBackColor = true;
@@ -55,7 +55,7 @@ namespace TrabajoIntegrador
             // 
             // txtClave
             // 
-            this.txtClave.Location = new System.Drawing.Point(276, 178);
+            this.txtClave.Location = new System.Drawing.Point(401, 218);
             this.txtClave.Margin = new System.Windows.Forms.Padding(4);
             this.txtClave.Name = "txtClave";
             this.txtClave.Size = new System.Drawing.Size(113, 22);
@@ -64,7 +64,7 @@ namespace TrabajoIntegrador
             // 
             // txtUsuario
             // 
-            this.txtUsuario.Location = new System.Drawing.Point(276, 97);
+            this.txtUsuario.Location = new System.Drawing.Point(401, 137);
             this.txtUsuario.Margin = new System.Windows.Forms.Padding(4);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(113, 22);
@@ -73,7 +73,7 @@ namespace TrabajoIntegrador
             // lbl_usuario
             // 
             this.lbl_usuario.AutoSize = true;
-            this.lbl_usuario.Location = new System.Drawing.Point(276, 65);
+            this.lbl_usuario.Location = new System.Drawing.Point(401, 105);
             this.lbl_usuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_usuario.Name = "lbl_usuario";
             this.lbl_usuario.Size = new System.Drawing.Size(54, 16);
@@ -83,7 +83,7 @@ namespace TrabajoIntegrador
             // lbl_contrasena
             // 
             this.lbl_contrasena.AutoSize = true;
-            this.lbl_contrasena.Location = new System.Drawing.Point(276, 148);
+            this.lbl_contrasena.Location = new System.Drawing.Point(401, 188);
             this.lbl_contrasena.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_contrasena.Name = "lbl_contrasena";
             this.lbl_contrasena.Size = new System.Drawing.Size(76, 16);
@@ -95,7 +95,7 @@ namespace TrabajoIntegrador
             this.lbl_usuarioRequired.AutoSize = true;
             this.lbl_usuarioRequired.BackColor = System.Drawing.Color.Transparent;
             this.lbl_usuarioRequired.ForeColor = System.Drawing.Color.Red;
-            this.lbl_usuarioRequired.Location = new System.Drawing.Point(397, 100);
+            this.lbl_usuarioRequired.Location = new System.Drawing.Point(463, 105);
             this.lbl_usuarioRequired.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_usuarioRequired.Name = "lbl_usuarioRequired";
             this.lbl_usuarioRequired.Size = new System.Drawing.Size(12, 16);
@@ -107,7 +107,7 @@ namespace TrabajoIntegrador
             this.lbl_contrasenaRequired.AutoSize = true;
             this.lbl_contrasenaRequired.BackColor = System.Drawing.Color.Transparent;
             this.lbl_contrasenaRequired.ForeColor = System.Drawing.Color.Red;
-            this.lbl_contrasenaRequired.Location = new System.Drawing.Point(397, 181);
+            this.lbl_contrasenaRequired.Location = new System.Drawing.Point(485, 188);
             this.lbl_contrasenaRequired.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_contrasenaRequired.Name = "lbl_contrasenaRequired";
             this.lbl_contrasenaRequired.Size = new System.Drawing.Size(12, 16);

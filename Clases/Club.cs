@@ -77,7 +77,7 @@ namespace TrabajoIntegrador.Clases
         }
 
         // pasa de socio a no_socio y viceversa
-        public void cambiar_tipo_socio(Cliente cliente, bool es_socio)
+        public void cambiar_tipo_socio(Cliente cliente, bool es_socio, decimal monto = 0, string formaPago = "efectivo", int cantidadCuotas = 1)
         {
             if (cliente.EsSocio == es_socio)
             {
@@ -88,17 +88,17 @@ namespace TrabajoIntegrador.Clases
             {
                 no_socios.Remove(cliente);
                 socios.Add(cliente);
+                cliente.EsSocio = true;
 
-                //faltaría que haga el pago de la cuota
+                cobrar_cuota_mensual(cliente, monto, DateTime.Now, formaPago, cantidadCuotas);
             }
             else
             {
                 socios.Remove(cliente);
                 no_socios.Add(cliente);
+                cliente.EsSocio = false;
+                cliente.Validez = DateTime.Now;
             }
-
-            cliente.EsSocio = es_socio;
-            cliente.Validez = es_socio ? DateTime.Now.AddMonths(1) : DateTime.Now;
         }
 
         // el vencimiento de cuota solo aplica a los socios (los no_socios pagan en el momento).

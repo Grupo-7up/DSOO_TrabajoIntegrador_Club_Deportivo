@@ -86,16 +86,26 @@ namespace TrabajoIntegrador.Clases
         {
             if (!esta_al_dia())
             {
-                //no es por consola pero lo puse para que no quede vacío
-                Console.WriteLine("El socio tiene la cuota vencida y no puede realizar actividades hasta regularizar el pago.");
+                throw new InvalidOperationException("El socio tiene la cuota vencida y no puede realizar actividades hasta regularizar el pago.");
             }
-            //validar si ya tiene esa actividad agregada, si no está en la lista de actividades del club, si tiene cupo disponible, etc.
+
+            // si no está en la lista de actividades del club y si tiene cupo disponible se valida desde Club.inscribir_cliente_a_actividad,
+            // porque esta clase no tiene cómo saber cuántos clientes en total están inscriptos en "a".
+            if (actividades.Contains(a))
+            {
+                throw new InvalidOperationException($"El cliente ya está inscripto en la actividad {a.Nombre}.");
+            }
+
             actividades.Add(a);
         }
 
         public void baja_a_actividad(Actividad a)
         {
-            //validar si tiene esa actividad agregada, si no está en la lista de actividades del club, etc.
+            if (!actividades.Contains(a))
+            {
+                throw new InvalidOperationException($"El cliente no está inscripto en la actividad {a.Nombre}.");
+            }
+
             actividades.Remove(a);
         }
 
