@@ -50,6 +50,8 @@ namespace TrabajoIntegrador
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.chkEsSocio = new System.Windows.Forms.CheckBox();
             this.chkAptoFisico = new System.Windows.Forms.CheckBox();
+            this.lblFechaNacimiento = new System.Windows.Forms.Label();
+            this.dtpFechaNacimiento = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,29 +59,31 @@ namespace TrabajoIntegrador
             // 
             resources.ApplyResources(this.txtNombre, "txtNombre");
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.TabIndex = 0;
-            //
+            this.txtNombre.TextChanged += new System.EventHandler(this.txtNombre_TextChanged);
+            // 
             // txtApellido
-            //
+            // 
             resources.ApplyResources(this.txtApellido, "txtApellido");
             this.txtApellido.Name = "txtApellido";
-            this.txtApellido.TabIndex = 1;
-            //
+            this.txtApellido.TextChanged += new System.EventHandler(this.txtApellido_TextChanged);
+            // 
             // txtEmail
-            //
+            // 
             resources.ApplyResources(this.txtEmail, "txtEmail");
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.TabIndex = 5;
+            this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
             // 
             // lbl_nombre
             // 
             resources.ApplyResources(this.lbl_nombre, "lbl_nombre");
             this.lbl_nombre.Name = "lbl_nombre";
+            this.lbl_nombre.Click += new System.EventHandler(this.lbl_nombre_Click);
             // 
             // lbl_apellido
             // 
             resources.ApplyResources(this.lbl_apellido, "lbl_apellido");
             this.lbl_apellido.Name = "lbl_apellido";
+            this.lbl_apellido.Click += new System.EventHandler(this.lbl_apellido_Click);
             // 
             // lbl_tipoDocumento
             // 
@@ -91,6 +95,7 @@ namespace TrabajoIntegrador
             // 
             resources.ApplyResources(this.lbl_mail, "lbl_mail");
             this.lbl_mail.Name = "lbl_mail";
+            this.lbl_mail.Click += new System.EventHandler(this.lbl_mail_Click);
             // 
             // lbl_telefono
             // 
@@ -102,18 +107,17 @@ namespace TrabajoIntegrador
             // 
             resources.ApplyResources(this.txtTelefono, "txtTelefono");
             this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.TabIndex = 4;
-            //
+            this.txtTelefono.TextChanged += new System.EventHandler(this.txtTelefono_TextChanged);
+            // 
             // btn_volver
-            //
+            // 
             resources.ApplyResources(this.btn_volver, "btn_volver");
             this.btn_volver.Name = "btn_volver";
-            this.btn_volver.TabIndex = 9;
             this.btn_volver.UseVisualStyleBackColor = true;
             this.btn_volver.Click += new System.EventHandler(this.btnVolver_Click);
-            //
+            // 
             // cboTipoDoc
-            //
+            // 
             this.cboTipoDoc.FormattingEnabled = true;
             this.cboTipoDoc.Items.AddRange(new object[] {
             resources.GetString("cboTipoDoc.Items"),
@@ -121,21 +125,20 @@ namespace TrabajoIntegrador
             resources.GetString("cboTipoDoc.Items2")});
             resources.ApplyResources(this.cboTipoDoc, "cboTipoDoc");
             this.cboTipoDoc.Name = "cboTipoDoc";
-            this.cboTipoDoc.TabIndex = 2;
-            //
+            this.cboTipoDoc.SelectedIndexChanged += new System.EventHandler(this.cboTipoDoc_SelectedIndexChanged);
+            // 
             // btn_registrar
-            //
+            // 
             resources.ApplyResources(this.btn_registrar, "btn_registrar");
             this.btn_registrar.Name = "btn_registrar";
-            this.btn_registrar.TabIndex = 8;
             this.btn_registrar.UseVisualStyleBackColor = true;
             this.btn_registrar.Click += new System.EventHandler(this.btnRegistrar_Click);
-            //
+            // 
             // txtDocumento
-            //
+            // 
             resources.ApplyResources(this.txtDocumento, "txtDocumento");
             this.txtDocumento.Name = "txtDocumento";
-            this.txtDocumento.TabIndex = 3;
+            this.txtDocumento.TextChanged += new System.EventHandler(this.txtDocumento_TextChanged);
             // 
             // errorProvider1
             // 
@@ -145,20 +148,33 @@ namespace TrabajoIntegrador
             // 
             resources.ApplyResources(this.chkEsSocio, "chkEsSocio");
             this.chkEsSocio.Name = "chkEsSocio";
-            this.chkEsSocio.TabIndex = 6;
             this.chkEsSocio.UseVisualStyleBackColor = true;
-            //
+            this.chkEsSocio.CheckedChanged += new System.EventHandler(this.chkEsSocio_CheckedChanged);
+            // 
             // chkAptoFisico
-            //
+            // 
             resources.ApplyResources(this.chkAptoFisico, "chkAptoFisico");
             this.chkAptoFisico.Name = "chkAptoFisico";
-            this.chkAptoFisico.TabIndex = 7;
             this.chkAptoFisico.UseVisualStyleBackColor = true;
+            this.chkAptoFisico.CheckedChanged += new System.EventHandler(this.chkAptoFisico_CheckedChanged);
+            // 
+            // lblFechaNacimiento
+            // 
+            resources.ApplyResources(this.lblFechaNacimiento, "lblFechaNacimiento");
+            this.lblFechaNacimiento.Name = "lblFechaNacimiento";
+            // 
+            // dtpFechaNacimiento
+            // 
+            this.dtpFechaNacimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            resources.ApplyResources(this.dtpFechaNacimiento, "dtpFechaNacimiento");
+            this.dtpFechaNacimiento.Name = "dtpFechaNacimiento";
             // 
             // IngresarCliente
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.dtpFechaNacimiento);
+            this.Controls.Add(this.lblFechaNacimiento);
             this.Controls.Add(this.chkAptoFisico);
             this.Controls.Add(this.chkEsSocio);
             this.Controls.Add(this.txtDocumento);
@@ -194,6 +210,8 @@ namespace TrabajoIntegrador
         private Label lbl_telefono;
         private TextBox txtEmail;
         private Label lbl_mail;
+        private Label lblFechaNacimiento;
+        private DateTimePicker dtpFechaNacimiento;
         private CheckBox chkEsSocio;
         private CheckBox chkAptoFisico;
         private Button btn_registrar;

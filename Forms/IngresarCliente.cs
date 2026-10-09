@@ -59,7 +59,7 @@ namespace TrabajoIntegrador
 
                 int.TryParse(txtTelefono.Text.Trim(), out int telefono);
 
-                DateTime fechaNacimiento = DateTime.Now;
+                DateTime fechaNacimiento = dtpFechaNacimiento.Value;
 
                 bool esSocio = chkEsSocio.Checked;
                 bool aptoFisico = chkAptoFisico.Checked;
@@ -170,6 +170,66 @@ namespace TrabajoIntegrador
         }
 
         private void lbl_telefono_Click(object sender, EventArgs e)
+        {
+
+        }
+        
+        private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
+        {
+
+        }
+
+        private void chkAptoFisico_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chkEsSocio_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtDocumento_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cboTipoDoc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTelefono_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbl_mail_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbl_apellido_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbl_nombre_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtEmail_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtApellido_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtNombre_TextChanged(object sender, EventArgs e)
         {
 
         }

@@ -95,13 +95,14 @@ namespace TrabajoIntegrador
             string apellido,
             string email,
             string telefono,
+            DateTime fechaNacimiento,
             bool esSocio = false,
             bool aptoFisico = false)
         {
             string query = @"INSERT INTO clientes 
-                (tipo_documento, documento, nombre, apellido, email, telefono, es_socio, validez, apto_fisico) 
+                (tipo_documento, documento, nombre, apellido, email, telefono, fecha_nacimiento, es_socio, validez, apto_fisico) 
                 VALUES 
-                (@tipoDoc, @doc, @nombre, @apellido, @email, @telefono, @esSocio, @validez, @aptoFisico);";
+                (@tipoDoc, @doc, @nombre, @apellido, @email, @telefono, @fechaNacimiento, @esSocio, @validez, @aptoFisico);";
 
             using (var conexion = ObtenerConexion())
             {
@@ -116,7 +117,7 @@ namespace TrabajoIntegrador
                     // Manejo de nulos para campos opcionales
                     cmd.Parameters.AddWithValue("@email", string.IsNullOrWhiteSpace(email) ? (object)DBNull.Value : email);
                     cmd.Parameters.AddWithValue("@telefono", string.IsNullOrWhiteSpace(telefono) ? (object)DBNull.Value : telefono);
-
+                    cmd.Parameters.AddWithValue("@fechaNacimiento", fechaNacimiento.ToString("yyyy-MM-dd"));
                     cmd.Parameters.AddWithValue("@esSocio", esSocio);
                     cmd.Parameters.AddWithValue("@validez", DateTime.Now.AddDays(30).ToString("yyyy-MM-dd"));
                     cmd.Parameters.AddWithValue("@aptoFisico", aptoFisico);

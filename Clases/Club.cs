@@ -43,12 +43,13 @@ namespace TrabajoIntegrador.Clases
 
             // 1. Guardar en Base de Datos usando las propiedades del objeto Cliente (y heredadas de Persona)
             bool registrado = ConexionBD.RegistrarCliente(
-                cliente.TipoDocumento, // o cliente.tipo_documento según como esté expuesto en Persona
+                cliente.TipoDocumento, 
                 cliente.Documento,
                 cliente.Nombre,
                 cliente.Apellido,
                 cliente.Email,
                 cliente.Telefono.ToString(),
+                cliente.FechaNacimiento,
                 cliente.EsSocio,
                 cliente.AptoFisico
             );
