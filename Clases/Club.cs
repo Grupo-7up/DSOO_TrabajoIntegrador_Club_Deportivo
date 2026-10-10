@@ -34,13 +34,6 @@ namespace TrabajoIntegrador.Clases
 
         public bool registrar_cliente(Cliente cliente)
         {
-
-            // Si es socio, le asignamos la lógica de carnet si aún no la tiene
-            if (cliente.EsSocio && string.IsNullOrEmpty(cliente.NroCarnet))
-            {
-                cliente.NroCarnet = "SOC-" + cliente.Documento;
-            }
-
             // 1. Guardar en Base de Datos usando las propiedades del objeto Cliente (y heredadas de Persona)
             bool registrado = ConexionBD.RegistrarCliente(
                 cliente.TipoDocumento, 

@@ -46,7 +46,6 @@ namespace TrabajoIntegrador
                 }
                 catch (Exception)
                 {
-                    // Puedes registrar o imprimir ex.Message si falla
                     return false;
                 }
             }

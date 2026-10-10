@@ -83,7 +83,7 @@ namespace TrabajoIntegrador
                 if (registrado)
                 {
                     string mensaje = nuevoCliente.EsSocio
-                        ? $"Socio registrado correctamente.\nNúmero de Carnet: {nuevoCliente.NroCarnet}"
+                        ? $"Socio registrado correctamente.\nNúmero de documento: {nuevoCliente.Documento}"
                         : "Cliente no socio registrado correctamente.";
 
                     MessageBox.Show(mensaje,
