@@ -38,9 +38,10 @@ namespace TrabajoIntegrador
 
             // Identificación del documento para verificación
             string documento = txtDocumento.Text.Trim();
+            string tipoDoc = cboTipoDoc.SelectedItem.ToString();
 
             // 1. Verificar si el cliente ya existe
-            if (ConexionBD.ExisteCliente(documento))
+            if (ConexionBD.ExisteCliente(tipoDoc,documento))
             {
                 MessageBox.Show("Ya existe un cliente registrado con ese número de documento.",
                                 "Cliente existente",
@@ -54,7 +55,6 @@ namespace TrabajoIntegrador
                 // Extraer y convertir datos del formulario
                 string nombre = txtNombre.Text.Trim();
                 string apellido = txtApellido.Text.Trim();
-                string tipoDoc = cboTipoDoc.SelectedItem.ToString();
                 string email = txtEmail.Text.Trim();
 
                 int.TryParse(txtTelefono.Text.Trim(), out int telefono);

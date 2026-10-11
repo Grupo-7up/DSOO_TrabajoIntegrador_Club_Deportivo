@@ -104,7 +104,6 @@ namespace TrabajoIntegrador.Clases
         {
             foreach (var cliente in listar_vencimientos())
             {
-                // acá debería mostrarlos en pantalla del form?
                 Console.WriteLine($"Cliente {cliente.Nombre} {cliente.Apellido} (DNI: {cliente.Documento}) tiene la cuota vencida desde {cliente.Validez.ToShortDateString()}.");
             }
         }

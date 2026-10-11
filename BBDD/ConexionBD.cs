@@ -71,9 +71,9 @@ namespace TrabajoIntegrador
             }
         }
 
-        public static bool ExisteCliente(string documento)
+        public static bool ExisteCliente(string tipoDoc,string documento)
         {
-            string query = "SELECT COUNT(*) FROM clientes WHERE documento = @doc;";
+            string query = "SELECT COUNT(*) FROM clientes WHERE documento = @doc AND tipo_documento = @tipoDoc;";
 
             using (var conexion = ObtenerConexion())
             {
@@ -81,6 +81,7 @@ namespace TrabajoIntegrador
                 using (var cmd = new MySqlCommand(query, conexion))
                 {
                     cmd.Parameters.AddWithValue("@doc", documento);
+                    cmd.Parameters.AddWithValue("@tipoDoc", tipoDoc);
                     int count = Convert.ToInt32(cmd.ExecuteScalar());
                     return count > 0;
                 }
