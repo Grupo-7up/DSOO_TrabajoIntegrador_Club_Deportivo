@@ -71,58 +71,66 @@ namespace TrabajoIntegrador
             }
         }
 
-        public static bool ExisteCliente(string tipoDoc,string documento)
+        public static bool ExisteCliente(string tipoDoc, string documento)
         {
-            string query = "SELECT COUNT(*) FROM clientes WHERE documento = @doc AND tipo_documento = @tipoDoc;";
-
             using (var conexion = ObtenerConexion())
             {
                 conexion.Open();
-                using (var cmd = new MySqlCommand(query, conexion))
+                using (var cmd = new MySqlCommand("sp_existe_cliente", conexion))
                 {
-                    cmd.Parameters.AddWithValue("@doc", documento);
-                    cmd.Parameters.AddWithValue("@tipoDoc", tipoDoc);
-                    int count = Convert.ToInt32(cmd.ExecuteScalar());
-                    return count > 0;
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                    // Parámetros de entrada
+                    cmd.Parameters.AddWithValue("@p_tipo_documento", tipoDoc);
+                    cmd.Parameters.AddWithValue("@p_documento", documento);
+
+                    // Parámetro de salida (el COUNT que devuelve el procedure)
+                    var paramExiste = new MySqlParameter("@p_existe", MySqlDbType.Int32);
+                    paramExiste.Direction = System.Data.ParameterDirection.Output;
+                    cmd.Parameters.Add(paramExiste);
+
+                    cmd.ExecuteNonQuery();
+
+                    // Convertimos el resultado a entero y evaluamos si es mayor a 0
+                    int cantidad = Convert.ToInt32(paramExiste.Value);
+                    return cantidad > 0;
                 }
             }
         }
 
         public static bool RegistrarCliente(
-            string tipoDoc,
-            string documento,
-            string nombre,
-            string apellido,
-            string email,
-            string telefono,
-            DateTime fechaNacimiento,
-            bool esSocio = false,
-            bool aptoFisico = false)
+    string tipoDoc,
+    string documento,
+    string nombre,
+    string apellido,
+    string email,
+    string telefono,
+    DateTime fechaNacimiento,
+    bool esSocio = false,
+    bool aptoFisico = false)
         {
-            string query = @"INSERT INTO clientes 
-                (tipo_documento, documento, nombre, apellido, email, telefono, fecha_nacimiento, es_socio, validez, apto_fisico) 
-                VALUES 
-                (@tipoDoc, @doc, @nombre, @apellido, @email, @telefono, @fechaNacimiento, @esSocio, @validez, @aptoFisico);";
-
             using (var conexion = ObtenerConexion())
             {
                 conexion.Open();
-                using (var cmd = new MySqlCommand(query, conexion))
+                using (var cmd = new MySqlCommand("sp_registrar_cliente", conexion))
                 {
-                    cmd.Parameters.AddWithValue("@tipoDoc", tipoDoc);
-                    cmd.Parameters.AddWithValue("@doc", documento);
-                    cmd.Parameters.AddWithValue("@nombre", nombre);
-                    cmd.Parameters.AddWithValue("@apellido", apellido);
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@p_tipo_documento", tipoDoc);
+                    cmd.Parameters.AddWithValue("@p_documento", documento);
+                    cmd.Parameters.AddWithValue("@p_nombre", nombre);
+                    cmd.Parameters.AddWithValue("@p_apellido", apellido);
 
                     // Manejo de nulos para campos opcionales
-                    cmd.Parameters.AddWithValue("@email", string.IsNullOrWhiteSpace(email) ? (object)DBNull.Value : email);
-                    cmd.Parameters.AddWithValue("@telefono", string.IsNullOrWhiteSpace(telefono) ? (object)DBNull.Value : telefono);
-                    cmd.Parameters.AddWithValue("@fechaNacimiento", fechaNacimiento.ToString("yyyy-MM-dd"));
-                    cmd.Parameters.AddWithValue("@esSocio", esSocio);
-                    cmd.Parameters.AddWithValue("@validez", DateTime.Now.AddDays(30).ToString("yyyy-MM-dd"));
-                    cmd.Parameters.AddWithValue("@aptoFisico", aptoFisico);
+                    cmd.Parameters.AddWithValue("@p_email", string.IsNullOrWhiteSpace(email) ? (object)DBNull.Value : email);
+                    cmd.Parameters.AddWithValue("@p_telefono", string.IsNullOrWhiteSpace(telefono) ? (object)DBNull.Value : telefono);
+                    cmd.Parameters.AddWithValue("@p_fecha_nacimiento", fechaNacimiento.ToString("yyyy-MM-dd"));
 
-                    return cmd.ExecuteNonQuery() > 0;
+                    cmd.Parameters.AddWithValue("@p_es_socio", esSocio);
+                    cmd.Parameters.AddWithValue("@p_apto_fisico", aptoFisico);
+
+                    cmd.ExecuteNonQuery();
+                    return true; 
                 }
             }
         }
