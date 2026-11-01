@@ -113,7 +113,9 @@ BEGIN
     WHERE usuario = p_usuario AND clave = p_clave;
 END //
 
---------------------------------
+DELIMITER ;
+
+-- =============================================
 
 DROP PROCEDURE IF EXISTS sp_registrar_cliente;
 
@@ -170,9 +172,9 @@ BEGIN
     COMMIT;
 END //
 
---------------------------------
-
 DELIMITER ;
+
+-- =============================================
 
 DROP PROCEDURE IF EXISTS sp_existe_cliente;
 
