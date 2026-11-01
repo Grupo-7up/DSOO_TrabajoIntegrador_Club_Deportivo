@@ -100,6 +100,9 @@
     <Compile Include="Clases\Club.cs" />
     <Compile Include="Clases\Cuota.cs" />
     <Compile Include="Clases\Pago.cs" />
+    <Compile Include="Forms\FormBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\IngresarCliente.cs">
       <SubType>Form</SubType>
     </Compile>

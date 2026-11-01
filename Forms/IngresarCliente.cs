@@ -6,7 +6,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace TrabajoIntegrador
 {
-    public partial class IngresarCliente : Form
+    public partial class IngresarCliente : FormBase
     {
         public IngresarCliente()
         {
@@ -104,9 +104,7 @@ namespace TrabajoIntegrador
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
-            var frm = new PantallaOpciones();
-            frm.Show();
-            this.Close();
+            VolverAlMenu();
         }
 
         private bool CamposCompletos()
