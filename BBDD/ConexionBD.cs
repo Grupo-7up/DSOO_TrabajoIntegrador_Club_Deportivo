@@ -99,15 +99,15 @@ namespace TrabajoIntegrador
         }
 
         public static bool RegistrarCliente(
-    string tipoDoc,
-    string documento,
-    string nombre,
-    string apellido,
-    string email,
-    string telefono,
-    DateTime fechaNacimiento,
-    bool esSocio = false,
-    bool aptoFisico = false)
+            string tipoDoc,
+            string documento,
+            string nombre,
+            string apellido,
+            string email,
+            string telefono,
+            DateTime fechaNacimiento,
+            bool esSocio = false,
+            bool aptoFisico = false)
         {
             using (var conexion = ObtenerConexion())
             {
@@ -131,6 +131,27 @@ namespace TrabajoIntegrador
 
                     cmd.ExecuteNonQuery();
                     return true; 
+                }
+            }
+        }
+
+        /// <summary>
+        /// Obtiene todas las actividades disponibles para cargar en la interfaz de pagos.
+        /// </summary>
+        public static DataTable ObtenerActividades()
+        {
+            using (var conexion = ObtenerConexion())
+            {
+                conexion.Open();
+                string query = "SELECT id_actividad, nombre, valor_actividad FROM actividades";
+                using (var cmd = new MySqlCommand(query, conexion))
+                {
+                    using (var adapter = new MySqlDataAdapter(cmd))
+                    {
+                        DataTable dt = new DataTable();
+                        adapter.Fill(dt);
+                        return dt;
+                    }
                 }
             }
         }
