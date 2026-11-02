@@ -361,7 +361,7 @@ namespace TrabajoIntegrador
 
                         // 2. Extender la validez del cliente con COALESCE para evitar errores si validez es NULL (socio nuevo)
                         string queryValidez = @"UPDATE clientes 
-                                                SET validez = DATE_ADD(COALESCE(validez, CURDATE()), INTERVAL @meses MONTH) 
+                                                SET validez = DATE_ADD(COALESCE(validez, CURDATE()), INTERVAL @meses MONTH), activo = 1
                                                 WHERE id_cliente = @idCliente";
 
                         using (var cmd = new MySqlCommand(queryValidez, conexion, transaccion))

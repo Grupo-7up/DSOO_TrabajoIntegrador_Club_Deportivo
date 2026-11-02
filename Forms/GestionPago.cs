@@ -52,8 +52,7 @@ namespace TrabajoIntegrador
 
             if (_esSocio)
             {
-                // SOCIO: El panel central se MANTIENE visible pero adaptado para mostrar la deuda
-                if (panelActividades != null) panelActividades.Visible = true;
+                // SOCIO: El panel central visible para mostrar la deuda
                 if (lblMedio != null) lblMedio.Text = "Deudas" ;
 
                 // Ocultamos los controles de no socios dentro del panel
@@ -94,7 +93,6 @@ namespace TrabajoIntegrador
             else
             {
                 // NO SOCIO: Mostramos los controles tradicionales de actividades
-                if (panelActividades != null) panelActividades.Visible = true;
                 if (lstMesesAdeudados != null) lstMesesAdeudados.Visible = false;
                 if (lblMedio != null) lblMedio.Text = "Actividades";
 
