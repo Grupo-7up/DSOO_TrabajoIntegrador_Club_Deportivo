@@ -130,7 +130,8 @@ CREATE PROCEDURE sp_registrar_cliente(
     IN p_telefono VARCHAR(20),
     IN p_fecha_nacimiento DATE,
     IN p_es_socio BOOLEAN,
-    IN p_apto_fisico BOOLEAN
+    IN p_apto_fisico BOOLEAN,
+    OUT p_id_cliente INT
 )
 BEGIN
     DECLARE v_id_persona INT;
@@ -138,7 +139,7 @@ BEGIN
 
     -- Calcular fecha de validez según si es socio o no
     IF p_es_socio THEN
-        SET v_validez = DATE_ADD(CURDATE(), INTERVAL 30 DAY);
+        SET v_validez = NULL;
     ELSE
         SET v_validez = CURDATE();
     END IF;
@@ -168,6 +169,8 @@ BEGIN
         v_validez, 
         p_apto_fisico
     );
+
+    SET p_id_cliente = LAST_INSERT_ID();
 
     COMMIT;
 END //

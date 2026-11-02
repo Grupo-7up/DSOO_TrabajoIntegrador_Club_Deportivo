@@ -105,11 +105,13 @@ namespace TrabajoIntegrador
             string nombre,
             string apellido,
             string email,
-            string telefono,
+            string telefono, 
             DateTime fechaNacimiento,
+            out int idCliente,  
             bool esSocio = false,
             bool aptoFisico = false)
         {
+            idCliente = 0;
             using (var conexion = ObtenerConexion())
             {
                 conexion.Open();
@@ -122,7 +124,6 @@ namespace TrabajoIntegrador
                     cmd.Parameters.AddWithValue("@p_nombre", nombre);
                     cmd.Parameters.AddWithValue("@p_apellido", apellido);
 
-                    // Manejo de nulos para campos opcionales
                     cmd.Parameters.AddWithValue("@p_email", string.IsNullOrWhiteSpace(email) ? (object)DBNull.Value : email);
                     cmd.Parameters.AddWithValue("@p_telefono", string.IsNullOrWhiteSpace(telefono) ? (object)DBNull.Value : telefono);
                     cmd.Parameters.AddWithValue("@p_fecha_nacimiento", fechaNacimiento.ToString("yyyy-MM-dd"));
@@ -130,8 +131,25 @@ namespace TrabajoIntegrador
                     cmd.Parameters.AddWithValue("@p_es_socio", esSocio);
                     cmd.Parameters.AddWithValue("@p_apto_fisico", aptoFisico);
 
+                    // Parámetro de salida OUT
+                    var paramId = new MySqlParameter("@p_id_cliente", MySqlDbType.Int32);
+                    paramId.Direction = System.Data.ParameterDirection.Output;
+                    cmd.Parameters.Add(paramId);
+
                     cmd.ExecuteNonQuery();
-                    return true; 
+
+                    // Recuperación segura del ID para evitar el error de DBNull
+                    if (paramId.Value != null && paramId.Value != DBNull.Value)
+                    {
+                        idCliente = Convert.ToInt32(paramId.Value);
+                    }
+                    else
+                    {
+                        idCliente = 0; // O podés buscar el ID manualmente si fuera necesario
+                    }
+
+                    idCliente = Convert.ToInt32(paramId.Value);
+                    return true;
                 }
             }
         }
@@ -204,7 +222,8 @@ namespace TrabajoIntegrador
         // MÓDULO DE PAGOS - SOCIOS (Cuotas Mensuales)
 
         /// <summary>
-        /// Obtiene los períodos adeudados de un socio basándose en su fecha de validez.
+        /// Obtiene los períodos pendientes de cobro de un socio, 
+        /// incluyendo el mes corriente si la validez ya ha expirado y aún no fue abonado.
         /// </summary>
         public static List<string> ObtenerPeriodosAdeudadosSocio(int idCliente)
         {
@@ -220,24 +239,31 @@ namespace TrabajoIntegrador
                 {
                     cmd.Parameters.AddWithValue("@idCliente", idCliente);
                     object result = cmd.ExecuteScalar();
-                    if (result == null || result == DBNull.Value) return periodosPendientes;
+
+                    // Si la validez es NULL (socio nuevo), el mes corriente pasa a ser el primer período a abonar
+                    if (result == null || result == DBNull.Value)
+                    {
+                        DateTime actual = DateTime.Now;
+                        string mesActualStr = System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(actual.Month);
+                        periodosPendientes.Add($"{mesActualStr} {actual.Year}");
+                        return periodosPendientes;
+                    }
+
                     fechaValidez = Convert.ToDateTime(result);
                 }
 
                 DateTime fechaActual = DateTime.Now;
 
-                // Normalizamos al primer día de cada mes para comparar correctamente
-                DateTime inicioMesValidez = new DateTime(fechaValidez.Year, fechaValidez.Month, 1);
-                DateTime inicioMesActual = new DateTime(fechaActual.Year, fechaActual.Month, 1);
-
-                // Si la validez es mayor o igual al mes actual, el socio está al día
-                if (inicioMesValidez >= inicioMesActual)
+                // Si la fecha de validez aún cubre el momento actual, el socio está al día (lista vacía)
+                if (fechaValidez >= fechaActual)
                 {
-                    return periodosPendientes; // Al día (lista vacía)
+                    return periodosPendientes;
                 }
 
-                DateTime fechaIteracion = inicioMesValidez;
-                DateTime mesActual = inicioMesActual;
+                // Si la validez expiró, empezamos a contar desde el primer día del mes en que venció 
+                // hasta llegar e incluir el mes corriente (DateTime.Now)
+                DateTime fechaIteracion = new DateTime(fechaValidez.Year, fechaValidez.Month, 1);
+                DateTime mesActual = new DateTime(fechaActual.Year, fechaActual.Month, 1);
 
                 while (fechaIteracion <= mesActual)
                 {
@@ -333,8 +359,11 @@ namespace TrabajoIntegrador
                             cmd.ExecuteNonQuery();
                         }
 
-                        // 2. Extender la validez del cliente sumando los meses abonados
-                        string queryValidez = "UPDATE clientes SET validez = DATE_ADD(validez, INTERVAL @meses MONTH) WHERE id_cliente = @idCliente";
+                        // 2. Extender la validez del cliente con COALESCE para evitar errores si validez es NULL (socio nuevo)
+                        string queryValidez = @"UPDATE clientes 
+                                                SET validez = DATE_ADD(COALESCE(validez, CURDATE()), INTERVAL @meses MONTH) 
+                                                WHERE id_cliente = @idCliente";
+
                         using (var cmd = new MySqlCommand(queryValidez, conexion, transaccion))
                         {
                             cmd.Parameters.AddWithValue("@meses", mesesDeuda);
@@ -368,9 +397,9 @@ namespace TrabajoIntegrador
                 {
                     try
                     {
-                        // 1. Registrar el comprobante global de pago
-                        string queryPago = @"INSERT INTO pagos (id_cliente, concepto, monto, tipo_pago, forma_pago, cantidad_cuotas, fecha_pago) 
-                                             VALUES (@idCliente, 'Pase Diario - Actividades', @monto, 'Actividad', @formaPago, @cantidadCuotas, NOW())";
+                        // 1. Registrar el comprobante global de pago para el No Socio
+                        string queryPago = @"INSERT INTO pagos (id_cliente, concepto, monto, tipo_pago, forma_pago, cantidad_cuotas, fecha_pago, fecha_vencimiento) 
+                     VALUES (@idCliente, 'Pase Diario - Actividades', @monto, 'Actividad', @formaPago, @cantidadCuotas, NOW(), NOW())";
 
                         using (var cmd = new MySqlCommand(queryPago, conexion, transaccion))
                         {
