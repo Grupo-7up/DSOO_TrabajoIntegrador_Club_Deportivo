@@ -36,12 +36,10 @@ namespace TrabajoIntegrador
                 return;
             }
 
-            // Identificación del documento para verificación
             string documento = txtDocumento.Text.Trim();
             string tipoDoc = cboTipoDoc.SelectedItem.ToString();
 
-            // 1. Verificar si el cliente ya existe
-            if (ConexionBD.ExisteCliente(tipoDoc,documento))
+            if (ConexionBD.ExisteCliente(tipoDoc, documento))
             {
                 MessageBox.Show("Ya existe un cliente registrado con ese número de documento.",
                                 "Cliente existente",
@@ -52,45 +50,36 @@ namespace TrabajoIntegrador
 
             try
             {
-                // Extraer y convertir datos del formulario
                 string nombre = txtNombre.Text.Trim();
                 string apellido = txtApellido.Text.Trim();
                 string email = txtEmail.Text.Trim();
-
-                int.TryParse(txtTelefono.Text.Trim(), out int telefono);
+                string telefono = txtTelefono.Text.Trim(); // <-- Lo manejamos como string directamente
 
                 DateTime fechaNacimiento = dtpFechaNacimiento.Value;
-
                 bool esSocio = chkEsSocio.Checked;
                 bool aptoFisico = chkAptoFisico.Checked;
 
-                // Crear el objeto Cliente con los datos ingresados
-                Cliente nuevoCliente = new Cliente(
-                    nombre,
-                    apellido,
-                    tipoDoc,
-                    documento,
-                    email,
-                    telefono,
-                    fechaNacimiento,
-                    esSocio,
-                    aptoFisico
-                );
+                int idClienteGenerado;
 
-                // Llamar al método registrar_cliente de la instancia global de Club
-                bool registrado = Program.MiClub.registrar_cliente(nuevoCliente);
+                // Llamamos al método actualizado con el out en su posición correcta
+                bool registrado = ConexionBD.RegistrarCliente(
+                    tipoDoc, documento, nombre, apellido, email, telefono, fechaNacimiento,
+                    out idClienteGenerado, esSocio, aptoFisico
+                );
 
                 if (registrado)
                 {
-                    string mensaje = nuevoCliente.EsSocio
-                        ? $"Socio registrado correctamente.\nNúmero de documento: {nuevoCliente.Documento}"
-                        : "Cliente no socio registrado correctamente.";
-
-                    MessageBox.Show(mensaje,
+                    MessageBox.Show("Cliente registrado correctamente.\nA continuación, se procederá a la pantalla de cobro.",
                                     "Éxito",
                                     MessageBoxButtons.OK,
                                     MessageBoxIcon.Information);
-                    LimpiarFormulario();
+
+                    // Derivamos automáticamente a GestionPago
+                    var frmGestionPago = new GestionPago(tipoDoc, documento, esSocio, idClienteGenerado, nombre, apellido);
+                    frmGestionPago.Show();
+
+                    this.Hide();
+                    this.Dispose();
                 }
             }
             catch (Exception ex)

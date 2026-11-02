@@ -21,6 +21,14 @@ namespace TrabajoIntegrador
             this.Close();
         }
 
+        private void btn_pagarCuota_Click(object sender, EventArgs e)
+        {
+            _saliendoPorNavegacion = true;
+            var frm = new TrabajoIntegrador.BuscarClienteParaPago();
+            frm.Show();
+            this.Close();
+        }
+
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             base.OnFormClosing(e);
