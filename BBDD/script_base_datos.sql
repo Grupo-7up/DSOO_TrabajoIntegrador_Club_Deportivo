@@ -37,8 +37,8 @@ CREATE TABLE IF NOT EXISTS clientes (
     es_socio BOOLEAN NOT NULL DEFAULT FALSE,
     nro_carnet VARCHAR(20) UNIQUE DEFAULT NULL,
     fecha_inscripcion DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    validez DATE NOT NULL,
-    estado VARCHAR(20) DEFAULT 'Activo',
+    validez DATE,
+    activo BOOLEAN NOT NULL DEFAULT TRUE,
     apto_fisico BOOLEAN NOT NULL DEFAULT FALSE,
     FOREIGN KEY (id_persona) REFERENCES personas(id_persona) ON DELETE CASCADE
 );

@@ -24,7 +24,7 @@ namespace TrabajoIntegrador
         private void btn_pagarCuota_Click(object sender, EventArgs e)
         {
             _saliendoPorNavegacion = true;
-            var frm = new TrabajoIntegrador.PagarCuota();
+            var frm = new TrabajoIntegrador.BuscarClienteParaPago();
             frm.Show();
             this.Close();
         }

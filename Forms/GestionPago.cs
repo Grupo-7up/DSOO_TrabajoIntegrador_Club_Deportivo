@@ -1,9 +1,11 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
+using TrabajoIntegrador.Clases;
 
 namespace TrabajoIntegrador
 {
@@ -14,53 +16,119 @@ namespace TrabajoIntegrador
         private string _tipoDoc;
         private string _nroDoc;
         private bool _esSocio;
+        private string _nombre;
+        private string _apellido;
 
         // Monto total acumulado
         private decimal _montoTotal = 0;
 
         // Constructor que recibe la información del cliente desde BuscarClienteParaPago
-        public GestionPago(string tipoDoc, string nroDoc, bool esSocio, int idCliente)
+        public GestionPago(string tipoDoc, string nroDoc, bool esSocio, int idCliente, string nombre, string apellido)
         {
             InitializeComponent();
 
-            InicializarInterfazVisual();
             _tipoDoc = tipoDoc;
             _nroDoc = nroDoc;
             _esSocio = esSocio;
             _idCliente = idCliente;
+            _nombre = nombre;
+            _apellido = apellido;
 
-            ConfigurarPantallaSegunTipoCliente();
-        }
-
-        private void GestionPago_Load(object sender, EventArgs e)
-        {
-            // Cargar datos básicos del cliente en pantalla
-            lblDatosCliente.Text = $"Cliente: {_tipoDoc} {_nroDoc} - Type: {(_esSocio ? "SOCIO" : "NO SOCIO")}";
-
+            // Configuramos la pantalla apenas arranca el formulario
             ConfigurarPantallaSegunTipoCliente();
         }
 
         private void ConfigurarPantallaSegunTipoCliente()
         {
+            // Aplicamos formato de título para corregir mayúsculas/minúsculas de la BBDD
+            TextInfo textInfo = System.Globalization.CultureInfo.CurrentCulture.TextInfo;
+            string nombreFormateado = textInfo.ToTitleCase(_nombre.ToLower());
+            string apellidoFormateado = textInfo.ToTitleCase(_apellido.ToLower());
+
+            if (lblInfoCliente != null)
+            {
+                lblInfoCliente.Text = $"Cliente: {nombreFormateado} {apellidoFormateado}  |  {_tipoDoc}: {_nroDoc}  |  Condición: {(_esSocio ? "SOCIO" : "NO SOCIO")}";
+            }
+
             if (_esSocio)
             {
-                // SOCIO: Cuota mensual fija
-                panelActividades.Visible = false; // Ocultamos selector de actividades
-                lblTituloCobro.Text = "Cobro de Cuota Mensual (Socio)";
+                // SOCIO: El panel central se MANTIENE visible pero adaptado para mostrar la deuda
+                if (panelActividades != null) panelActividades.Visible = true;
+                if (lblMedio != null) lblMedio.Text = "Deudas" ;
 
-                // Ejemplo: Monto fijo de cuota mensual (podés traerlo de la BBDD o una constante)
-                _montoTotal = 5000;
-                lblMontoTotal.Text = $"$ {_montoTotal:N2}";
+                // Ocultamos los controles de no socios dentro del panel
+                if (lstDisponibles != null) lstDisponibles.Visible = false;
+                if (lstSeleccionadas != null) lstSeleccionadas.Visible = false;
+                if (btnPasarIzquierda != null) btnPasarIzquierda.Visible = false;
+                if (btnPasarDerecha != null) btnPasarDerecha.Visible = false;
+                if (lblTituloDisp != null) lblTituloDisp.Visible = false;
+                if (lblTituloSelec != null) lblTituloSelec.Visible = false;
+
+                // Mostramos y cargamos el listado de meses adeudados
+                if (lstMesesAdeudados != null)
+                {
+                    lstMesesAdeudados.Visible = true;
+                    lstMesesAdeudados.Items.Clear();
+
+                    List<string> mesesDeuda = ConexionBD.ObtenerPeriodosAdeudadosSocio(_idCliente);
+                    int cantidadMeses = Math.Max(1, mesesDeuda.Count);
+
+                    foreach (var mes in mesesDeuda)
+                    {
+                        lstMesesAdeudados.Items.Add($"• Cuota Social - Período: {mes} ($ 5.000,00)");
+                    }
+
+                    // Calculamos el monto total multiplicando por la cantidad de meses
+                    _montoTotal = 5000.00M * cantidadMeses;
+                }
+
+                if (lblTotalTexto != null)
+                    lblTotalTexto.Text = "Total a Pagar (Cuotas Social Acumulada)";
+
+                if (lblMontoValor != null)
+                    lblMontoValor.Text = $"$ {_montoTotal:N2}";
+
+                // Mantenemos una altura de ventana cómoda que deje ver el panel central con los meses
+                this.Height = 480;
             }
             else
             {
-                // NO SOCIO: Cobro diario por actividades acumuladas
-                panelActividades.Visible = true;
-                lblTituloCobro.Text = "Selección de Actividades - Pase Diario (No Socio)";
-                _montoTotal = 0;
-                lblMontoTotal.Text = "$ 0.00";
+                // NO SOCIO: Mostramos los controles tradicionales de actividades
+                if (panelActividades != null) panelActividades.Visible = true;
+                if (lstMesesAdeudados != null) lstMesesAdeudados.Visible = false;
+                if (lblMedio != null) lblMedio.Text = "Actividades";
 
+                if (lstDisponibles != null) lstDisponibles.Visible = true;
+                if (lstSeleccionadas != null) lstSeleccionadas.Visible = true;
+
+                if (lblTotalTexto != null) lblTotalTexto.Text = "Pase Diario (No Socio)";
+                _montoTotal = 0;
+                if (lblMontoValor != null) lblMontoValor.Text = "$ 0.00";
+
+                this.Height = 520;
                 CargarActividadesDisponibles();
+            }
+
+            RecalcularMonto();
+        }
+
+        // Clase auxiliar para manejar los ítems de las actividades con su ID y costo
+        public class ActividadItem
+        {
+            public int Id { get; set; }
+            public string Nombre { get; set; }
+            public decimal Costo { get; set; }
+
+            public ActividadItem(int id, string nombre, decimal costo)
+            {
+                Id = id;
+                Nombre = nombre;
+                Costo = costo;
+            }
+
+            public override string ToString()
+            {
+                return $"{Nombre} ($ {Costo:N2})";
             }
         }
 
@@ -68,7 +136,6 @@ namespace TrabajoIntegrador
         {
             try
             {
-                // Llamamos al método centralizado en la carpeta BBDD
                 DataTable dt = ConexionBD.ObtenerActividades();
 
                 lstDisponibles.Items.Clear();
@@ -79,7 +146,6 @@ namespace TrabajoIntegrador
                     string nombre = row["nombre"].ToString();
                     decimal costo = Convert.ToDecimal(row["valor_actividad"]);
 
-                    // Usamos la clase auxiliar ActividadItem que ya teníamos definida
                     lstDisponibles.Items.Add(new ActividadItem(id, nombre, costo));
                 }
             }
@@ -89,22 +155,84 @@ namespace TrabajoIntegrador
             }
         }
 
-        // Evento que se dispara cada vez que el usuario marca/desmarca una actividad (Tiempo Real)
-        private void clbActividades_ItemCheck(object sender, ItemCheckEventArgs e)
+        // Evento del botón para pasar actividad de Disponible a Seleccionada (➡)
+        private void btnPasarDerecha_Click(object sender, EventArgs e)
         {
-            // Calculamos el monto acumulado en tiempo real según lo seleccionado
-            this.BeginInvoke((MethodInvoker)delegate
+            if (lstDisponibles.SelectedItem != null)
             {
-                _montoTotal = 0;
-                /* Ejemplo de recorrido para sumar montos:
-                foreach (var item in clbActividades.CheckedItems)
+                var itemSeleccionado = lstDisponibles.SelectedItem;
+                lstSeleccionadas.Items.Add(itemSeleccionado);
+                lstDisponibles.Items.Remove(itemSeleccionado);
+                RecalcularMonto();
+            }
+            else
+            {
+                MessageBox.Show("Por favor, seleccione una actividad de la lista de disponibles.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        // Evento del botón para quitar actividad de Seleccionada y devolverla a Disponibles (⬅)
+        private void btnPasarIzquierda_Click(object sender, EventArgs e)
+        {
+            if (lstSeleccionadas.SelectedItem != null)
+            {
+                var itemSeleccionado = lstSeleccionadas.SelectedItem;
+                lstDisponibles.Items.Add(itemSeleccionado);
+                lstSeleccionadas.Items.Remove(itemSeleccionado);
+                RecalcularMonto();
+            }
+            else
+            {
+                MessageBox.Show("Por favor, seleccione una actividad de la lista de seleccionadas para quitar.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        // Método auxiliar para sumar los costos o calcular cuotas
+        private void RecalcularMonto()
+        {
+            decimal subtotal = 0;
+
+            if (_esSocio)
+            {
+                // Para socios, recalculamos multiplicando por la cantidad de meses adeudados reales
+                List<string> mesesDeuda = ConexionBD.ObtenerPeriodosAdeudadosSocio(_idCliente);
+                int cantidadMeses = Math.Max(1, mesesDeuda.Count);
+                subtotal = 5000.00M * cantidadMeses;
+            }
+            else
+            {
+                foreach (var item in lstSeleccionadas.Items)
                 {
-                    DataRowView row = (DataRowView)item;
-                    _montoTotal += Convert.ToDecimal(row["costo"]);
+                    if (item is ActividadItem act)
+                    {
+                        subtotal += act.Costo;
+                    }
                 }
-                */
-                lblMontoTotal.Text = $"$ {_montoTotal:N2}";
-            });
+            }
+
+            _montoTotal = subtotal;
+
+            if (lblMontoValor != null)
+            {
+                lblMontoValor.Text = $"$ {_montoTotal:N2}";
+            }
+
+            // Evaluamos si debemos mostrar el detalle de cuotas en tarjeta de crédito
+            string medioPago = cmbMedioPago?.SelectedItem?.ToString();
+            bool esTarjetaConCuotas = (medioPago == "Tarjeta de Crédito" && (rb3Cuotas.Checked || rb6Cuotas.Checked));
+
+            if (esTarjetaConCuotas && lblCuotasDetalle != null)
+            {
+                int cantidadCuotas = rb3Cuotas.Checked ? 3 : 6;
+                decimal valorCuota = _montoTotal / cantidadCuotas;
+
+                lblCuotasDetalle.Text = $"(Equivalente a {cantidadCuotas} cuotas sin interés de $ {valorCuota:N2})";
+                lblCuotasDetalle.Visible = true;
+            }
+            else if (lblCuotasDetalle != null)
+            {
+                lblCuotasDetalle.Visible = false;
+            }
         }
 
         private void btnConfirmarPago_Click(object sender, EventArgs e)
@@ -115,22 +243,94 @@ namespace TrabajoIntegrador
                 return;
             }
 
-            // Invocar Stored Procedure de Pago / Registrar comprobante
+            if (cmbMedioPago.SelectedItem == null || string.IsNullOrWhiteSpace(cmbMedioPago.SelectedItem.ToString()))
+            {
+                MessageBox.Show("Debe seleccionar un medio de pago válido.", "Error de Validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                cmbMedioPago.Focus();
+                return;
+            }
+
             RegistrarPago();
         }
 
         private void RegistrarPago()
         {
-            // Lógica para registrar en la tabla pagos / actualizar vigencia del cliente
-            MessageBox.Show("¡Pago registrado con éxito!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            try
+            {
+                string formaPago = cmbMedioPago.SelectedItem.ToString();
+                int cantidadCuotas = 1;
 
-            // Regresamos al menú principal usando FormBase
-            VolverAlMenu();
+                if (formaPago == "Tarjeta de Crédito")
+                {
+                    if (rb3Cuotas.Checked) cantidadCuotas = 3;
+                    else if (rb6Cuotas.Checked) cantidadCuotas = 6;
+                }
+
+                bool resultado = false;
+
+                if (_esSocio)
+                {
+                    List<string> mesesDeuda = ConexionBD.ObtenerPeriodosAdeudadosSocio(_idCliente);
+                    int cantidadMeses = Math.Max(1, mesesDeuda.Count);
+
+                    // Registra el pago y desplaza la fecha de validez en la BBDD
+                    resultado = ConexionBD.RegistrarPagoSocio(_idCliente, _montoTotal, formaPago, cantidadCuotas, cantidadMeses);
+                }
+                else
+                {
+                    List<int> idsActividades = new List<int>();
+                    foreach (var item in lstSeleccionadas.Items)
+                    {
+                        if (item is ActividadItem act)
+                        {
+                            idsActividades.Add(act.Id);
+                        }
+                    }
+
+                    resultado = ConexionBD.RegistrarPagoNoSocio(_idCliente, _montoTotal, formaPago, cantidadCuotas, idsActividades);
+                }
+
+                if (resultado)
+                {
+                    MessageBox.Show("¡Pago registrado con éxito!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    VolverAlMenu();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al registrar el pago: " + ex.Message, "Error crítico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
-            VolverAlMenu(); // Directo a PantallaOpciones
+            VolverAlMenu();
+        }
+
+        private void cmbMedioPago_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbMedioPago.SelectedItem?.ToString() == "Tarjeta de Crédito")
+            {
+                if (panelCuotas != null) panelCuotas.Visible = true;
+            }
+            else
+            {
+                if (panelCuotas != null) panelCuotas.Visible = false;
+
+                if (rb1Pago != null)
+                {
+                    rb1Pago.Checked = true;
+                }
+            }
+            RecalcularMonto();
+        }
+
+        private void rbCuotas_CheckedChanged(object sender, EventArgs e)
+        {
+            if (((RadioButton)sender).Checked)
+            {
+                RecalcularMonto();
+            }
         }
     }
 }

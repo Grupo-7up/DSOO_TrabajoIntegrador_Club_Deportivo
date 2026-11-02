@@ -94,14 +94,27 @@
   <ItemGroup>
     <Compile Include="BBDD\ConexionBD.cs" />
     <Compile Include="BBDD\DatabaseInitializer.cs" />
+    <Compile Include="Clases\ActividadItem.cs" />
     <Compile Include="Clases\Persona.cs" />
     <Compile Include="Clases\Cliente.cs" />
     <Compile Include="Clases\Actividad.cs" />
     <Compile Include="Clases\Club.cs" />
     <Compile Include="Clases\Cuota.cs" />
     <Compile Include="Clases\Pago.cs" />
+    <Compile Include="Forms\BuscarClienteParaPago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\BuscarClienteParaPago.Designer.cs">
+      <DependentUpon>BuscarClienteParaPago.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormBase.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\GestionPago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\GestionPago.Designer.cs">
+      <DependentUpon>GestionPago.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\IngresarCliente.cs">
       <SubType>Form</SubType>
@@ -123,6 +136,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\BuscarClienteParaPago.resx">
+      <DependentUpon>BuscarClienteParaPago.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\GestionPago.resx">
+      <DependentUpon>GestionPago.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\IngresarCliente.resx">
       <DependentUpon>IngresarCliente.cs</DependentUpon>
     </EmbeddedResource>

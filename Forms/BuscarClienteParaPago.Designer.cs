@@ -37,6 +37,10 @@
             // cmbTipoDocumento
             // 
             this.cmbTipoDocumento.FormattingEnabled = true;
+            this.cmbTipoDocumento.Items.AddRange(new object[] {
+            "D.N.I.",
+            "Pasaporte ",
+            "Extranjero"});
             this.cmbTipoDocumento.Location = new System.Drawing.Point(127, 61);
             this.cmbTipoDocumento.Name = "cmbTipoDocumento";
             this.cmbTipoDocumento.Size = new System.Drawing.Size(121, 21);
