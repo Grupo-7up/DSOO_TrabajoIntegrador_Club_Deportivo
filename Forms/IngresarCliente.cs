@@ -74,8 +74,10 @@ namespace TrabajoIntegrador
                                     MessageBoxButtons.OK,
                                     MessageBoxIcon.Information);
 
+                    Cliente clienteNuevo = new Cliente(nombre, apellido, tipoDoc, documento, email, 0, fechaNacimiento, esSocio, aptoFisico);
+                    clienteNuevo.Id = idClienteGenerado;
                     // Derivamos automáticamente a GestionPago
-                    var frmGestionPago = new GestionPago(tipoDoc, documento, esSocio, idClienteGenerado, nombre, apellido);
+                    var frmGestionPago = new GestionPago(clienteNuevo);
                     frmGestionPago.Show();
 
                     this.Hide();

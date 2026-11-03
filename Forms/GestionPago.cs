@@ -13,27 +13,18 @@ namespace TrabajoIntegrador
     public partial class GestionPago : FormBase
     {
         // Datos recibidos del Paso 1
-        private int _idCliente;
-        private string _tipoDoc;
-        private string _nroDoc;
-        private bool _esSocio;
-        private string _nombre;
-        private string _apellido;
+        private Cliente _clienteActual;
 
         // Monto total acumulado
         private decimal _montoTotal = 0;
 
         // Constructor que recibe la información del cliente desde BuscarClienteParaPago
-        public GestionPago(string tipoDoc, string nroDoc, bool esSocio, int idCliente, string nombre, string apellido)
+        public GestionPago(Cliente cliente)
         {
             InitializeComponent();
 
-            _tipoDoc = tipoDoc;
-            _nroDoc = nroDoc;
-            _esSocio = esSocio;
-            _idCliente = idCliente;
-            _nombre = nombre;
-            _apellido = apellido;
+            _clienteActual = cliente;
+
 
             // Configuramos la pantalla apenas arranca el formulario
             ConfigurarPantallaSegunTipoCliente();
@@ -43,15 +34,15 @@ namespace TrabajoIntegrador
         {
             // Aplicamos formato de título para corregir mayúsculas/minúsculas de la BBDD
             TextInfo textInfo = System.Globalization.CultureInfo.CurrentCulture.TextInfo;
-            string nombreFormateado = textInfo.ToTitleCase(_nombre.ToLower());
-            string apellidoFormateado = textInfo.ToTitleCase(_apellido.ToLower());
+            string nombreFormateado = textInfo.ToTitleCase(_clienteActual.Nombre.ToLower());
+            string apellidoFormateado = textInfo.ToTitleCase(_clienteActual.Apellido.ToLower());
 
             if (lblInfoCliente != null)
             {
-                lblInfoCliente.Text = $"Cliente: {nombreFormateado} {apellidoFormateado}  |  {_tipoDoc}: {_nroDoc}  |  Condición: {(_esSocio ? "SOCIO" : "NO SOCIO")}";
+                lblInfoCliente.Text = $"Cliente: {nombreFormateado} {apellidoFormateado}  |  {_clienteActual.TipoDocumento}: {_clienteActual.Documento}  |  Condición: {(_clienteActual.EsSocio ? "SOCIO" : "NO SOCIO")}";
             }
 
-            if (_esSocio)
+            if (_clienteActual.EsSocio)
             {
                 // SOCIO: El panel central visible para mostrar la deuda
                 if (lblMedio != null) lblMedio.Text = "Deudas" ;
@@ -70,16 +61,16 @@ namespace TrabajoIntegrador
                     lstMesesAdeudados.Visible = true;
                     lstMesesAdeudados.Items.Clear();
 
-                    List<string> mesesDeuda = ConexionBD.ObtenerPeriodosAdeudadosSocio(_idCliente);
+                    List<string> mesesDeuda = ConexionBD.ObtenerPeriodosAdeudadosSocio(_clienteActual.Id);
                     int cantidadMeses = Math.Max(1, mesesDeuda.Count);
-
+                    decimal montoPorMes = 5000.00M; // Monto fijo por mes para socios
                     foreach (var mes in mesesDeuda)
                     {
-                        lstMesesAdeudados.Items.Add($"• Cuota Social - Período: {mes} ($ 5.000,00)");
+                        lstMesesAdeudados.Items.Add($"• Cuota Social - Período: {mes} ($ {montoPorMes:N2})");
                     }
 
                     // Calculamos el monto total multiplicando por la cantidad de meses
-                    _montoTotal = 5000.00M * cantidadMeses;
+                    _montoTotal = montoPorMes * cantidadMeses;
                 }
 
                 if (lblTotalTexto != null)
@@ -191,10 +182,10 @@ namespace TrabajoIntegrador
         {
             decimal subtotal = 0;
 
-            if (_esSocio)
+            if (_clienteActual.EsSocio)
             {
                 // Para socios, recalculamos multiplicando por la cantidad de meses adeudados reales
-                List<string> mesesDeuda = ConexionBD.ObtenerPeriodosAdeudadosSocio(_idCliente);
+                List<string> mesesDeuda = ConexionBD.ObtenerPeriodosAdeudadosSocio(_clienteActual.Id);
                 int cantidadMeses = Math.Max(1, mesesDeuda.Count);
                 subtotal = 5000.00M * cantidadMeses;
             }
@@ -236,7 +227,7 @@ namespace TrabajoIntegrador
 
         private void btnConfirmarPago_Click(object sender, EventArgs e)
         {
-            if (_montoTotal <= 0 && !_esSocio)
+            if (_montoTotal <= 0 && !_clienteActual.EsSocio)
             {
                 MessageBox.Show("Debe seleccionar al menos una actividad para procesar el pago.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -266,33 +257,16 @@ namespace TrabajoIntegrador
                 }
 
                 // Buscamos o instanciamos el cliente en la memoria del club para que ejecute el negocio
-                Cliente clienteActual = null;
-
-                if (_esSocio)
+                if (_clienteActual.EsSocio)
                 {
-                    clienteActual = Program.MiClub.Socios.FirstOrDefault(c => c.Documento == _nroDoc);
-                    if (clienteActual == null)
-                    {
-                        clienteActual = new Cliente(_nombre, _apellido, _tipoDoc, _nroDoc, "", 0, DateTime.Now, true, true);
-                        clienteActual.Id = _idCliente;
-                    }
-
-                    // Obtenemos los meses adeudados
-                    List<string> mesesDeuda = ConexionBD.ObtenerPeriodosAdeudadosSocio(_idCliente);
+                    List<string> mesesDeuda = ConexionBD.ObtenerPeriodosAdeudadosSocio(_clienteActual.Id);
                     int cantidadMeses = Math.Max(1, mesesDeuda.Count);
 
-                    // EL CLUB GESTIONA EL COBRÓ Y LA PERSISTENCIA
-                    Program.MiClub.cobrar_cuota_mensual(clienteActual, _montoTotal, DateTime.Now, formaPago, cantidadCuotas, cantidadMeses);
+                    // El club procesa el cobro y la persistencia pasándole el objeto cliente
+                    Program.MiClub.cobrar_cuota_mensual(_clienteActual, _montoTotal, DateTime.Now, formaPago, cantidadCuotas, cantidadMeses);
                 }
                 else
                 {
-                    clienteActual = Program.MiClub.NoSocios.FirstOrDefault(c => c.Documento == _nroDoc);
-                    if (clienteActual == null)
-                    {
-                        clienteActual = new Cliente(_nombre, _apellido, _tipoDoc, _nroDoc, "", 0, DateTime.Now, false, true);
-                        clienteActual.Id = _idCliente;
-                    }
-
                     List<int> idsActividades = new List<int>();
                     foreach (var item in lstSeleccionadas.Items)
                     {
@@ -302,8 +276,8 @@ namespace TrabajoIntegrador
                         }
                     }
 
-                    // EL CLUB GESTIONA EL COBRÓ Y LA PERSISTENCIA
-                    Program.MiClub.cobrar_cuota_diaria(clienteActual, _montoTotal, DateTime.Now, formaPago, cantidadCuotas, idsActividades);
+                    // El club procesa el pase diario pasándole el objeto cliente
+                    Program.MiClub.cobrar_cuota_diaria(_clienteActual, _montoTotal, DateTime.Now, formaPago, cantidadCuotas, idsActividades);
                 }
 
                 MessageBox.Show("¡Pago registrado y procesado por el club con éxito!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
