@@ -45,7 +45,7 @@ namespace TrabajoIntegrador
             if (_clienteActual.EsSocio)
             {
                 // SOCIO: El panel central visible para mostrar la deuda
-                if (lblMedio != null) lblMedio.Text = "Deudas" ;
+                if (lblMedio != null) lblMedio.Text = "A pagar" ;
 
                 // Ocultamos los controles de no socios dentro del panel
                 if (lstDisponibles != null) lstDisponibles.Visible = false;
