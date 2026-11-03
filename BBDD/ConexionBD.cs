@@ -399,7 +399,7 @@ namespace TrabajoIntegrador
                     {
                         // 1. Registrar el comprobante global de pago para el No Socio
                         string queryPago = @"INSERT INTO pagos (id_cliente, concepto, monto, tipo_pago, forma_pago, cantidad_cuotas, fecha_pago, fecha_vencimiento) 
-                     VALUES (@idCliente, 'Pase Diario - Actividades', @monto, 'Actividad', @formaPago, @cantidadCuotas, NOW(), NOW())";
+                     VALUES (@idCliente, 'Pase Diario - Actividades', @monto, 'Pase', @formaPago, @cantidadCuotas, NOW(), NOW())";
 
                         using (var cmd = new MySqlCommand(queryPago, conexion, transaccion))
                         {
