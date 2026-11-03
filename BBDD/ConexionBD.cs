@@ -336,7 +336,7 @@ namespace TrabajoIntegrador
         /// <summary>
         /// Registra el pago de cuotas atrasadas o corrientes de un socio y actualiza su validez.
         /// </summary>
-        public static bool RegistrarPagoSocio(int idCliente, decimal monto, string formaPago, int cantidadCuotas, int mesesDeuda)
+        public static bool RegistrarPagoMensual(int idCliente, decimal monto, string formaPago, int cantidadCuotas, int mesesDeuda)
         {
             using (var conexion = ObtenerConexion())
             {
@@ -388,7 +388,7 @@ namespace TrabajoIntegrador
         /// <summary>
         /// Registra el pase diario o actividades sueltas de un no socio.
         /// </summary>
-        public static bool RegistrarPagoNoSocio(int idCliente, decimal monto, string formaPago, int cantidadCuotas, List<int> idsActividades)
+        public static bool RegistrarPagoDiario(int idCliente, decimal monto, string formaPago, int cantidadCuotas, List<int> idsActividades)
         {
             using (var conexion = ObtenerConexion())
             {

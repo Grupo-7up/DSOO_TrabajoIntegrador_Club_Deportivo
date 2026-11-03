@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Globalization;
+using System.Linq;
 using System.Windows.Forms;
 using TrabajoIntegrador.Clases;
 
@@ -264,18 +265,34 @@ namespace TrabajoIntegrador
                     else if (rb6Cuotas.Checked) cantidadCuotas = 6;
                 }
 
-                bool resultado = false;
+                // Buscamos o instanciamos el cliente en la memoria del club para que ejecute el negocio
+                Cliente clienteActual = null;
 
                 if (_esSocio)
                 {
+                    clienteActual = Program.MiClub.Socios.FirstOrDefault(c => c.Documento == _nroDoc);
+                    if (clienteActual == null)
+                    {
+                        clienteActual = new Cliente(_nombre, _apellido, _tipoDoc, _nroDoc, "", 0, DateTime.Now, true, true);
+                        clienteActual.Id = _idCliente;
+                    }
+
+                    // Obtenemos los meses adeudados
                     List<string> mesesDeuda = ConexionBD.ObtenerPeriodosAdeudadosSocio(_idCliente);
                     int cantidadMeses = Math.Max(1, mesesDeuda.Count);
 
-                    // Registra el pago y desplaza la fecha de validez en la BBDD
-                    resultado = ConexionBD.RegistrarPagoSocio(_idCliente, _montoTotal, formaPago, cantidadCuotas, cantidadMeses);
+                    // EL CLUB GESTIONA EL COBRÓ Y LA PERSISTENCIA
+                    Program.MiClub.cobrar_cuota_mensual(clienteActual, _montoTotal, DateTime.Now, formaPago, cantidadCuotas, cantidadMeses);
                 }
                 else
                 {
+                    clienteActual = Program.MiClub.NoSocios.FirstOrDefault(c => c.Documento == _nroDoc);
+                    if (clienteActual == null)
+                    {
+                        clienteActual = new Cliente(_nombre, _apellido, _tipoDoc, _nroDoc, "", 0, DateTime.Now, false, true);
+                        clienteActual.Id = _idCliente;
+                    }
+
                     List<int> idsActividades = new List<int>();
                     foreach (var item in lstSeleccionadas.Items)
                     {
@@ -285,14 +302,12 @@ namespace TrabajoIntegrador
                         }
                     }
 
-                    resultado = ConexionBD.RegistrarPagoNoSocio(_idCliente, _montoTotal, formaPago, cantidadCuotas, idsActividades);
+                    // EL CLUB GESTIONA EL COBRÓ Y LA PERSISTENCIA
+                    Program.MiClub.cobrar_cuota_diaria(clienteActual, _montoTotal, DateTime.Now, formaPago, cantidadCuotas, idsActividades);
                 }
 
-                if (resultado)
-                {
-                    MessageBox.Show("¡Pago registrado con éxito!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    VolverAlMenu();
-                }
+                MessageBox.Show("¡Pago registrado y procesado por el club con éxito!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                VolverAlMenu();
             }
             catch (Exception ex)
             {
