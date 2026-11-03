@@ -10,10 +10,11 @@ namespace TrabajoIntegrador.Clases
         private string nro_carnet;
         private DateTime fecha_inscripcion;
         private DateTime validez;
-        private string estado;
+        public bool activo;
         private bool apto_fisico;
         private List<Actividad> actividades;
         private List<Pago> pagos;
+        public int Id { get; set; }
 
         public Cliente(string nombre, string apellido, string tipo_documento, string documento, string email, int telefono, DateTime fecha_nacimiento, bool es_socio, bool apto_fisico)
             : base(nombre, apellido, tipo_documento, documento, email, telefono, fecha_nacimiento)
@@ -22,7 +23,7 @@ namespace TrabajoIntegrador.Clases
             this.nro_carnet = null; // se asigna cuando club.emitir_carnet() entrega el carnet
             this.fecha_inscripcion = DateTime.Now;
             this.validez = fecha_inscripcion.Date.AddDays(-1); // todavía no pagó ninguna cuota: queda "vencido" hasta el primer cobro
-            this.estado = "Activo";
+            this.activo = true;
             this.apto_fisico = apto_fisico;
             this.actividades = new List<Actividad>();
             this.pagos = new List<Pago>();
@@ -42,8 +43,8 @@ namespace TrabajoIntegrador.Clases
 
         public string Estado
         {
-            get { return estado; }
-            set { estado = value; }
+            get { return activo ? "Activo" : "Inactivo"; }
+            set { activo = bool.Parse(value); }
         }
 
         public DateTime Validez
@@ -118,7 +119,7 @@ namespace TrabajoIntegrador.Clases
 
         public override string ToString()
         {
-            return base.ToString() + $", Tipo membresía: {(es_socio ? "Socio" : "No socio")}, Estado: {estado}";
+            return base.ToString() + $", Tipo membresía: {(es_socio ? "Socio" : "No socio")}, Activo: {activo}";
         }
     }
 }

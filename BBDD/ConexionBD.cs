@@ -336,7 +336,7 @@ namespace TrabajoIntegrador
         /// <summary>
         /// Registra el pago de cuotas atrasadas o corrientes de un socio y actualiza su validez.
         /// </summary>
-        public static bool RegistrarPagoSocio(int idCliente, decimal monto, string formaPago, int cantidadCuotas, int mesesDeuda)
+        public static bool RegistrarPagoMensual(int idCliente, decimal monto, string formaPago, int cantidadCuotas, int mesesDeuda)
         {
             using (var conexion = ObtenerConexion())
             {
@@ -388,7 +388,7 @@ namespace TrabajoIntegrador
         /// <summary>
         /// Registra el pase diario o actividades sueltas de un no socio.
         /// </summary>
-        public static bool RegistrarPagoNoSocio(int idCliente, decimal monto, string formaPago, int cantidadCuotas, List<int> idsActividades)
+        public static bool RegistrarPagoDiario(int idCliente, decimal monto, string formaPago, int cantidadCuotas, List<int> idsActividades)
         {
             using (var conexion = ObtenerConexion())
             {
@@ -399,7 +399,7 @@ namespace TrabajoIntegrador
                     {
                         // 1. Registrar el comprobante global de pago para el No Socio
                         string queryPago = @"INSERT INTO pagos (id_cliente, concepto, monto, tipo_pago, forma_pago, cantidad_cuotas, fecha_pago, fecha_vencimiento) 
-                     VALUES (@idCliente, 'Pase Diario - Actividades', @monto, 'Actividad', @formaPago, @cantidadCuotas, NOW(), NOW())";
+                     VALUES (@idCliente, 'Pase Diario - Actividades', @monto, 'Pase', @formaPago, @cantidadCuotas, NOW(), NOW())";
 
                         using (var cmd = new MySqlCommand(queryPago, conexion, transaccion))
                         {

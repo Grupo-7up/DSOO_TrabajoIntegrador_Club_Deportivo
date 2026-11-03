@@ -112,8 +112,17 @@ namespace TrabajoIntegrador.Clases
         }
 
         // aca monto viene del calcular_monto_diario del cliente
-        public Pago cobrar_cuota_diaria(Cliente c, decimal monto, DateTime fecha)
+        public Pago cobrar_cuota_diaria(Cliente c, decimal monto, DateTime fecha, string forma_pago, int cantidad_cuotas, List<int> idsActividades)
         {
+            // 1. Delegamos la persistencia transaccional a la capa de datos
+            bool registradoBD = ConexionBD.RegistrarPagoDiario(c.Id, monto, forma_pago, cantidad_cuotas, idsActividades);
+
+            if (!registradoBD)
+            {
+                throw new Exception("No se pudo registrar el pase diario en la base de datos.");
+            }
+
+            // 2. Actualizamos la lógica en memoria del modelo de negocio
             var pago = new Pago(fecha, "Entrada diaria", monto);
             c.Pagos.Add(pago);
             return pago;
@@ -121,19 +130,30 @@ namespace TrabajoIntegrador.Clases
 
         // forma_pago: "efectivo" o "tarjeta". cantidad_cuotas solo aplica si es con tarjeta (promociones en 3 y 6 cuotas).
         // El nuevo vencimiento arranca el día siguiente al vencimiento anterior, no desde la fecha de pago.
-        public Cuota cobrar_cuota_mensual(Cliente c, decimal monto, DateTime fecha, string forma_pago, int cantidad_cuotas)
+        public Cuota cobrar_cuota_mensual(Cliente c, decimal monto, DateTime fecha, string forma_pago, int cantidad_cuotas, int mesesDeuda = 1)
         {
             if (!forma_pago.Equals("tarjeta", StringComparison.OrdinalIgnoreCase))
             {
                 cantidad_cuotas = 1;
             }
 
-            DateTime inicio_periodo = c.Validez.AddDays(1);
-            DateTime nuevo_vencimiento = inicio_periodo.AddMonths(1);
+            // 1. Delegamos la persistencia transaccional a la capa de datos
+            bool registradoBD = ConexionBD.RegistrarPagoMensual(c.Id, monto, forma_pago, cantidad_cuotas, mesesDeuda);
+
+            if (!registradoBD)
+            {
+                throw new Exception("No se pudo registrar el pago del socio en la base de datos.");
+            }
+
+            // 2. Actualizamos la lógica en memoria del modelo de negocio
+            DateTime inicio_periodo = c.Validez == default(DateTime) ? DateTime.Now : c.Validez.AddDays(1);
+            DateTime nuevo_vencimiento = inicio_periodo.AddMonths(mesesDeuda);
 
             var cuota = new Cuota(fecha, "Cuota mensual", monto, forma_pago, cantidad_cuotas, fecha.Year, fecha.Month, nuevo_vencimiento);
             c.Pagos.Add(cuota);
             c.Validez = nuevo_vencimiento;
+            c.activo = true; // Si estaba inactivo por deuda, se reactiva
+
             return cuota;
         }
     }

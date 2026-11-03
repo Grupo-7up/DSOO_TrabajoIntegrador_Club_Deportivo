@@ -1,6 +1,7 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient; // Asegurate de tener el using de MySQL
+using System;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient; // Asegurate de tener el using de MySQL
+using TrabajoIntegrador.Clases;
 
 namespace TrabajoIntegrador
 {
@@ -34,8 +35,11 @@ namespace TrabajoIntegrador
                     return; // Detenemos el flujo y no abrimos la ventana de pagos
                 }
 
-                // Si no es socio, o si siendo socio todavía no pagó este mes, abrimos la pasarela de pagos normal
-                var frmGestionPago = new GestionPago(tipoDoc, nroDoc, esSocio, idCliente, nombre, apellido);
+                Cliente clienteEncontrado = new Cliente(nombre, apellido, tipoDoc, nroDoc, "", 0, DateTime.Now, esSocio, true);
+                clienteEncontrado.Id = idCliente; // Asignamos el ID de la base de datos
+
+                // Abrimos la pasarela de pagos pasándole el objeto completo
+                var frmGestionPago = new GestionPago(clienteEncontrado);
                 frmGestionPago.Show();
 
                 this.Hide();
