@@ -142,7 +142,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txtNombre.ZOrder" xml:space="preserve">
-    <value>16</value>
+    <value>17</value>
   </data>
   <data name="txtApellido.Location" type="System.Drawing.Point, System.Drawing">
     <value>507, 98</value>
@@ -166,7 +166,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txtApellido.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>16</value>
   </data>
   <data name="txtEmail.Location" type="System.Drawing.Point, System.Drawing">
     <value>507, 258</value>
@@ -190,7 +190,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txtEmail.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>15</value>
   </data>
   <data name="lbl_nombre.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -220,7 +220,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lbl_nombre.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>14</value>
   </data>
   <data name="lbl_apellido.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -250,7 +250,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lbl_apellido.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>13</value>
   </data>
   <data name="lbl_tipoDocumento.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -280,7 +280,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lbl_tipoDocumento.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>12</value>
   </data>
   <data name="lbl_mail.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -310,7 +310,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lbl_mail.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>11</value>
   </data>
   <data name="lbl_telefono.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -340,7 +340,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lbl_telefono.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>10</value>
   </data>
   <data name="txtTelefono.Location" type="System.Drawing.Point, System.Drawing">
     <value>245, 258</value>
@@ -364,7 +364,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txtTelefono.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>9</value>
   </data>
   <data name="btn_volver.Location" type="System.Drawing.Point, System.Drawing">
     <value>56, 464</value>
@@ -373,7 +373,7 @@
     <value>4, 4, 4, 4</value>
   </data>
   <data name="btn_volver.Size" type="System.Drawing.Size, System.Drawing">
-    <value>108, 42</value>
+    <value>188, 43</value>
   </data>
   <data name="btn_volver.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -391,10 +391,10 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn_volver.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="cboTipoDoc.Items" xml:space="preserve">
-    <value>D.N.I.</value>
+    <value>DNI</value>
   </data>
   <data name="cboTipoDoc.Items1" xml:space="preserve">
     <value>Pasaporte </value>
@@ -424,16 +424,16 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;cboTipoDoc.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="btn_registrar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>740, 464</value>
+    <value>684, 464</value>
   </data>
   <data name="btn_registrar.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
   </data>
   <data name="btn_registrar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>117, 42</value>
+    <value>188, 43</value>
   </data>
   <data name="btn_registrar.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -451,16 +451,16 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn_registrar.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="txtDocumento.Location" type="System.Drawing.Point, System.Drawing">
-    <value>391, 177</value>
+    <value>507, 178</value>
   </data>
   <data name="txtDocumento.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
   </data>
   <data name="txtDocumento.Size" type="System.Drawing.Size, System.Drawing">
-    <value>157, 22</value>
+    <value>203, 22</value>
   </data>
   <data name="txtDocumento.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -475,7 +475,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txtDocumento.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <metadata name="errorProvider1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
@@ -75748,6 +75748,39 @@
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>915, 551</value>
   </data>
+  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>503, 146</value>
+  </data>
+  <data name="label1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>144, 16</value>
+  </data>
+  <data name="label1.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Número de documento</value>
+  </data>
+  <data name="&gt;&gt;label1.Name" xml:space="preserve">
+    <value>label1</value>
+  </data>
+  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="dtpFechaNacimiento.Location" type="System.Drawing.Point, System.Drawing">
     <value>245, 351</value>
   </data>
@@ -75770,7 +75803,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;dtpFechaNacimiento.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="lblFechaNacimiento.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -75800,7 +75833,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblFechaNacimiento.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="chkAptoFisico.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -75812,7 +75845,7 @@
     <value>4, 4, 4, 4</value>
   </data>
   <data name="chkAptoFisico.Size" type="System.Drawing.Size, System.Drawing">
-    <value>91, 20</value>
+    <value>88, 20</value>
   </data>
   <data name="chkAptoFisico.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -75830,7 +75863,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;chkAptoFisico.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="chkEsSocio.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -75842,7 +75875,7 @@
     <value>4, 4, 4, 4</value>
   </data>
   <data name="chkEsSocio.Size" type="System.Drawing.Size, System.Drawing">
-    <value>64, 20</value>
+    <value>61, 20</value>
   </data>
   <data name="chkEsSocio.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -75860,13 +75893,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;chkEsSocio.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Form1</value>
+    <value>Registrar cliente</value>
   </data>
   <data name="&gt;&gt;errorProvider1.Name" xml:space="preserve">
     <value>errorProvider1</value>
@@ -75878,6 +75911,6 @@
     <value>IngresarCliente</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>TrabajoIntegrador.FormBase, TrabajoIntegrador, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

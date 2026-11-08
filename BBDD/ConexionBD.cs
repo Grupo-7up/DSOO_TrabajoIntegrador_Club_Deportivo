@@ -7,11 +7,13 @@ namespace TrabajoIntegrador
 {
     public class ConexionBD
     {
-        private static readonly string Server = "localhost";
-        private static readonly string Database = "club_deportivo_grupo7";
-        private static readonly string User = "root";
-        private static readonly string Password = "root";
-        private static readonly string Port = "3306";
+        // Datos de conexión: ahora configurables en tiempo de ejecución (se cargan por teclado
+        // desde ConfiguracionConexion antes de iniciar sesión), con estos valores como default.
+        public static string Server { get; set; } = "localhost";
+        public static string Database { get; set; } = "club_deportivo_grupo7";
+        public static string User { get; set; } = "root";
+        public static string Password { get; set; } = "root";
+        public static string Port { get; set; } = "3306";
 
 
         // Conexión general al servidor (sin Database) para inicialización
@@ -20,8 +22,6 @@ namespace TrabajoIntegrador
             string cadenaConexion = $"Server={Server};Port={Port};Uid={User};Pwd={Password};";
             return new MySqlConnection(cadenaConexion);
         }
-        // Cadena de conexión ensamblada
-        private static readonly string CadenaConexion = $"Server={Server};Port={Port};Database={Database};Uid={User};Pwd={Password};";
 
         /// <summary>
         /// Crea y devuelve una nueva instancia de MySqlConnection desglosada.
@@ -150,6 +150,54 @@ namespace TrabajoIntegrador
 
                     idCliente = Convert.ToInt32(paramId.Value);
                     return true;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Guarda el número de carnet emitido para un cliente.
+        /// </summary>
+        public static bool ActualizarCarnet(int idCliente, string nroCarnet)
+        {
+            using (var conexion = ObtenerConexion())
+            {
+                conexion.Open();
+                string query = "UPDATE clientes SET nro_carnet = @nroCarnet WHERE id_cliente = @idCliente";
+                using (var cmd = new MySqlCommand(query, conexion))
+                {
+                    cmd.Parameters.AddWithValue("@nroCarnet", nroCarnet);
+                    cmd.Parameters.AddWithValue("@idCliente", idCliente);
+                    int filasAfectadas = cmd.ExecuteNonQuery();
+                    return filasAfectadas > 0;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Obtiene los socios cuya cuota vence exactamente en la fecha indicada, consultando
+        /// directamente la base (no depende de que la lista en memoria del Club esté cargada).
+        /// </summary>
+        public static DataTable ObtenerClientesVencidos(DateTime fecha)
+        {
+            using (var conexion = ObtenerConexion())
+            {
+                conexion.Open();
+                string query = @"SELECT p.nombre, p.apellido, p.tipo_documento, p.documento, c.validez
+                                 FROM clientes c
+                                 JOIN personas p ON c.id_persona = p.id_persona
+                                 WHERE c.es_socio = 1 AND c.validez = @fecha
+                                 ORDER BY p.apellido ASC, p.nombre ASC";
+
+                using (var cmd = new MySqlCommand(query, conexion))
+                {
+                    cmd.Parameters.AddWithValue("@fecha", fecha.Date);
+
+                    using (var adapter = new MySqlDataAdapter(cmd))
+                    {
+                        DataTable dt = new DataTable();
+                        adapter.Fill(dt);
+                        return dt;
+                    }
                 }
             }
         }

@@ -29,6 +29,29 @@ namespace TrabajoIntegrador
             this.Close();
         }
 
+        private void btn_listarVencimiento_Click(object sender, EventArgs e)
+        {
+            _saliendoPorNavegacion = true;
+            var frm = new TrabajoIntegrador.ListarVencimientos();
+            frm.Show();
+            this.Close();
+        }
+
+        private void btn_salir_Click(object sender, EventArgs e)
+        {
+            DialogResult resultado = MessageBox.Show(
+                "¿Estás seguro de que querés salir de la aplicación?",
+                "Salir",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
+
+            if (resultado == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
+
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             base.OnFormClosing(e);

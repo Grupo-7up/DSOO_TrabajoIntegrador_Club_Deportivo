@@ -35,7 +35,7 @@ namespace TrabajoIntegrador
                     return; // Detenemos el flujo y no abrimos la ventana de pagos
                 }
 
-                Cliente clienteEncontrado = new Cliente(nombre, apellido, tipoDoc, nroDoc, "", 0, DateTime.Now, esSocio, true);
+                Cliente clienteEncontrado = new Cliente(nombre, apellido, tipoDoc, nroDoc, "", "", DateTime.Now, esSocio, true);
                 clienteEncontrado.Id = idCliente; // Asignamos el ID de la base de datos
 
                 // Abrimos la pasarela de pagos pasándole el objeto completo
@@ -54,6 +54,31 @@ namespace TrabajoIntegrador
         private void btnVolver_Click(object sender, EventArgs e)
         {
             VolverAlMenu(); 
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtNumeroDocumento_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbTipoDocumento_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -71,7 +71,7 @@
             // 
             this.lblInfoCliente.AutoSize = true;
             this.lblInfoCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInfoCliente.Location = new System.Drawing.Point(49, 9);
+            this.lblInfoCliente.Location = new System.Drawing.Point(49, 26);
             this.lblInfoCliente.Name = "lblInfoCliente";
             this.lblInfoCliente.Size = new System.Drawing.Size(125, 17);
             this.lblInfoCliente.TabIndex = 0;
@@ -108,9 +108,9 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(495, 92);
+            this.btnCancelar.Location = new System.Drawing.Point(30, 97);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.Size = new System.Drawing.Size(141, 35);
             this.btnCancelar.TabIndex = 6;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -118,11 +118,11 @@
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(366, 92);
+            this.btnAceptar.Location = new System.Drawing.Point(492, 97);
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(95, 23);
+            this.btnAceptar.Size = new System.Drawing.Size(141, 35);
             this.btnAceptar.TabIndex = 5;
-            this.btnAceptar.Text = "Confirmar Pago";
+            this.btnAceptar.Text = "Confirmar pago";
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnConfirmarPago_Click);
             // 
@@ -243,7 +243,7 @@
             // 
             // btnPasarIzquierda
             // 
-            this.btnPasarIzquierda.Location = new System.Drawing.Point(289, 124);
+            this.btnPasarIzquierda.Location = new System.Drawing.Point(281, 128);
             this.btnPasarIzquierda.Name = "btnPasarIzquierda";
             this.btnPasarIzquierda.Size = new System.Drawing.Size(25, 25);
             this.btnPasarIzquierda.TabIndex = 5;
@@ -253,7 +253,7 @@
             // 
             // btnPasarDerecha
             // 
-            this.btnPasarDerecha.Location = new System.Drawing.Point(329, 124);
+            this.btnPasarDerecha.Location = new System.Drawing.Point(321, 128);
             this.btnPasarDerecha.Name = "btnPasarDerecha";
             this.btnPasarDerecha.Size = new System.Drawing.Size(25, 25);
             this.btnPasarDerecha.TabIndex = 4;
@@ -298,7 +298,7 @@
             // lstMesesAdeudados
             // 
             this.lstMesesAdeudados.FormattingEnabled = true;
-            this.lstMesesAdeudados.Location = new System.Drawing.Point(142, 44);
+            this.lstMesesAdeudados.Location = new System.Drawing.Point(133, 44);
             this.lstMesesAdeudados.Name = "lstMesesAdeudados";
             this.lstMesesAdeudados.Size = new System.Drawing.Size(370, 147);
             this.lstMesesAdeudados.TabIndex = 7;
@@ -312,7 +312,7 @@
             this.Controls.Add(this.panelPago);
             this.Controls.Add(this.panelDatos);
             this.Name = "GestionPago";
-            this.Text = "GestionPago";
+            this.Text = "Gestion de pago";
             this.panelDatos.ResumeLayout(false);
             this.panelDatos.PerformLayout();
             this.panelPago.ResumeLayout(false);

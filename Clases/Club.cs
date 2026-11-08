@@ -43,7 +43,7 @@ namespace TrabajoIntegrador.Clases
                 cliente.Nombre,
                 cliente.Apellido,
                 cliente.Email,
-                cliente.Telefono.ToString(),
+                cliente.Telefono,
                 cliente.FechaNacimiento,
                 out idCliente,
                 cliente.EsSocio,
@@ -68,8 +68,21 @@ namespace TrabajoIntegrador.Clases
 
         public void emitir_carnet(Cliente cliente)
         {
-            //acá no sería GUID sino autonumerable, porque si le damos fisico el carnet al usuario tiene que ser un número de minimo 5 digitos tipo 58758
-            cliente.NroCarnet = Guid.NewGuid().ToString("N").Substring(0, 8).ToUpper();
+            // El carnet de socio solo aplica a los socios (los no socios no tienen carnet).
+            if (!cliente.EsSocio)
+            {
+                return;
+            }
+
+            // Número autonumerable en base al Id del cliente en la base (ej: SOC-00042),
+            // en vez de un código random tipo GUID.
+            string carnet = "SOC-" + cliente.Id.ToString("D5");
+
+            bool guardado = ConexionBD.ActualizarCarnet(cliente.Id, carnet);
+            if (guardado)
+            {
+                cliente.NroCarnet = carnet;
+            }
         }
 
         // pasa de socio a no_socio y viceversa

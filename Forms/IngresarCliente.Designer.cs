@@ -52,6 +52,7 @@ namespace TrabajoIntegrador
             this.chkAptoFisico = new System.Windows.Forms.CheckBox();
             this.lblFechaNacimiento = new System.Windows.Forms.Label();
             this.dtpFechaNacimiento = new System.Windows.Forms.DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -169,10 +170,17 @@ namespace TrabajoIntegrador
             resources.ApplyResources(this.dtpFechaNacimiento, "dtpFechaNacimiento");
             this.dtpFechaNacimiento.Name = "dtpFechaNacimiento";
             // 
+            // label1
+            // 
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.Name = "label1";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
             // IngresarCliente
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.dtpFechaNacimiento);
             this.Controls.Add(this.lblFechaNacimiento);
             this.Controls.Add(this.chkAptoFisico);
@@ -217,5 +225,6 @@ namespace TrabajoIntegrador
         private Button btn_registrar;
         private Button btn_volver;
         private ErrorProvider errorProvider1;
+        private Label label1;
     }
 }

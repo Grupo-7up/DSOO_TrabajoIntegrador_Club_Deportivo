@@ -107,6 +107,12 @@
     <Compile Include="Forms\BuscarClienteParaPago.Designer.cs">
       <DependentUpon>BuscarClienteParaPago.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ConfiguracionConexion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ConfiguracionConexion.Designer.cs">
+      <DependentUpon>ConfiguracionConexion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormBase.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,6 +127,12 @@
     </Compile>
     <Compile Include="Forms\IngresarCliente.Designer.cs">
       <DependentUpon>IngresarCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ListarVencimientos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ListarVencimientos.Designer.cs">
+      <DependentUpon>ListarVencimientos.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Login.cs">
       <SubType>Form</SubType>
@@ -139,11 +151,17 @@
     <EmbeddedResource Include="Forms\BuscarClienteParaPago.resx">
       <DependentUpon>BuscarClienteParaPago.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ConfiguracionConexion.resx">
+      <DependentUpon>ConfiguracionConexion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\GestionPago.resx">
       <DependentUpon>GestionPago.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\IngresarCliente.resx">
       <DependentUpon>IngresarCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ListarVencimientos.resx">
+      <DependentUpon>ListarVencimientos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

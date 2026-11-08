@@ -20,9 +20,9 @@ namespace TrabajoIntegrador
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            DatabaseInitializer.InicializarBaseDeDatos();
-
-            Application.Run(new Login());
+            // Los datos de conexión ahora se piden por teclado antes del Login;
+            // ConfiguracionConexion es quien llama a DatabaseInitializer una vez conectado.
+            Application.Run(new ConfiguracionConexion());
         }
     }
 

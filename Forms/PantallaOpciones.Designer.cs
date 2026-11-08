@@ -37,15 +37,16 @@ namespace TrabajoIntegrador
             this.btn_asignarActividad = new System.Windows.Forms.Button();
             this.btn_listarVencimiento = new System.Windows.Forms.Button();
             this.btn_pagarCuota = new System.Windows.Forms.Button();
+            this.btn_salir = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btn_inscribirCliente
             // 
             this.btn_inscribirCliente.AutoSize = true;
-            this.btn_inscribirCliente.Location = new System.Drawing.Point(145, 111);
-            this.btn_inscribirCliente.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_inscribirCliente.Location = new System.Drawing.Point(357, 92);
+            this.btn_inscribirCliente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_inscribirCliente.Name = "btn_inscribirCliente";
-            this.btn_inscribirCliente.Size = new System.Drawing.Size(175, 50);
+            this.btn_inscribirCliente.Size = new System.Drawing.Size(233, 62);
             this.btn_inscribirCliente.TabIndex = 0;
             this.btn_inscribirCliente.Text = "Inscribir cliente";
             this.btn_inscribirCliente.UseVisualStyleBackColor = true;
@@ -55,52 +56,67 @@ namespace TrabajoIntegrador
             // 
             this.btn_asignarActividad.AccessibleRole = System.Windows.Forms.AccessibleRole.OutlineButton;
             this.btn_asignarActividad.AutoSize = true;
-            this.btn_asignarActividad.Location = new System.Drawing.Point(388, 111);
-            this.btn_asignarActividad.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_asignarActividad.Location = new System.Drawing.Point(667, 433);
+            this.btn_asignarActividad.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_asignarActividad.Name = "btn_asignarActividad";
-            this.btn_asignarActividad.Size = new System.Drawing.Size(175, 50);
-            this.btn_asignarActividad.TabIndex = 1;
+            this.btn_asignarActividad.Size = new System.Drawing.Size(233, 62);
+            this.btn_asignarActividad.TabIndex = 4;
             this.btn_asignarActividad.Text = "Asignar actividad";
             this.btn_asignarActividad.UseVisualStyleBackColor = true;
+            this.btn_asignarActividad.Visible = false;
             // 
             // btn_listarVencimiento
             // 
             this.btn_listarVencimiento.AccessibleRole = System.Windows.Forms.AccessibleRole.OutlineButton;
             this.btn_listarVencimiento.AutoSize = true;
-            this.btn_listarVencimiento.Location = new System.Drawing.Point(388, 219);
-            this.btn_listarVencimiento.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_listarVencimiento.Location = new System.Drawing.Point(357, 325);
+            this.btn_listarVencimiento.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_listarVencimiento.Name = "btn_listarVencimiento";
-            this.btn_listarVencimiento.Size = new System.Drawing.Size(175, 50);
+            this.btn_listarVencimiento.Size = new System.Drawing.Size(233, 62);
             this.btn_listarVencimiento.TabIndex = 2;
             this.btn_listarVencimiento.Text = "Listar vencimientos";
             this.btn_listarVencimiento.UseVisualStyleBackColor = true;
+            this.btn_listarVencimiento.Click += new System.EventHandler(this.btn_listarVencimiento_Click);
             // 
             // btn_pagarCuota
             // 
             this.btn_pagarCuota.AccessibleRole = System.Windows.Forms.AccessibleRole.OutlineButton;
             this.btn_pagarCuota.AutoSize = true;
-            this.btn_pagarCuota.Location = new System.Drawing.Point(145, 219);
-            this.btn_pagarCuota.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_pagarCuota.Location = new System.Drawing.Point(357, 209);
+            this.btn_pagarCuota.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_pagarCuota.Name = "btn_pagarCuota";
-            this.btn_pagarCuota.Size = new System.Drawing.Size(175, 50);
-            this.btn_pagarCuota.TabIndex = 3;
+            this.btn_pagarCuota.Size = new System.Drawing.Size(233, 62);
+            this.btn_pagarCuota.TabIndex = 1;
             this.btn_pagarCuota.Text = "Pagar cuota";
             this.btn_pagarCuota.UseVisualStyleBackColor = true;
             this.btn_pagarCuota.Click += new System.EventHandler(this.btn_pagarCuota_Click);
             // 
+            // btn_salir
+            // 
+            this.btn_salir.AutoSize = true;
+            this.btn_salir.Location = new System.Drawing.Point(29, 433);
+            this.btn_salir.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_salir.Name = "btn_salir";
+            this.btn_salir.Size = new System.Drawing.Size(188, 43);
+            this.btn_salir.TabIndex = 3;
+            this.btn_salir.Text = "Salir";
+            this.btn_salir.UseVisualStyleBackColor = true;
+            this.btn_salir.Click += new System.EventHandler(this.btn_salir_Click);
+            // 
             // PantallaOpciones
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(686, 390);
+            this.ClientSize = new System.Drawing.Size(915, 505);
+            this.Controls.Add(this.btn_salir);
             this.Controls.Add(this.btn_pagarCuota);
             this.Controls.Add(this.btn_listarVencimiento);
             this.Controls.Add(this.btn_asignarActividad);
             this.Controls.Add(this.btn_inscribirCliente);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "PantallaOpciones";
-            this.Text = "Form1";
+            this.Text = "Menu de opciones";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -112,5 +128,6 @@ namespace TrabajoIntegrador
         private Button btn_asignarActividad;
         private Button btn_pagarCuota;
         private Button btn_listarVencimiento;
+        private Button btn_salir;
     }
 }

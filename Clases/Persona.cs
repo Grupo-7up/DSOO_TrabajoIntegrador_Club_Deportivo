@@ -9,10 +9,10 @@ namespace TrabajoIntegrador.Clases
         private string tipo_documento;
         private string documento;
         private string email;
-        private int telefono;
+        private string telefono;
         private DateTime fecha_nacimiento;
 
-        public Persona(string nombre, string apellido, string tipo_documento, string documento, string email, int telefono, DateTime fecha_nacimiento)
+        public Persona(string nombre, string apellido, string tipo_documento, string documento, string email, string telefono, DateTime fecha_nacimiento)
         {
             this.nombre = nombre;
             this.apellido = apellido;
@@ -53,7 +53,7 @@ namespace TrabajoIntegrador.Clases
             set { email = value; }
         }
 
-        public int Telefono
+        public string Telefono
         {
             get { return telefono; }
             set { telefono = value; }

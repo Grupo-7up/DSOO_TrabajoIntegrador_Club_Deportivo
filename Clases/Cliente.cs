@@ -16,7 +16,7 @@ namespace TrabajoIntegrador.Clases
         private List<Pago> pagos;
         public int Id { get; set; }
 
-        public Cliente(string nombre, string apellido, string tipo_documento, string documento, string email, int telefono, DateTime fecha_nacimiento, bool es_socio, bool apto_fisico)
+        public Cliente(string nombre, string apellido, string tipo_documento, string documento, string email, string telefono, DateTime fecha_nacimiento, bool es_socio, bool apto_fisico)
             : base(nombre, apellido, tipo_documento, documento, email, telefono, fecha_nacimiento)
         {
             this.es_socio = es_socio;

@@ -1,4 +1,5 @@
 using System;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using TrabajoIntegrador.Clases;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
@@ -74,8 +75,12 @@ namespace TrabajoIntegrador
                                     MessageBoxButtons.OK,
                                     MessageBoxIcon.Information);
 
-                    Cliente clienteNuevo = new Cliente(nombre, apellido, tipoDoc, documento, email, 0, fechaNacimiento, esSocio, aptoFisico);
+                    Cliente clienteNuevo = new Cliente(nombre, apellido, tipoDoc, documento, email, telefono, fechaNacimiento, esSocio, aptoFisico);
                     clienteNuevo.Id = idClienteGenerado;
+
+                    // Emitimos el carnet ahora que ya tenemos el Id autonumerado
+                    Program.MiClub.emitir_carnet(clienteNuevo);
+
                     // Derivamos automáticamente a GestionPago
                     var frmGestionPago = new GestionPago(clienteNuevo);
                     frmGestionPago.Show();
@@ -133,6 +138,43 @@ namespace TrabajoIntegrador
             if (string.IsNullOrWhiteSpace(txtDocumento.Text))
             {
                 errorProvider1.SetError(txtDocumento, "El documento es obligatorio");
+                completo = false;
+            }
+
+            // Validar Email (obligatorio + formato válido)
+            if (string.IsNullOrWhiteSpace(txtEmail.Text))
+            {
+                errorProvider1.SetError(txtEmail, "El email es obligatorio");
+                completo = false;
+            }
+            else if (!Regex.IsMatch(txtEmail.Text.Trim(), @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
+            {
+                errorProvider1.SetError(txtEmail, "El email no tiene un formato válido");
+                completo = false;
+            }
+
+            // Validar Teléfono
+            if (string.IsNullOrWhiteSpace(txtTelefono.Text))
+            {
+                errorProvider1.SetError(txtTelefono, "El teléfono es obligatorio");
+                completo = false;
+            }
+
+            // Validar Fecha de nacimiento (no puede ser una fecha futura)
+            if (dtpFechaNacimiento.Value.Date > DateTime.Now.Date)
+            {
+                errorProvider1.SetError(dtpFechaNacimiento, "La fecha de nacimiento no puede ser futura");
+                completo = false;
+            }
+            else
+            {
+                errorProvider1.SetError(dtpFechaNacimiento, "");
+            }
+
+            // Validar Apto físico
+            if (!chkAptoFisico.Checked)
+            {
+                errorProvider1.SetError(chkAptoFisico, "El apto físico es obligatorio");
                 completo = false;
             }
 
@@ -219,6 +261,11 @@ namespace TrabajoIntegrador
         }
 
         private void txtNombre_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }
