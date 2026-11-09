@@ -16,6 +16,7 @@ namespace TrabajoIntegrador
         private Cliente _clienteActual;
 
         // Monto total acumulado
+        private decimal montoPorMes = 5000.00M; // Monto fijo por mes para socios
         private decimal _montoTotal = 0;
 
         // Constructor que recibe la información del cliente desde BuscarClienteParaPago
@@ -63,7 +64,6 @@ namespace TrabajoIntegrador
 
                     List<string> mesesDeuda = ConexionBD.ObtenerPeriodosAdeudadosSocio(_clienteActual.Id);
                     int cantidadMeses = Math.Max(1, mesesDeuda.Count);
-                    decimal montoPorMes = 5000.00M; // Monto fijo por mes para socios
                     foreach (var mes in mesesDeuda)
                     {
                         lstMesesAdeudados.Items.Add($"• Cuota Social - Período: {mes} ($ {montoPorMes:N2})");
