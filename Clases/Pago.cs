@@ -33,6 +33,21 @@ namespace TrabajoIntegrador.Clases
             set { monto = value; }
         }
 
+        public string EmitirComprobante(string nombreCliente = "Socio / Visitante")
+        {
+            return
+                "=======================================\n" +
+                "      CLUB DEPORTIVO - COMPROBANTE     \n" +
+                "=======================================\n" +
+                $" Fecha de emisión: {fecha_pago:dd/MM/yyyy HH:mm}\n" +
+                $" Titular: {nombreCliente}\n" +
+                $" Concepto: {concepto}\n" +
+                $" Monto Abonado: ${monto:N2}\n" +
+                "---------------------------------------\n" +
+                "     ¡Gracias por mantenerse al día!   \n" +
+                "=======================================";
+        }
+
         public override string ToString()
         {
             return $"{fecha_pago:dd/MM/yyyy} - {concepto}: {monto:C}";

@@ -16,6 +16,7 @@ namespace TrabajoIntegrador
         private Cliente _clienteActual;
 
         // Monto total acumulado
+        private decimal montoPorMes = 5000.00M; // Monto fijo por mes para socios
         private decimal _montoTotal = 0;
 
         // Constructor que recibe la información del cliente desde BuscarClienteParaPago
@@ -63,7 +64,6 @@ namespace TrabajoIntegrador
 
                     List<string> mesesDeuda = ConexionBD.ObtenerPeriodosAdeudadosSocio(_clienteActual.Id);
                     int cantidadMeses = Math.Max(1, mesesDeuda.Count);
-                    decimal montoPorMes = 5000.00M; // Monto fijo por mes para socios
                     foreach (var mes in mesesDeuda)
                     {
                         lstMesesAdeudados.Items.Add($"• Cuota Social - Período: {mes} ($ {montoPorMes:N2})");
@@ -240,53 +240,68 @@ namespace TrabajoIntegrador
                 return;
             }
 
-            RegistrarPago();
-        }
-
-        private void RegistrarPago()
-        {
             try
             {
-                string formaPago = cmbMedioPago.SelectedItem.ToString();
-                int cantidadCuotas = 1;
+                // 1. Ejecutamos el registro y obtenemos el objeto Pago resultante
+                Pago comprobanteGenerado = RegistrarPago();
 
-                if (formaPago == "Tarjeta de Crédito")
+                if (comprobanteGenerado != null)
                 {
-                    if (rb3Cuotas.Checked) cantidadCuotas = 3;
-                    else if (rb6Cuotas.Checked) cantidadCuotas = 6;
+                    // 2. Emitimos el ticket y lo mostramos por pantalla
+                    string textoTicket = comprobanteGenerado.EmitirComprobante($"{_clienteActual.Nombre} {_clienteActual.Apellido}");
+                    MessageBox.Show(textoTicket, "Comprobante de Pago", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // 3. Volvemos al menú principal
+                    VolverAlMenu();
                 }
-
-                // Buscamos o instanciamos el cliente en la memoria del club para que ejecute el negocio
-                if (_clienteActual.EsSocio)
-                {
-                    List<string> mesesDeuda = ConexionBD.ObtenerPeriodosAdeudadosSocio(_clienteActual.Id);
-                    int cantidadMeses = Math.Max(1, mesesDeuda.Count);
-
-                    // El club procesa el cobro y la persistencia pasándole el objeto cliente
-                    Program.MiClub.cobrar_cuota_mensual(_clienteActual, _montoTotal, DateTime.Now, formaPago, cantidadCuotas, cantidadMeses);
-                }
-                else
-                {
-                    List<int> idsActividades = new List<int>();
-                    foreach (var item in lstSeleccionadas.Items)
-                    {
-                        if (item is ActividadItem act)
-                        {
-                            idsActividades.Add(act.Id);
-                        }
-                    }
-
-                    // El club procesa el pase diario pasándole el objeto cliente
-                    Program.MiClub.cobrar_cuota_diaria(_clienteActual, _montoTotal, DateTime.Now, formaPago, cantidadCuotas, idsActividades);
-                }
-
-                MessageBox.Show("¡Pago registrado y procesado por el club con éxito!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                VolverAlMenu();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error al registrar el pago: " + ex.Message, "Error crítico", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private Pago RegistrarPago()
+        {
+            string formaPago = cmbMedioPago.SelectedItem.ToString();
+            int cantidadCuotas = 1;
+
+            if (formaPago == "Tarjeta de Crédito")
+            {
+                if (rb3Cuotas.Checked) cantidadCuotas = 3;
+                else if (rb6Cuotas.Checked) cantidadCuotas = 6;
+            }
+
+            string detalleConcepto = "";
+
+            if (_clienteActual.EsSocio)
+            {
+                List<string> mesesDeuda = ConexionBD.ObtenerPeriodosAdeudadosSocio(_clienteActual.Id);
+                int cantidadMeses = Math.Max(1, mesesDeuda.Count);
+                detalleConcepto = $"Cuota Social ({cantidadMeses} período/s: {string.Join(", ", mesesDeuda)})";
+
+                Program.MiClub.cobrar_cuota_mensual(_clienteActual, _montoTotal, DateTime.Now, formaPago, cantidadCuotas, cantidadMeses);
+            }
+            else
+            {
+                List<int> idsActividades = new List<int>();
+                List<string> nombresActividades = new List<string>();
+
+                foreach (var item in lstSeleccionadas.Items)
+                {
+                    if (item is ActividadItem act)
+                    {
+                        idsActividades.Add(act.Id);
+                        nombresActividades.Add(act.Nombre);
+                    }
+                }
+                detalleConcepto = $"Pase Diario - Actividades: {string.Join(", ", nombresActividades)}";
+
+                Program.MiClub.cobrar_cuota_diaria(_clienteActual, _montoTotal, DateTime.Now, formaPago, cantidadCuotas, idsActividades);
+            }
+
+            // Retornamos el comprobante listo
+            return new Pago(DateTime.Now, detalleConcepto, _montoTotal);
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
