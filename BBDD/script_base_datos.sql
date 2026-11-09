@@ -277,11 +277,7 @@ BEGIN
     DECLARE v_validez DATE;
 
     -- Calcular fecha de validez según si es socio o no
-    IF p_es_socio THEN
-        SET v_validez = NULL;
-    ELSE
-        SET v_validez = CURDATE();
-    END IF;
+    SET v_validez = NULL;
 
     -- Iniciar transacción para asegurar consistencia
     START TRANSACTION;

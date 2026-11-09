@@ -378,6 +378,7 @@ namespace TrabajoIntegrador
                     cmd.ExecuteNonQuery();
                     return true;
                 }
+
             }
         }
 
@@ -457,8 +458,18 @@ namespace TrabajoIntegrador
                             cmd.Parameters.AddWithValue("@cantidadCuotas", cantidadCuotas);
                             cmd.ExecuteNonQuery();
                         }
+                        // 2. Extender la validez del cliente con COALESCE para evitar errores si validez es NULL (socio nuevo)
+                        string queryValidez = @"UPDATE clientes 
+                                                SET validez = CURDATE(), activo = 1
+                                                WHERE id_cliente = @idCliente";
 
-                        // 2. (Opcional pero recomendado) Asociar las actividades pagadas al cliente en la tabla intermedia
+                        using (var cmd = new MySqlCommand(queryValidez, conexion, transaccion))
+                        {
+                            cmd.Parameters.AddWithValue("@idCliente", idCliente);
+                            cmd.ExecuteNonQuery();
+                        }
+
+                        // 3. (Opcional pero recomendado) Asociar las actividades pagadas al cliente en la tabla intermedia
                         foreach (int idActividad in idsActividades)
                         {
                             string queryRelacion = @"INSERT IGNORE INTO cliente_actividad (id_cliente, id_actividad, fecha_inscripcion) 
@@ -471,6 +482,8 @@ namespace TrabajoIntegrador
                                 cmdRel.ExecuteNonQuery();
                             }
                         }
+
+                        
 
                         transaccion.Commit();
                         return true;
