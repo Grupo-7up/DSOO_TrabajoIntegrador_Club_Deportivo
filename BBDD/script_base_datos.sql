@@ -204,27 +204,27 @@ FROM personas p WHERE p.tipo_documento = 'DNI' AND p.documento = '30100015'
 -- No socios (5): control, nunca deberían aparecer en "Listar vencimientos"
 -- (la consulta filtra es_socio = 1), ni siquiera cuando su fecha "coincide" con la buscada.
 INSERT INTO clientes (id_persona, es_socio, validez, activo, apto_fisico)
-SELECT p.id_persona, FALSE, CURDATE(), TRUE, FALSE
+SELECT p.id_persona, FALSE, CURDATE(), TRUE, TRUE
 FROM personas p WHERE p.tipo_documento = 'DNI' AND p.documento = '30200001'
   AND NOT EXISTS (SELECT 1 FROM clientes c WHERE c.id_persona = p.id_persona);
 
 INSERT INTO clientes (id_persona, es_socio, validez, activo, apto_fisico)
-SELECT p.id_persona, FALSE, DATE_SUB(CURDATE(), INTERVAL 5 DAY), TRUE, FALSE
+SELECT p.id_persona, FALSE, DATE_SUB(CURDATE(), INTERVAL 5 DAY), TRUE, TRUE
 FROM personas p WHERE p.tipo_documento = 'DNI' AND p.documento = '30200002'
   AND NOT EXISTS (SELECT 1 FROM clientes c WHERE c.id_persona = p.id_persona);
 
 INSERT INTO clientes (id_persona, es_socio, validez, activo, apto_fisico)
-SELECT p.id_persona, FALSE, DATE_ADD(CURDATE(), INTERVAL 10 DAY), TRUE, FALSE
+SELECT p.id_persona, FALSE, DATE_ADD(CURDATE(), INTERVAL 10 DAY), TRUE, TRUE
 FROM personas p WHERE p.tipo_documento = 'DNI' AND p.documento = '30200003'
   AND NOT EXISTS (SELECT 1 FROM clientes c WHERE c.id_persona = p.id_persona);
 
 INSERT INTO clientes (id_persona, es_socio, validez, activo, apto_fisico)
-SELECT p.id_persona, FALSE, DATE_SUB(CURDATE(), INTERVAL 10 DAY), TRUE, FALSE
+SELECT p.id_persona, FALSE, DATE_SUB(CURDATE(), INTERVAL 10 DAY), TRUE, TRUE
 FROM personas p WHERE p.tipo_documento = 'DNI' AND p.documento = '30200004'
   AND NOT EXISTS (SELECT 1 FROM clientes c WHERE c.id_persona = p.id_persona);
 
 INSERT INTO clientes (id_persona, es_socio, validez, activo, apto_fisico)
-SELECT p.id_persona, FALSE, DATE_ADD(CURDATE(), INTERVAL 5 DAY), TRUE, FALSE
+SELECT p.id_persona, FALSE, DATE_ADD(CURDATE(), INTERVAL 5 DAY), TRUE, TRUE
 FROM personas p WHERE p.tipo_documento = 'DNI' AND p.documento = '30200005'
   AND NOT EXISTS (SELECT 1 FROM clientes c WHERE c.id_persona = p.id_persona);
 
