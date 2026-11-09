@@ -230,39 +230,39 @@ namespace TrabajoIntegrador
         /// Obtiene los datos clave del cliente (ID de cliente y si es socio) haciendo el JOIN correcto con personas.
         /// </summary>
         public static bool ObtenerDatosClienteParaPago(string tipoDoc, string documento, out int idCliente, out bool esSocio, out string nombre, out string apellido)
-        {
-            idCliente = 0;
-            esSocio = false;
-            nombre = string.Empty;
-            apellido = string.Empty;
-
-            using (var conexion = ObtenerConexion())
             {
-                conexion.Open();
-                // Hacemos el JOIN tal como lo tenés en tu stored procedure sp_existe_cliente
-                string query = @"SELECT c.id_cliente, c.es_socio, p.nombre, p.apellido
-                                 FROM clientes c
-                                 JOIN personas p ON c.id_persona = p.id_persona
-                                 WHERE p.tipo_documento = @tipo AND p.documento = @doc";
+                idCliente = 0;
+                esSocio = false;
+                nombre = string.Empty;
+                apellido = string.Empty;
 
-                using (var cmd = new MySqlCommand(query, conexion))
+                using (var conexion = ObtenerConexion())
                 {
-                    cmd.Parameters.AddWithValue("@tipo", tipoDoc);
-                    cmd.Parameters.AddWithValue("@doc", documento);
+                    conexion.Open();
+                    // Hacemos el JOIN tal como lo tenés en tu stored procedure sp_existe_cliente
+                    string query = @"SELECT c.id_cliente, c.es_socio, p.nombre, p.apellido
+                                     FROM clientes c
+                                     JOIN personas p ON c.id_persona = p.id_persona
+                                     WHERE p.tipo_documento = @tipo AND p.documento = @doc";
 
-                    using (var reader = cmd.ExecuteReader())
+                    using (var cmd = new MySqlCommand(query, conexion))
                     {
-                        if (reader.Read())
+                        cmd.Parameters.AddWithValue("@tipo", tipoDoc);
+                        cmd.Parameters.AddWithValue("@doc", documento);
+
+                        using (var reader = cmd.ExecuteReader())
                         {
-                            idCliente = Convert.ToInt32(reader["id_cliente"]);
-                            esSocio = Convert.ToBoolean(reader["es_socio"]);
-                            nombre = reader["nombre"].ToString();
-                            apellido = reader["apellido"].ToString();
-                            return true;
+                            if (reader.Read())
+                            {
+                                idCliente = Convert.ToInt32(reader["id_cliente"]);
+                                esSocio = Convert.ToBoolean(reader["es_socio"]);
+                                nombre = reader["nombre"].ToString();
+                                apellido = reader["apellido"].ToString();
+                                return true;
+                            }
                         }
                     }
                 }
-            }
             return false;
         }
 

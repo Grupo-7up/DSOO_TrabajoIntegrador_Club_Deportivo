@@ -11,7 +11,7 @@ namespace TrabajoIntegrador.Clases
         private DateTime fecha_vencimiento;
 
         public Cuota(DateTime fecha_pago, string concepto, decimal monto, string forma_pago, int cantidad_cuotas, int periodo_anio, int periodo_mes, DateTime fecha_vencimiento)
-            : base(fecha_pago, concepto, monto)
+            : base(fecha_pago, concepto, monto, fecha_vencimiento)
         {
             this.forma_pago = forma_pago;
             this.cantidad_cuotas = cantidad_cuotas;

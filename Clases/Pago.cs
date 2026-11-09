@@ -7,12 +7,14 @@ namespace TrabajoIntegrador.Clases
         private DateTime fecha_pago;
         private string concepto;
         private decimal monto;
+        private DateTime fecha_vencimiento;
 
-        public Pago(DateTime fecha_pago, string concepto, decimal monto)
+        public Pago(DateTime fecha_pago, string concepto, decimal monto, DateTime fecha_vencimiento)
         {
             this.fecha_pago = fecha_pago;
             this.concepto = concepto;
             this.monto = monto;
+            this.fecha_vencimiento = fecha_vencimiento;
         }
 
         public DateTime FechaPago
@@ -42,6 +44,7 @@ namespace TrabajoIntegrador.Clases
                 $" Fecha de emisión: {fecha_pago:dd/MM/yyyy HH:mm}\n" +
                 $" Titular: {nombreCliente}\n" +
                 $" Concepto: {concepto}\n" +
+                $" Prox vencimiento: {fecha_vencimiento:dd/MM/yyyy}\n" +
                 $" Monto Abonado: ${monto:N2}\n" +
                 "---------------------------------------\n" +
                 "     ¡Gracias por mantenerse al día!   \n" +
@@ -50,7 +53,7 @@ namespace TrabajoIntegrador.Clases
 
         public override string ToString()
         {
-            return $"{fecha_pago:dd/MM/yyyy} - {concepto}: {monto:C}";
+            return $"{fecha_pago:dd/MM/yyyy} - {concepto}: ${monto:N2}";
         }
     }
 }
