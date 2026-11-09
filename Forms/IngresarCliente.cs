@@ -70,16 +70,44 @@ namespace TrabajoIntegrador
 
                 if (registrado)
                 {
-                    MessageBox.Show("Cliente registrado correctamente.\nA continuación, se procederá a la pantalla de cobro.",
+                    Cliente clienteNuevo = new Cliente(
+                        nombre, apellido, tipoDoc, documento,
+                        email, telefono, fechaNacimiento,
+                        esSocio, aptoFisico
+                    );
+
+                    clienteNuevo.Id = idClienteGenerado;
+
+                    // Emitimos el carnet antes de mostrar el mensaje
+                    Program.MiClub.emitir_carnet(clienteNuevo);
+
+                    string mensaje;
+
+                    if (clienteNuevo.EsSocio)
+                    {
+                        if (!string.IsNullOrWhiteSpace(clienteNuevo.NroCarnet))
+                        {
+                            mensaje = "Socio registrado correctamente.\n" +
+                                      "Número de carnet asignado: " +
+                                      clienteNuevo.NroCarnet +
+                                      "\nSe procederá a la pantalla de cobro.";
+                        }
+                        else
+                        {
+                            mensaje = "El socio se registró correctamente, " +
+                                      "pero no se pudo obtener el número de carnet.";
+                        }
+                    }
+                    else
+                    {
+                        mensaje = "Cliente registrado correctamente.\n" +
+                                  "Se procederá a la pantalla de cobro.";
+                    }
+
+                    MessageBox.Show(mensaje,
                                     "Éxito",
                                     MessageBoxButtons.OK,
                                     MessageBoxIcon.Information);
-
-                    Cliente clienteNuevo = new Cliente(nombre, apellido, tipoDoc, documento, email, telefono, fechaNacimiento, esSocio, aptoFisico);
-                    clienteNuevo.Id = idClienteGenerado;
-
-                    // Emitimos el carnet ahora que ya tenemos el Id autonumerado
-                    Program.MiClub.emitir_carnet(clienteNuevo);
 
                     // Derivamos automáticamente a GestionPago
                     var frmGestionPago = new GestionPago(clienteNuevo);
