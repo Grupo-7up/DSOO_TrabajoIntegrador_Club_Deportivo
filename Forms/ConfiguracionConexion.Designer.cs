@@ -34,7 +34,8 @@ namespace TrabajoIntegrador
             // 
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.lblTitulo.Location = new System.Drawing.Point(40, 20);
+            this.lblTitulo.Location = new System.Drawing.Point(53, 25);
+            this.lblTitulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(236, 20);
             this.lblTitulo.TabIndex = 0;
@@ -43,94 +44,106 @@ namespace TrabajoIntegrador
             // lblServer
             // 
             this.lblServer.AutoSize = true;
-            this.lblServer.Location = new System.Drawing.Point(40, 70);
+            this.lblServer.Location = new System.Drawing.Point(53, 86);
+            this.lblServer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblServer.Name = "lblServer";
-            this.lblServer.Size = new System.Drawing.Size(49, 13);
+            this.lblServer.Size = new System.Drawing.Size(61, 16);
             this.lblServer.TabIndex = 1;
             this.lblServer.Text = "Servidor:";
             // 
             // txtServer
             // 
-            this.txtServer.Location = new System.Drawing.Point(160, 67);
+            this.txtServer.Location = new System.Drawing.Point(213, 82);
+            this.txtServer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtServer.Name = "txtServer";
-            this.txtServer.Size = new System.Drawing.Size(200, 20);
+            this.txtServer.Size = new System.Drawing.Size(265, 22);
             this.txtServer.TabIndex = 2;
             this.txtServer.Text = "localhost";
             // 
             // lblPuerto
             // 
             this.lblPuerto.AutoSize = true;
-            this.lblPuerto.Location = new System.Drawing.Point(40, 100);
+            this.lblPuerto.Location = new System.Drawing.Point(53, 123);
+            this.lblPuerto.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPuerto.Name = "lblPuerto";
-            this.lblPuerto.Size = new System.Drawing.Size(41, 13);
+            this.lblPuerto.Size = new System.Drawing.Size(49, 16);
             this.lblPuerto.TabIndex = 3;
             this.lblPuerto.Text = "Puerto:";
             // 
             // txtPuerto
             // 
-            this.txtPuerto.Location = new System.Drawing.Point(160, 97);
+            this.txtPuerto.Location = new System.Drawing.Point(213, 119);
+            this.txtPuerto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtPuerto.Name = "txtPuerto";
-            this.txtPuerto.Size = new System.Drawing.Size(200, 20);
+            this.txtPuerto.Size = new System.Drawing.Size(265, 22);
             this.txtPuerto.TabIndex = 4;
             this.txtPuerto.Text = "3306";
             // 
             // lblBaseDatos
             // 
             this.lblBaseDatos.AutoSize = true;
-            this.lblBaseDatos.Location = new System.Drawing.Point(40, 130);
+            this.lblBaseDatos.Location = new System.Drawing.Point(53, 160);
+            this.lblBaseDatos.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblBaseDatos.Name = "lblBaseDatos";
-            this.lblBaseDatos.Size = new System.Drawing.Size(78, 13);
+            this.lblBaseDatos.Size = new System.Drawing.Size(98, 16);
             this.lblBaseDatos.TabIndex = 5;
             this.lblBaseDatos.Text = "Base de datos:";
             // 
             // txtBaseDatos
             // 
-            this.txtBaseDatos.Location = new System.Drawing.Point(160, 127);
+            this.txtBaseDatos.Enabled = false;
+            this.txtBaseDatos.Location = new System.Drawing.Point(213, 156);
+            this.txtBaseDatos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtBaseDatos.Name = "txtBaseDatos";
-            this.txtBaseDatos.Size = new System.Drawing.Size(200, 20);
+            this.txtBaseDatos.Size = new System.Drawing.Size(265, 22);
             this.txtBaseDatos.TabIndex = 6;
             this.txtBaseDatos.Text = "club_deportivo_grupo7";
             // 
             // lblUsuario
             // 
             this.lblUsuario.AutoSize = true;
-            this.lblUsuario.Location = new System.Drawing.Point(40, 160);
+            this.lblUsuario.Location = new System.Drawing.Point(53, 197);
+            this.lblUsuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(46, 13);
+            this.lblUsuario.Size = new System.Drawing.Size(57, 16);
             this.lblUsuario.TabIndex = 7;
             this.lblUsuario.Text = "Usuario:";
             // 
             // txtUsuario
             // 
-            this.txtUsuario.Location = new System.Drawing.Point(160, 157);
+            this.txtUsuario.Location = new System.Drawing.Point(213, 193);
+            this.txtUsuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(200, 20);
+            this.txtUsuario.Size = new System.Drawing.Size(265, 22);
             this.txtUsuario.TabIndex = 8;
             this.txtUsuario.Text = "root";
             // 
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
-            this.lblPassword.Location = new System.Drawing.Point(40, 190);
+            this.lblPassword.Location = new System.Drawing.Point(53, 234);
+            this.lblPassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(64, 13);
+            this.lblPassword.Size = new System.Drawing.Size(79, 16);
             this.lblPassword.TabIndex = 9;
             this.lblPassword.Text = "Contraseña:";
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(160, 187);
+            this.txtPassword.Location = new System.Drawing.Point(213, 230);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(200, 20);
+            this.txtPassword.Size = new System.Drawing.Size(265, 22);
             this.txtPassword.TabIndex = 10;
             this.txtPassword.Text = "root";
             // 
             // btnConectar
             // 
-            this.btnConectar.Location = new System.Drawing.Point(219, 230);
+            this.btnConectar.Location = new System.Drawing.Point(292, 283);
+            this.btnConectar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnConectar.Name = "btnConectar";
-            this.btnConectar.Size = new System.Drawing.Size(141, 35);
+            this.btnConectar.Size = new System.Drawing.Size(188, 43);
             this.btnConectar.TabIndex = 11;
             this.btnConectar.Text = "Conectar";
             this.btnConectar.UseVisualStyleBackColor = true;
@@ -138,9 +151,10 @@ namespace TrabajoIntegrador
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(43, 230);
+            this.btnSalir.Location = new System.Drawing.Point(57, 283);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(141, 35);
+            this.btnSalir.Size = new System.Drawing.Size(188, 43);
             this.btnSalir.TabIndex = 12;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
@@ -148,9 +162,9 @@ namespace TrabajoIntegrador
             // 
             // ConfiguracionConexion
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(400, 300);
+            this.ClientSize = new System.Drawing.Size(533, 369);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnConectar);
             this.Controls.Add(this.txtPassword);
@@ -165,6 +179,7 @@ namespace TrabajoIntegrador
             this.Controls.Add(this.lblServer);
             this.Controls.Add(this.lblTitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.Name = "ConfiguracionConexion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

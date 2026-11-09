@@ -42,7 +42,7 @@ namespace TrabajoIntegrador
             // 
             this.lblFechaConsulta.AutoSize = true;
             this.lblFechaConsulta.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.lblFechaConsulta.Location = new System.Drawing.Point(413, 449);
+            this.lblFechaConsulta.Location = new System.Drawing.Point(376, 449);
             this.lblFechaConsulta.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFechaConsulta.Name = "lblFechaConsulta";
             this.lblFechaConsulta.Size = new System.Drawing.Size(200, 16);
@@ -63,17 +63,17 @@ namespace TrabajoIntegrador
             // 
             this.dtpFechaVerificar.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpFechaVerificar.Location = new System.Drawing.Point(153, 64);
-            this.dtpFechaVerificar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpFechaVerificar.Margin = new System.Windows.Forms.Padding(4);
             this.dtpFechaVerificar.Name = "dtpFechaVerificar";
             this.dtpFechaVerificar.Size = new System.Drawing.Size(172, 22);
             this.dtpFechaVerificar.TabIndex = 3;
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(351, 64);
-            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnBuscar.Location = new System.Drawing.Point(351, 60);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(133, 22);
+            this.btnBuscar.Size = new System.Drawing.Size(133, 30);
             this.btnBuscar.TabIndex = 4;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
@@ -84,7 +84,7 @@ namespace TrabajoIntegrador
             this.lstVencimientos.FormattingEnabled = true;
             this.lstVencimientos.ItemHeight = 16;
             this.lstVencimientos.Location = new System.Drawing.Point(27, 103);
-            this.lstVencimientos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lstVencimientos.Margin = new System.Windows.Forms.Padding(4);
             this.lstVencimientos.Name = "lstVencimientos";
             this.lstVencimientos.Size = new System.Drawing.Size(612, 308);
             this.lstVencimientos.TabIndex = 5;
@@ -92,7 +92,7 @@ namespace TrabajoIntegrador
             // btnVolver
             // 
             this.btnVolver.Location = new System.Drawing.Point(27, 436);
-            this.btnVolver.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnVolver.Margin = new System.Windows.Forms.Padding(4);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(133, 43);
             this.btnVolver.TabIndex = 6;
@@ -112,7 +112,7 @@ namespace TrabajoIntegrador
             this.Controls.Add(this.lblFechaVerificar);
             this.Controls.Add(this.lblFechaConsulta);
             this.Controls.Add(this.lblTitulo);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ListarVencimientos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Listar vencimientos";
