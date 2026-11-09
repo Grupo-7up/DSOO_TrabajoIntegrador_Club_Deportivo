@@ -136,7 +136,7 @@ namespace TrabajoIntegrador.Clases
             }
 
             // 2. Actualizamos la lógica en memoria del modelo de negocio
-            var pago = new Pago(fecha, "Entrada diaria", monto);
+            var pago = new Pago(fecha, "Entrada diaria", monto, fecha);
             c.Pagos.Add(pago);
             return pago;
         }

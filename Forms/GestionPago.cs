@@ -265,6 +265,7 @@ namespace TrabajoIntegrador
         {
             string formaPago = cmbMedioPago.SelectedItem.ToString();
             int cantidadCuotas = 1;
+            DateTime fechaVencimiento;
 
             if (formaPago == "Tarjeta de Crédito")
             {
@@ -281,6 +282,8 @@ namespace TrabajoIntegrador
                 detalleConcepto = $"Cuota Social ({cantidadMeses} período/s: {string.Join(", ", mesesDeuda)})";
 
                 Program.MiClub.cobrar_cuota_mensual(_clienteActual, _montoTotal, DateTime.Now, formaPago, cantidadCuotas, cantidadMeses);
+
+                fechaVencimiento = _clienteActual.Validez;
             }
             else
             {
@@ -297,11 +300,14 @@ namespace TrabajoIntegrador
                 }
                 detalleConcepto = $"Pase Diario - Actividades: {string.Join(", ", nombresActividades)}";
 
+
                 Program.MiClub.cobrar_cuota_diaria(_clienteActual, _montoTotal, DateTime.Now, formaPago, cantidadCuotas, idsActividades);
+
+                fechaVencimiento = DateTime.Now;
             }
 
             // Retornamos el comprobante listo
-            return new Pago(DateTime.Now, detalleConcepto, _montoTotal);
+            return new Pago(DateTime.Now, detalleConcepto, _montoTotal, fechaVencimiento);
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
