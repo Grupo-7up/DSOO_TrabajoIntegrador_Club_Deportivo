@@ -41,7 +41,7 @@
             // 
             this.cmbTipoDocumento.FormattingEnabled = true;
             this.cmbTipoDocumento.Items.AddRange(new object[] {
-            "D.N.I.",
+            "DNI",
             "Pasaporte ",
             "Extranjero"});
             this.cmbTipoDocumento.Location = new System.Drawing.Point(180, 104);
