@@ -35,6 +35,14 @@ namespace TrabajoIntegrador
                     return; // Detenemos el flujo y no abrimos la ventana de pagos
                 }
 
+                // 🛑 VALIDACIÓN NUEVA PARA NO SOCIOS: Verificamos si ya abonó su pase diario el día de hoy
+                if (!esSocio && ConexionBD.TienePaseDiarioPagadoHoy(idCliente))
+                {
+                    MessageBox.Show($"El visitante {nombre} {apellido} ya registró un pago de pase diario en el día de la fecha.",
+                                    "Pase Diario Ya Abonado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
                 Cliente clienteEncontrado = new Cliente(nombre, apellido, tipoDoc, nroDoc, "", "", DateTime.Now, esSocio, true);
                 clienteEncontrado.Id = idCliente; // Asignamos el ID de la base de datos
 

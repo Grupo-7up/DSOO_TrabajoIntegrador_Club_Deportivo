@@ -348,6 +348,25 @@ namespace TrabajoIntegrador
             }
         }
 
+        public static bool TienePaseDiarioPagadoHoy(int idCliente)
+        {
+            using (var conexion = ObtenerConexion())
+            {
+                conexion.Open();
+                // Verificamos si existe algún pago registrado hoy para este cliente (asumiendo que concepto o tipo identifica al pase diario)
+                string query = @"SELECT COUNT(*) FROM clientes 
+                         WHERE id_cliente = @idCliente 
+                           AND DATE(validez) = CURDATE()";
+
+                using (var cmd = new MySqlCommand(query, conexion))
+                {
+                    cmd.Parameters.AddWithValue("@idCliente", idCliente);
+                    long count = (long)cmd.ExecuteScalar();
+                    return count > 0;
+                }
+            }
+        }
+
         /// <summary>
         /// Registra un nuevo comprobante de pago guardando el período correspondiente.
         /// </summary>
