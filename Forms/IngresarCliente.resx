@@ -75758,7 +75758,7 @@
     <value>NoControl</value>
   </data>
   <data name="lbl_aptoRequired.Location" type="System.Drawing.Point, System.Drawing">
-    <value>710, 341</value>
+    <value>712, 341</value>
   </data>
   <data name="lbl_aptoRequired.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 0, 4, 0</value>
@@ -76001,7 +76001,7 @@
     <value>NoControl</value>
   </data>
   <data name="lbl_tipoRequired.Location" type="System.Drawing.Point, System.Drawing">
-    <value>370, 158</value>
+    <value>372, 158</value>
   </data>
   <data name="lbl_tipoRequired.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 0, 4, 0</value>
@@ -76034,7 +76034,7 @@
     <value>NoControl</value>
   </data>
   <data name="lbl_docRequired.Location" type="System.Drawing.Point, System.Drawing">
-    <value>652, 158</value>
+    <value>654, 158</value>
   </data>
   <data name="lbl_docRequired.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 0, 4, 0</value>
@@ -76133,7 +76133,7 @@
     <value>NoControl</value>
   </data>
   <data name="lbl_nacRequired.Location" type="System.Drawing.Point, System.Drawing">
-    <value>378, 320</value>
+    <value>380, 320</value>
   </data>
   <data name="lbl_nacRequired.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 0, 4, 0</value>
