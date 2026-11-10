@@ -7,7 +7,7 @@
     <ProjectGuid>{E9BB2DD5-DA85-42D9-8F39-7929E1CF8C21}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>TrabajoIntegrador</RootNamespace>
-    <AssemblyName>TrabajoIntegrador</AssemblyName>
+    <AssemblyName>ClubDeportivo</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
