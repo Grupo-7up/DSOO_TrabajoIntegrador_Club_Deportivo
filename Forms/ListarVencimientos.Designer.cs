@@ -70,10 +70,10 @@ namespace TrabajoIntegrador
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(351, 60);
-            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBuscar.Location = new System.Drawing.Point(349, 64);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(0);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(133, 30);
+            this.btnBuscar.Size = new System.Drawing.Size(133, 25);
             this.btnBuscar.TabIndex = 4;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
@@ -88,6 +88,7 @@ namespace TrabajoIntegrador
             this.lstVencimientos.Name = "lstVencimientos";
             this.lstVencimientos.Size = new System.Drawing.Size(612, 308);
             this.lstVencimientos.TabIndex = 5;
+            this.lstVencimientos.SelectedIndexChanged += new System.EventHandler(this.lstVencimientos_SelectedIndexChanged);
             // 
             // btnVolver
             // 

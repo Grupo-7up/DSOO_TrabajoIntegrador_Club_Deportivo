@@ -46,9 +46,8 @@ namespace TrabajoIntegrador
                     string apellido = row["apellido"].ToString();
                     string tipoDoc = row["tipo_documento"].ToString();
                     string documento = row["documento"].ToString();
-                    DateTime validez = Convert.ToDateTime(row["validez"]);
 
-                    lstVencimientos.Items.Add($"{apellido}, {nombre} — {tipoDoc} {documento} — Vence el {validez:dd/MM/yyyy}");
+                    lstVencimientos.Items.Add($"{apellido}, {nombre} — {tipoDoc} {documento}");
                 }
             }
             catch (Exception ex)
@@ -64,6 +63,11 @@ namespace TrabajoIntegrador
         }
 
         private void lblTitulo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lstVencimientos_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
