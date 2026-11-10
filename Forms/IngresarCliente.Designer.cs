@@ -253,6 +253,13 @@ namespace TrabajoIntegrador
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.lbl_aptoRequired);
+            this.Controls.Add(this.lbl_nombreRequired);
+            this.Controls.Add(this.lbl_apellidoRequired);
+            this.Controls.Add(this.lbl_tipoRequired);
+            this.Controls.Add(this.lbl_docRequired);
+            this.Controls.Add(this.lbl_telRequired);
+            this.Controls.Add(this.lbl_mailRequired);
+            this.Controls.Add(this.lbl_nacRequired);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dtpFechaNacimiento);
             this.Controls.Add(this.lblFechaNacimiento);
@@ -271,13 +278,6 @@ namespace TrabajoIntegrador
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.txtApellido);
             this.Controls.Add(this.txtNombre);
-            this.Controls.Add(this.lbl_nombreRequired);
-            this.Controls.Add(this.lbl_apellidoRequired);
-            this.Controls.Add(this.lbl_tipoRequired);
-            this.Controls.Add(this.lbl_docRequired);
-            this.Controls.Add(this.lbl_telRequired);
-            this.Controls.Add(this.lbl_mailRequired);
-            this.Controls.Add(this.lbl_nacRequired);
             this.Name = "IngresarCliente";
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);

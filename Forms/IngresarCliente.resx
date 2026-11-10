@@ -142,7 +142,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txtNombre.ZOrder" xml:space="preserve">
-    <value>18</value>
+    <value>25</value>
   </data>
   <data name="txtApellido.Location" type="System.Drawing.Point, System.Drawing">
     <value>507, 100</value>
@@ -166,7 +166,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txtApellido.ZOrder" xml:space="preserve">
-    <value>17</value>
+    <value>24</value>
   </data>
   <data name="txtEmail.Location" type="System.Drawing.Point, System.Drawing">
     <value>507, 261</value>
@@ -190,7 +190,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txtEmail.ZOrder" xml:space="preserve">
-    <value>16</value>
+    <value>23</value>
   </data>
   <data name="lbl_nombre.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -220,7 +220,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lbl_nombre.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>22</value>
   </data>
   <data name="lbl_apellido.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -250,7 +250,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lbl_apellido.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>21</value>
   </data>
   <data name="lbl_tipoDocumento.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -280,7 +280,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lbl_tipoDocumento.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>20</value>
   </data>
   <data name="lbl_mail.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -310,7 +310,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lbl_mail.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>19</value>
   </data>
   <data name="lbl_telefono.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -340,7 +340,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lbl_telefono.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>18</value>
   </data>
   <data name="txtTelefono.Location" type="System.Drawing.Point, System.Drawing">
     <value>245, 260</value>
@@ -364,7 +364,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txtTelefono.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>17</value>
   </data>
   <data name="btn_volver.Location" type="System.Drawing.Point, System.Drawing">
     <value>56, 464</value>
@@ -391,7 +391,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn_volver.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>16</value>
   </data>
   <data name="cboTipoDoc.Items" xml:space="preserve">
     <value>DNI</value>
@@ -424,7 +424,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;cboTipoDoc.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>15</value>
   </data>
   <data name="btn_registrar.Location" type="System.Drawing.Point, System.Drawing">
     <value>684, 464</value>
@@ -451,7 +451,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn_registrar.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>14</value>
   </data>
   <data name="txtDocumento.Location" type="System.Drawing.Point, System.Drawing">
     <value>507, 179</value>
@@ -475,7 +475,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txtDocumento.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>13</value>
   </data>
   <metadata name="errorProvider1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
@@ -75752,19 +75752,22 @@
     <value>True</value>
   </data>
   <data name="lbl_aptoRequired.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 10.75pt</value>
+    <value>Microsoft Sans Serif, 9.75pt</value>
   </data>
   <data name="lbl_aptoRequired.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="lbl_aptoRequired.Location" type="System.Drawing.Point, System.Drawing">
-    <value>712, 341</value>
+    <value>714, 341</value>
   </data>
   <data name="lbl_aptoRequired.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="lbl_aptoRequired.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 0, 0</value>
   </data>
   <data name="lbl_aptoRequired.Size" type="System.Drawing.Size, System.Drawing">
-    <value>14, 18</value>
+    <value>14, 16</value>
   </data>
   <data name="lbl_aptoRequired.TabIndex" type="System.Int32, mscorlib">
     <value>22</value>
@@ -75783,6 +75786,255 @@
   </data>
   <data name="&gt;&gt;lbl_aptoRequired.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="lbl_nombreRequired.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbl_nombreRequired.Location" type="System.Drawing.Point, System.Drawing">
+    <value>304, 80</value>
+  </data>
+  <data name="lbl_nombreRequired.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="lbl_nombreRequired.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 0, 0</value>
+  </data>
+  <data name="lbl_nombreRequired.Size" type="System.Drawing.Size, System.Drawing">
+    <value>14, 16</value>
+  </data>
+  <data name="lbl_nombreRequired.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="lbl_nombreRequired.Text" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="&gt;&gt;lbl_nombreRequired.Name" xml:space="preserve">
+    <value>lbl_nombreRequired</value>
+  </data>
+  <data name="&gt;&gt;lbl_nombreRequired.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbl_nombreRequired.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lbl_nombreRequired.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="lbl_apellidoRequired.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbl_apellidoRequired.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lbl_apellidoRequired.Location" type="System.Drawing.Point, System.Drawing">
+    <value>566, 80</value>
+  </data>
+  <data name="lbl_apellidoRequired.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="lbl_apellidoRequired.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 0, 0</value>
+  </data>
+  <data name="lbl_apellidoRequired.Size" type="System.Drawing.Size, System.Drawing">
+    <value>14, 16</value>
+  </data>
+  <data name="lbl_apellidoRequired.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="lbl_apellidoRequired.Text" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="&gt;&gt;lbl_apellidoRequired.Name" xml:space="preserve">
+    <value>lbl_apellidoRequired</value>
+  </data>
+  <data name="&gt;&gt;lbl_apellidoRequired.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbl_apellidoRequired.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lbl_apellidoRequired.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="lbl_tipoRequired.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbl_tipoRequired.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lbl_tipoRequired.Location" type="System.Drawing.Point, System.Drawing">
+    <value>372, 158</value>
+  </data>
+  <data name="lbl_tipoRequired.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="lbl_tipoRequired.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 0, 0</value>
+  </data>
+  <data name="lbl_tipoRequired.Size" type="System.Drawing.Size, System.Drawing">
+    <value>14, 16</value>
+  </data>
+  <data name="lbl_tipoRequired.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="lbl_tipoRequired.Text" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="&gt;&gt;lbl_tipoRequired.Name" xml:space="preserve">
+    <value>lbl_tipoRequired</value>
+  </data>
+  <data name="&gt;&gt;lbl_tipoRequired.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbl_tipoRequired.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lbl_tipoRequired.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="lbl_docRequired.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbl_docRequired.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lbl_docRequired.Location" type="System.Drawing.Point, System.Drawing">
+    <value>654, 158</value>
+  </data>
+  <data name="lbl_docRequired.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="lbl_docRequired.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 0, 0</value>
+  </data>
+  <data name="lbl_docRequired.Size" type="System.Drawing.Size, System.Drawing">
+    <value>14, 16</value>
+  </data>
+  <data name="lbl_docRequired.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="lbl_docRequired.Text" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="&gt;&gt;lbl_docRequired.Name" xml:space="preserve">
+    <value>lbl_docRequired</value>
+  </data>
+  <data name="&gt;&gt;lbl_docRequired.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbl_docRequired.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lbl_docRequired.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="lbl_telRequired.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbl_telRequired.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lbl_telRequired.Location" type="System.Drawing.Point, System.Drawing">
+    <value>309, 240</value>
+  </data>
+  <data name="lbl_telRequired.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="lbl_telRequired.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 0, 0</value>
+  </data>
+  <data name="lbl_telRequired.Size" type="System.Drawing.Size, System.Drawing">
+    <value>14, 16</value>
+  </data>
+  <data name="lbl_telRequired.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
+  </data>
+  <data name="lbl_telRequired.Text" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="&gt;&gt;lbl_telRequired.Name" xml:space="preserve">
+    <value>lbl_telRequired</value>
+  </data>
+  <data name="&gt;&gt;lbl_telRequired.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbl_telRequired.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lbl_telRequired.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="lbl_mailRequired.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbl_mailRequired.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lbl_mailRequired.Location" type="System.Drawing.Point, System.Drawing">
+    <value>542, 240</value>
+  </data>
+  <data name="lbl_mailRequired.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="lbl_mailRequired.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 0, 0</value>
+  </data>
+  <data name="lbl_mailRequired.Size" type="System.Drawing.Size, System.Drawing">
+    <value>14, 16</value>
+  </data>
+  <data name="lbl_mailRequired.TabIndex" type="System.Int32, mscorlib">
+    <value>20</value>
+  </data>
+  <data name="lbl_mailRequired.Text" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="&gt;&gt;lbl_mailRequired.Name" xml:space="preserve">
+    <value>lbl_mailRequired</value>
+  </data>
+  <data name="&gt;&gt;lbl_mailRequired.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbl_mailRequired.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lbl_mailRequired.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="lbl_nacRequired.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbl_nacRequired.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lbl_nacRequired.Location" type="System.Drawing.Point, System.Drawing">
+    <value>380, 320</value>
+  </data>
+  <data name="lbl_nacRequired.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="lbl_nacRequired.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 0, 0</value>
+  </data>
+  <data name="lbl_nacRequired.Size" type="System.Drawing.Size, System.Drawing">
+    <value>14, 16</value>
+  </data>
+  <data name="lbl_nacRequired.TabIndex" type="System.Int32, mscorlib">
+    <value>21</value>
+  </data>
+  <data name="lbl_nacRequired.Text" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="&gt;&gt;lbl_nacRequired.Name" xml:space="preserve">
+    <value>lbl_nacRequired</value>
+  </data>
+  <data name="&gt;&gt;lbl_nacRequired.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbl_nacRequired.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lbl_nacRequired.ZOrder" xml:space="preserve">
+    <value>7</value>
   </data>
   <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -75815,7 +76067,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>8</value>
   </data>
   <data name="dtpFechaNacimiento.Location" type="System.Drawing.Point, System.Drawing">
     <value>245, 340</value>
@@ -75839,7 +76091,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;dtpFechaNacimiento.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>9</value>
   </data>
   <data name="lblFechaNacimiento.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -75869,7 +76121,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblFechaNacimiento.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>10</value>
   </data>
   <data name="chkAptoFisico.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -75899,7 +76151,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;chkAptoFisico.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>11</value>
   </data>
   <data name="chkEsSocio.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -75929,235 +76181,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;chkEsSocio.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="lbl_nombreRequired.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lbl_nombreRequired.Location" type="System.Drawing.Point, System.Drawing">
-    <value>300, 80</value>
-  </data>
-  <data name="lbl_nombreRequired.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
-  </data>
-  <data name="lbl_nombreRequired.Size" type="System.Drawing.Size, System.Drawing">
-    <value>12, 16</value>
-  </data>
-  <data name="lbl_nombreRequired.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
-  </data>
-  <data name="lbl_nombreRequired.Text" xml:space="preserve">
-    <value>*</value>
-  </data>
-  <data name="&gt;&gt;lbl_nombreRequired.Name" xml:space="preserve">
-    <value>lbl_nombreRequired</value>
-  </data>
-  <data name="&gt;&gt;lbl_nombreRequired.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbl_nombreRequired.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lbl_nombreRequired.ZOrder" xml:space="preserve">
-    <value>19</value>
-  </data>
-  <data name="lbl_apellidoRequired.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lbl_apellidoRequired.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lbl_apellidoRequired.Location" type="System.Drawing.Point, System.Drawing">
-    <value>562, 80</value>
-  </data>
-  <data name="lbl_apellidoRequired.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
-  </data>
-  <data name="lbl_apellidoRequired.Size" type="System.Drawing.Size, System.Drawing">
-    <value>12, 16</value>
-  </data>
-  <data name="lbl_apellidoRequired.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
-  </data>
-  <data name="lbl_apellidoRequired.Text" xml:space="preserve">
-    <value>*</value>
-  </data>
-  <data name="&gt;&gt;lbl_apellidoRequired.Name" xml:space="preserve">
-    <value>lbl_apellidoRequired</value>
-  </data>
-  <data name="&gt;&gt;lbl_apellidoRequired.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbl_apellidoRequired.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lbl_apellidoRequired.ZOrder" xml:space="preserve">
-    <value>20</value>
-  </data>
-  <data name="lbl_tipoRequired.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lbl_tipoRequired.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lbl_tipoRequired.Location" type="System.Drawing.Point, System.Drawing">
-    <value>372, 158</value>
-  </data>
-  <data name="lbl_tipoRequired.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
-  </data>
-  <data name="lbl_tipoRequired.Size" type="System.Drawing.Size, System.Drawing">
-    <value>12, 16</value>
-  </data>
-  <data name="lbl_tipoRequired.TabIndex" type="System.Int32, mscorlib">
-    <value>17</value>
-  </data>
-  <data name="lbl_tipoRequired.Text" xml:space="preserve">
-    <value>*</value>
-  </data>
-  <data name="&gt;&gt;lbl_tipoRequired.Name" xml:space="preserve">
-    <value>lbl_tipoRequired</value>
-  </data>
-  <data name="&gt;&gt;lbl_tipoRequired.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbl_tipoRequired.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lbl_tipoRequired.ZOrder" xml:space="preserve">
-    <value>21</value>
-  </data>
-  <data name="lbl_docRequired.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lbl_docRequired.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lbl_docRequired.Location" type="System.Drawing.Point, System.Drawing">
-    <value>654, 158</value>
-  </data>
-  <data name="lbl_docRequired.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
-  </data>
-  <data name="lbl_docRequired.Size" type="System.Drawing.Size, System.Drawing">
-    <value>12, 16</value>
-  </data>
-  <data name="lbl_docRequired.TabIndex" type="System.Int32, mscorlib">
-    <value>18</value>
-  </data>
-  <data name="lbl_docRequired.Text" xml:space="preserve">
-    <value>*</value>
-  </data>
-  <data name="&gt;&gt;lbl_docRequired.Name" xml:space="preserve">
-    <value>lbl_docRequired</value>
-  </data>
-  <data name="&gt;&gt;lbl_docRequired.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbl_docRequired.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lbl_docRequired.ZOrder" xml:space="preserve">
-    <value>22</value>
-  </data>
-  <data name="lbl_telRequired.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lbl_telRequired.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lbl_telRequired.Location" type="System.Drawing.Point, System.Drawing">
-    <value>307, 240</value>
-  </data>
-  <data name="lbl_telRequired.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
-  </data>
-  <data name="lbl_telRequired.Size" type="System.Drawing.Size, System.Drawing">
-    <value>12, 16</value>
-  </data>
-  <data name="lbl_telRequired.TabIndex" type="System.Int32, mscorlib">
-    <value>19</value>
-  </data>
-  <data name="lbl_telRequired.Text" xml:space="preserve">
-    <value>*</value>
-  </data>
-  <data name="&gt;&gt;lbl_telRequired.Name" xml:space="preserve">
-    <value>lbl_telRequired</value>
-  </data>
-  <data name="&gt;&gt;lbl_telRequired.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbl_telRequired.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lbl_telRequired.ZOrder" xml:space="preserve">
-    <value>23</value>
-  </data>
-  <data name="lbl_mailRequired.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lbl_mailRequired.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lbl_mailRequired.Location" type="System.Drawing.Point, System.Drawing">
-    <value>540, 240</value>
-  </data>
-  <data name="lbl_mailRequired.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
-  </data>
-  <data name="lbl_mailRequired.Size" type="System.Drawing.Size, System.Drawing">
-    <value>12, 16</value>
-  </data>
-  <data name="lbl_mailRequired.TabIndex" type="System.Int32, mscorlib">
-    <value>20</value>
-  </data>
-  <data name="lbl_mailRequired.Text" xml:space="preserve">
-    <value>*</value>
-  </data>
-  <data name="&gt;&gt;lbl_mailRequired.Name" xml:space="preserve">
-    <value>lbl_mailRequired</value>
-  </data>
-  <data name="&gt;&gt;lbl_mailRequired.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbl_mailRequired.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lbl_mailRequired.ZOrder" xml:space="preserve">
-    <value>24</value>
-  </data>
-  <data name="lbl_nacRequired.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lbl_nacRequired.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lbl_nacRequired.Location" type="System.Drawing.Point, System.Drawing">
-    <value>380, 320</value>
-  </data>
-  <data name="lbl_nacRequired.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
-  </data>
-  <data name="lbl_nacRequired.Size" type="System.Drawing.Size, System.Drawing">
-    <value>12, 16</value>
-  </data>
-  <data name="lbl_nacRequired.TabIndex" type="System.Int32, mscorlib">
-    <value>21</value>
-  </data>
-  <data name="lbl_nacRequired.Text" xml:space="preserve">
-    <value>*</value>
-  </data>
-  <data name="&gt;&gt;lbl_nacRequired.Name" xml:space="preserve">
-    <value>lbl_nacRequired</value>
-  </data>
-  <data name="&gt;&gt;lbl_nacRequired.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbl_nacRequired.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lbl_nacRequired.ZOrder" xml:space="preserve">
-    <value>25</value>
+    <value>12</value>
   </data>
   <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
