@@ -53,6 +53,14 @@ namespace TrabajoIntegrador
             this.lblFechaNacimiento = new System.Windows.Forms.Label();
             this.dtpFechaNacimiento = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
+            this.lbl_nombreRequired = new System.Windows.Forms.Label();
+            this.lbl_apellidoRequired = new System.Windows.Forms.Label();
+            this.lbl_tipoRequired = new System.Windows.Forms.Label();
+            this.lbl_docRequired = new System.Windows.Forms.Label();
+            this.lbl_telRequired = new System.Windows.Forms.Label();
+            this.lbl_mailRequired = new System.Windows.Forms.Label();
+            this.lbl_nacRequired = new System.Windows.Forms.Label();
+            this.lbl_aptoRequired = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -176,10 +184,67 @@ namespace TrabajoIntegrador
             this.label1.Name = "label1";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
+            // lbl_nombreRequired
+            // 
+            resources.ApplyResources(this.lbl_nombreRequired, "lbl_nombreRequired");
+            this.lbl_nombreRequired.BackColor = System.Drawing.SystemColors.Control;
+            this.lbl_nombreRequired.ForeColor = System.Drawing.Color.Red;
+            this.lbl_nombreRequired.Name = "lbl_nombreRequired";
+            // 
+            // lbl_apellidoRequired
+            // 
+            resources.ApplyResources(this.lbl_apellidoRequired, "lbl_apellidoRequired");
+            this.lbl_apellidoRequired.BackColor = System.Drawing.SystemColors.Control;
+            this.lbl_apellidoRequired.ForeColor = System.Drawing.Color.Red;
+            this.lbl_apellidoRequired.Name = "lbl_apellidoRequired";
+            // 
+            // lbl_tipoRequired
+            // 
+            resources.ApplyResources(this.lbl_tipoRequired, "lbl_tipoRequired");
+            this.lbl_tipoRequired.BackColor = System.Drawing.SystemColors.Control;
+            this.lbl_tipoRequired.ForeColor = System.Drawing.Color.Red;
+            this.lbl_tipoRequired.Name = "lbl_tipoRequired";
+            // 
+            // lbl_docRequired
+            // 
+            resources.ApplyResources(this.lbl_docRequired, "lbl_docRequired");
+            this.lbl_docRequired.BackColor = System.Drawing.SystemColors.Control;
+            this.lbl_docRequired.ForeColor = System.Drawing.Color.Red;
+            this.lbl_docRequired.Name = "lbl_docRequired";
+            // 
+            // lbl_telRequired
+            // 
+            resources.ApplyResources(this.lbl_telRequired, "lbl_telRequired");
+            this.lbl_telRequired.BackColor = System.Drawing.SystemColors.Control;
+            this.lbl_telRequired.ForeColor = System.Drawing.Color.Red;
+            this.lbl_telRequired.Name = "lbl_telRequired";
+            // 
+            // lbl_mailRequired
+            // 
+            resources.ApplyResources(this.lbl_mailRequired, "lbl_mailRequired");
+            this.lbl_mailRequired.BackColor = System.Drawing.SystemColors.Control;
+            this.lbl_mailRequired.ForeColor = System.Drawing.Color.Red;
+            this.lbl_mailRequired.Name = "lbl_mailRequired";
+            // 
+            // lbl_nacRequired
+            // 
+            resources.ApplyResources(this.lbl_nacRequired, "lbl_nacRequired");
+            this.lbl_nacRequired.BackColor = System.Drawing.SystemColors.Control;
+            this.lbl_nacRequired.ForeColor = System.Drawing.Color.Red;
+            this.lbl_nacRequired.Name = "lbl_nacRequired";
+            // 
+            // lbl_aptoRequired
+            // 
+            resources.ApplyResources(this.lbl_aptoRequired, "lbl_aptoRequired");
+            this.lbl_aptoRequired.BackColor = System.Drawing.SystemColors.Control;
+            this.lbl_aptoRequired.ForeColor = System.Drawing.Color.Red;
+            this.lbl_aptoRequired.Name = "lbl_aptoRequired";
+            // 
             // IngresarCliente
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lbl_aptoRequired);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dtpFechaNacimiento);
             this.Controls.Add(this.lblFechaNacimiento);
@@ -198,6 +263,13 @@ namespace TrabajoIntegrador
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.txtApellido);
             this.Controls.Add(this.txtNombre);
+            this.Controls.Add(this.lbl_nombreRequired);
+            this.Controls.Add(this.lbl_apellidoRequired);
+            this.Controls.Add(this.lbl_tipoRequired);
+            this.Controls.Add(this.lbl_docRequired);
+            this.Controls.Add(this.lbl_telRequired);
+            this.Controls.Add(this.lbl_mailRequired);
+            this.Controls.Add(this.lbl_nacRequired);
             this.Name = "IngresarCliente";
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
@@ -226,5 +298,13 @@ namespace TrabajoIntegrador
         private Button btn_volver;
         private ErrorProvider errorProvider1;
         private Label label1;
+        private Label lbl_aptoRequired;
+        private Label lbl_nacRequired;
+        private Label lbl_mailRequired;
+        private Label lbl_telRequired;
+        private Label lbl_docRequired;
+        private Label lbl_tipoRequired;
+        private Label lbl_nombreRequired;
+        private Label lbl_apellidoRequired;
     }
 }

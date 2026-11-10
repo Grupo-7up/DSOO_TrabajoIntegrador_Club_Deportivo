@@ -97,7 +97,7 @@ namespace TrabajoIntegrador
             this.lbl_usuarioRequired.AutoSize = true;
             this.lbl_usuarioRequired.BackColor = System.Drawing.SystemColors.Control;
             this.lbl_usuarioRequired.ForeColor = System.Drawing.Color.Red;
-            this.lbl_usuarioRequired.Location = new System.Drawing.Point(430, 122);
+            this.lbl_usuarioRequired.Location = new System.Drawing.Point(434, 122);
             this.lbl_usuarioRequired.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_usuarioRequired.Name = "lbl_usuarioRequired";
             this.lbl_usuarioRequired.Size = new System.Drawing.Size(12, 16);
@@ -109,7 +109,7 @@ namespace TrabajoIntegrador
             this.lbl_contrasenaRequired.AutoSize = true;
             this.lbl_contrasenaRequired.BackColor = System.Drawing.SystemColors.Control;
             this.lbl_contrasenaRequired.ForeColor = System.Drawing.Color.Red;
-            this.lbl_contrasenaRequired.Location = new System.Drawing.Point(453, 203);
+            this.lbl_contrasenaRequired.Location = new System.Drawing.Point(456, 203);
             this.lbl_contrasenaRequired.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_contrasenaRequired.Name = "lbl_contrasenaRequired";
             this.lbl_contrasenaRequired.Size = new System.Drawing.Size(12, 16);
