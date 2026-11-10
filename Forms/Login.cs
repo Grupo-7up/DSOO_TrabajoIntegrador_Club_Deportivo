@@ -57,5 +57,20 @@ namespace TrabajoIntegrador
                 MessageBox.Show("Error al intentar iniciar sesión: " + ex.Message, "Error de Conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void btn_salir_Click(object sender, EventArgs e)
+        {
+            DialogResult resultado = MessageBox.Show(
+                "¿Estás seguro de que querés salir de la aplicación?",
+                "Salir",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
+
+            if (resultado == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
     }
     }

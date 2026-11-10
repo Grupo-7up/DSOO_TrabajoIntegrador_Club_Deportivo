@@ -40,13 +40,15 @@ namespace TrabajoIntegrador
             this.lbl_contrasena = new System.Windows.Forms.Label();
             this.lbl_usuarioRequired = new System.Windows.Forms.Label();
             this.lbl_contrasenaRequired = new System.Windows.Forms.Label();
+            this.btn_salir = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnIngresar
             // 
-            this.btnIngresar.Location = new System.Drawing.Point(285, 263);
+            this.btnIngresar.Location = new System.Drawing.Point(379, 291);
+            this.btnIngresar.Margin = new System.Windows.Forms.Padding(4);
             this.btnIngresar.Name = "btnIngresar";
-            this.btnIngresar.Size = new System.Drawing.Size(141, 35);
+            this.btnIngresar.Size = new System.Drawing.Size(188, 43);
             this.btnIngresar.TabIndex = 2;
             this.btnIngresar.Text = "Ingresar";
             this.btnIngresar.UseVisualStyleBackColor = true;
@@ -54,66 +56,86 @@ namespace TrabajoIntegrador
             // 
             // txtClave
             // 
-            this.txtClave.Location = new System.Drawing.Point(285, 181);
+            this.txtClave.Location = new System.Drawing.Point(380, 223);
+            this.txtClave.Margin = new System.Windows.Forms.Padding(4);
             this.txtClave.Name = "txtClave";
-            this.txtClave.Size = new System.Drawing.Size(141, 20);
+            this.txtClave.Size = new System.Drawing.Size(187, 22);
             this.txtClave.TabIndex = 1;
             this.txtClave.UseSystemPasswordChar = true;
             // 
             // txtUsuario
             // 
-            this.txtUsuario.Location = new System.Drawing.Point(285, 115);
+            this.txtUsuario.Location = new System.Drawing.Point(380, 142);
+            this.txtUsuario.Margin = new System.Windows.Forms.Padding(4);
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(141, 20);
+            this.txtUsuario.Size = new System.Drawing.Size(187, 22);
             this.txtUsuario.TabIndex = 0;
             // 
             // lbl_usuario
             // 
             this.lbl_usuario.AutoSize = true;
-            this.lbl_usuario.Location = new System.Drawing.Point(282, 99);
+            this.lbl_usuario.Location = new System.Drawing.Point(380, 122);
+            this.lbl_usuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_usuario.Name = "lbl_usuario";
-            this.lbl_usuario.Size = new System.Drawing.Size(43, 13);
+            this.lbl_usuario.Size = new System.Drawing.Size(54, 16);
             this.lbl_usuario.TabIndex = 4;
             this.lbl_usuario.Text = "Usuario";
             // 
             // lbl_contrasena
             // 
             this.lbl_contrasena.AutoSize = true;
-            this.lbl_contrasena.Location = new System.Drawing.Point(282, 165);
+            this.lbl_contrasena.BackColor = System.Drawing.SystemColors.Control;
+            this.lbl_contrasena.Location = new System.Drawing.Point(380, 203);
+            this.lbl_contrasena.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_contrasena.Name = "lbl_contrasena";
-            this.lbl_contrasena.Size = new System.Drawing.Size(61, 13);
+            this.lbl_contrasena.Size = new System.Drawing.Size(76, 16);
             this.lbl_contrasena.TabIndex = 5;
             this.lbl_contrasena.Text = "Contraseña";
             // 
             // lbl_usuarioRequired
             // 
             this.lbl_usuarioRequired.AutoSize = true;
-            this.lbl_usuarioRequired.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_usuarioRequired.BackColor = System.Drawing.SystemColors.Control;
             this.lbl_usuarioRequired.ForeColor = System.Drawing.Color.Red;
-            this.lbl_usuarioRequired.Location = new System.Drawing.Point(331, 99);
+            this.lbl_usuarioRequired.Location = new System.Drawing.Point(430, 122);
+            this.lbl_usuarioRequired.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_usuarioRequired.Name = "lbl_usuarioRequired";
-            this.lbl_usuarioRequired.Size = new System.Drawing.Size(11, 13);
+            this.lbl_usuarioRequired.Size = new System.Drawing.Size(12, 16);
             this.lbl_usuarioRequired.TabIndex = 6;
             this.lbl_usuarioRequired.Text = "*";
             // 
             // lbl_contrasenaRequired
             // 
             this.lbl_contrasenaRequired.AutoSize = true;
-            this.lbl_contrasenaRequired.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_contrasenaRequired.BackColor = System.Drawing.SystemColors.Control;
             this.lbl_contrasenaRequired.ForeColor = System.Drawing.Color.Red;
-            this.lbl_contrasenaRequired.Location = new System.Drawing.Point(349, 165);
+            this.lbl_contrasenaRequired.Location = new System.Drawing.Point(453, 203);
+            this.lbl_contrasenaRequired.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_contrasenaRequired.Name = "lbl_contrasenaRequired";
-            this.lbl_contrasenaRequired.Size = new System.Drawing.Size(11, 13);
+            this.lbl_contrasenaRequired.Size = new System.Drawing.Size(12, 16);
             this.lbl_contrasenaRequired.TabIndex = 7;
             this.lbl_contrasenaRequired.Text = "*";
             // 
+            // btn_salir
+            // 
+            this.btn_salir.AutoSize = true;
+            this.btn_salir.Location = new System.Drawing.Point(12, 426);
+            this.btn_salir.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_salir.Name = "btn_salir";
+            this.btn_salir.Size = new System.Drawing.Size(188, 43);
+            this.btn_salir.TabIndex = 8;
+            this.btn_salir.Text = "Salir";
+            this.btn_salir.UseVisualStyleBackColor = true;
+            this.btn_salir.Click += new System.EventHandler(this.btn_salir_Click);
+            // 
             // Login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(686, 390);
+            this.ClientSize = new System.Drawing.Size(915, 480);
+            this.Controls.Add(this.btn_salir);
             this.Controls.Add(this.lbl_contrasenaRequired);
             this.Controls.Add(this.lbl_usuarioRequired);
             this.Controls.Add(this.lbl_contrasena);
@@ -122,6 +144,7 @@ namespace TrabajoIntegrador
             this.Controls.Add(this.txtClave);
             this.Controls.Add(this.btnIngresar);
             this.DoubleBuffered = true;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Login";
             this.Text = "Login";
             this.ResumeLayout(false);
@@ -138,5 +161,6 @@ namespace TrabajoIntegrador
         private Button btnIngresar;
         private Label lbl_usuarioRequired;
         private Label lbl_contrasenaRequired;
+        private Button btn_salir;
     }
 }
