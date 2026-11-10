@@ -188,6 +188,7 @@ namespace TrabajoIntegrador
             // 
             resources.ApplyResources(this.lbl_nombreRequired, "lbl_nombreRequired");
             this.lbl_nombreRequired.BackColor = System.Drawing.SystemColors.Control;
+            this.lbl_nombreRequired.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.lbl_nombreRequired.ForeColor = System.Drawing.Color.Red;
             this.lbl_nombreRequired.Name = "lbl_nombreRequired";
             // 
@@ -195,6 +196,7 @@ namespace TrabajoIntegrador
             // 
             resources.ApplyResources(this.lbl_apellidoRequired, "lbl_apellidoRequired");
             this.lbl_apellidoRequired.BackColor = System.Drawing.SystemColors.Control;
+            this.lbl_apellidoRequired.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.lbl_apellidoRequired.ForeColor = System.Drawing.Color.Red;
             this.lbl_apellidoRequired.Name = "lbl_apellidoRequired";
             // 
@@ -202,6 +204,7 @@ namespace TrabajoIntegrador
             // 
             resources.ApplyResources(this.lbl_tipoRequired, "lbl_tipoRequired");
             this.lbl_tipoRequired.BackColor = System.Drawing.SystemColors.Control;
+            this.lbl_tipoRequired.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.lbl_tipoRequired.ForeColor = System.Drawing.Color.Red;
             this.lbl_tipoRequired.Name = "lbl_tipoRequired";
             // 
@@ -209,6 +212,7 @@ namespace TrabajoIntegrador
             // 
             resources.ApplyResources(this.lbl_docRequired, "lbl_docRequired");
             this.lbl_docRequired.BackColor = System.Drawing.SystemColors.Control;
+            this.lbl_docRequired.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.lbl_docRequired.ForeColor = System.Drawing.Color.Red;
             this.lbl_docRequired.Name = "lbl_docRequired";
             // 
@@ -216,6 +220,7 @@ namespace TrabajoIntegrador
             // 
             resources.ApplyResources(this.lbl_telRequired, "lbl_telRequired");
             this.lbl_telRequired.BackColor = System.Drawing.SystemColors.Control;
+            this.lbl_telRequired.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.lbl_telRequired.ForeColor = System.Drawing.Color.Red;
             this.lbl_telRequired.Name = "lbl_telRequired";
             // 
@@ -223,6 +228,7 @@ namespace TrabajoIntegrador
             // 
             resources.ApplyResources(this.lbl_mailRequired, "lbl_mailRequired");
             this.lbl_mailRequired.BackColor = System.Drawing.SystemColors.Control;
+            this.lbl_mailRequired.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.lbl_mailRequired.ForeColor = System.Drawing.Color.Red;
             this.lbl_mailRequired.Name = "lbl_mailRequired";
             // 
@@ -230,6 +236,7 @@ namespace TrabajoIntegrador
             // 
             resources.ApplyResources(this.lbl_nacRequired, "lbl_nacRequired");
             this.lbl_nacRequired.BackColor = System.Drawing.SystemColors.Control;
+            this.lbl_nacRequired.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.lbl_nacRequired.ForeColor = System.Drawing.Color.Red;
             this.lbl_nacRequired.Name = "lbl_nacRequired";
             // 
@@ -237,6 +244,7 @@ namespace TrabajoIntegrador
             // 
             resources.ApplyResources(this.lbl_aptoRequired, "lbl_aptoRequired");
             this.lbl_aptoRequired.BackColor = System.Drawing.SystemColors.Control;
+            this.lbl_aptoRequired.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.lbl_aptoRequired.ForeColor = System.Drawing.Color.Red;
             this.lbl_aptoRequired.Name = "lbl_aptoRequired";
             // 
