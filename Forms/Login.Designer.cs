@@ -136,13 +136,13 @@ namespace TrabajoIntegrador
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(915, 480);
             this.Controls.Add(this.btn_salir);
-            this.Controls.Add(this.lbl_contrasenaRequired);
-            this.Controls.Add(this.lbl_usuarioRequired);
             this.Controls.Add(this.lbl_contrasena);
             this.Controls.Add(this.lbl_usuario);
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.txtClave);
             this.Controls.Add(this.btnIngresar);
+            this.Controls.Add(this.lbl_usuarioRequired);
+            this.Controls.Add(this.lbl_contrasenaRequired);
             this.DoubleBuffered = true;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Login";
