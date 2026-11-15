@@ -32,7 +32,6 @@ namespace TrabajoIntegrador
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PantallaOpciones));
             this.btn_inscribirCliente = new System.Windows.Forms.Button();
             this.btn_asignarActividad = new System.Windows.Forms.Button();
             this.btn_listarVencimiento = new System.Windows.Forms.Button();
@@ -43,7 +42,7 @@ namespace TrabajoIntegrador
             // btn_inscribirCliente
             // 
             this.btn_inscribirCliente.AutoSize = true;
-            this.btn_inscribirCliente.Location = new System.Drawing.Point(357, 92);
+            this.btn_inscribirCliente.Location = new System.Drawing.Point(163, 83);
             this.btn_inscribirCliente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_inscribirCliente.Name = "btn_inscribirCliente";
             this.btn_inscribirCliente.Size = new System.Drawing.Size(233, 62);
@@ -56,7 +55,7 @@ namespace TrabajoIntegrador
             // 
             this.btn_asignarActividad.AccessibleRole = System.Windows.Forms.AccessibleRole.OutlineButton;
             this.btn_asignarActividad.AutoSize = true;
-            this.btn_asignarActividad.Location = new System.Drawing.Point(667, 433);
+            this.btn_asignarActividad.Location = new System.Drawing.Point(308, 423);
             this.btn_asignarActividad.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_asignarActividad.Name = "btn_asignarActividad";
             this.btn_asignarActividad.Size = new System.Drawing.Size(233, 62);
@@ -69,7 +68,7 @@ namespace TrabajoIntegrador
             // 
             this.btn_listarVencimiento.AccessibleRole = System.Windows.Forms.AccessibleRole.OutlineButton;
             this.btn_listarVencimiento.AutoSize = true;
-            this.btn_listarVencimiento.Location = new System.Drawing.Point(357, 325);
+            this.btn_listarVencimiento.Location = new System.Drawing.Point(163, 316);
             this.btn_listarVencimiento.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_listarVencimiento.Name = "btn_listarVencimiento";
             this.btn_listarVencimiento.Size = new System.Drawing.Size(233, 62);
@@ -82,7 +81,7 @@ namespace TrabajoIntegrador
             // 
             this.btn_pagarCuota.AccessibleRole = System.Windows.Forms.AccessibleRole.OutlineButton;
             this.btn_pagarCuota.AutoSize = true;
-            this.btn_pagarCuota.Location = new System.Drawing.Point(357, 209);
+            this.btn_pagarCuota.Location = new System.Drawing.Point(163, 200);
             this.btn_pagarCuota.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_pagarCuota.Name = "btn_pagarCuota";
             this.btn_pagarCuota.Size = new System.Drawing.Size(233, 62);
@@ -107,8 +106,7 @@ namespace TrabajoIntegrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(915, 505);
+            this.ClientSize = new System.Drawing.Size(560, 505);
             this.Controls.Add(this.btn_salir);
             this.Controls.Add(this.btn_pagarCuota);
             this.Controls.Add(this.btn_listarVencimiento);
