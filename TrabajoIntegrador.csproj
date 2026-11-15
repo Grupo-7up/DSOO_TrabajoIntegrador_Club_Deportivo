@@ -95,8 +95,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BBDD\ConexionBD.cs" />
-    <Compile Include="BBDD\DatabaseInitializer.cs" />
+    <Compile Include="DB\ConexionBD.cs" />
+    <Compile Include="DB\DatabaseInitializer.cs" />
     <Compile Include="Clases\ActividadItem.cs" />
     <Compile Include="Clases\Persona.cs" />
     <Compile Include="Clases\Cliente.cs" />
@@ -196,7 +196,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="BBDD\script_base_datos.sql" />
+    <Content Include="DB\script_base_datos.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
