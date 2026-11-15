@@ -145,7 +145,7 @@ namespace TrabajoIntegrador.Clases
         // El nuevo vencimiento arranca el día siguiente al vencimiento anterior, no desde la fecha de pago.
         public Cuota cobrar_cuota_mensual(Cliente c, decimal monto, DateTime fecha, string forma_pago, int cantidad_cuotas, int mesesDeuda = 1)
         {
-            if (!forma_pago.Equals("tarjeta", StringComparison.OrdinalIgnoreCase))
+            if (string.IsNullOrEmpty(forma_pago) || !forma_pago.ToLower().Contains("tarjeta"))
             {
                 cantidad_cuotas = 1;
             }
