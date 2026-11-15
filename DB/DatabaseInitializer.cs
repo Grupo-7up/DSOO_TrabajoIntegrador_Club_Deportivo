@@ -9,7 +9,7 @@ namespace TrabajoIntegrador
     {
         public static void InicializarBaseDeDatos()
         {
-            string rutaRelativa = Path.Combine("BBDD", "script_base_datos.sql");
+            string rutaRelativa = Path.Combine("DB", "script_base_datos.sql");
             string rutaScript = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, rutaRelativa);
 
             if (!File.Exists(rutaScript))
