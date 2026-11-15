@@ -33,7 +33,7 @@ namespace TrabajoIntegrador
             this.lblTitulo.Location = new System.Drawing.Point(27, 28);
             this.lblTitulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(213, 20);
+            this.lblTitulo.Size = new System.Drawing.Size(259, 25);
             this.lblTitulo.TabIndex = 0;
             this.lblTitulo.Text = "Socios con cuota vencida";
             this.lblTitulo.Click += new System.EventHandler(this.lblTitulo_Click);
@@ -41,7 +41,7 @@ namespace TrabajoIntegrador
             // lblFechaConsulta
             // 
             this.lblFechaConsulta.AutoSize = true;
-            this.lblFechaConsulta.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.lblFechaConsulta.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblFechaConsulta.Location = new System.Drawing.Point(376, 449);
             this.lblFechaConsulta.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFechaConsulta.Name = "lblFechaConsulta";
@@ -105,6 +105,8 @@ namespace TrabajoIntegrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.BackColor = System.Drawing.Color.Gainsboro;
             this.ClientSize = new System.Drawing.Size(667, 505);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.lstVencimientos);

@@ -37,7 +37,7 @@ namespace TrabajoIntegrador
             this.lblTitulo.Location = new System.Drawing.Point(53, 25);
             this.lblTitulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(236, 20);
+            this.lblTitulo.Size = new System.Drawing.Size(287, 25);
             this.lblTitulo.TabIndex = 0;
             this.lblTitulo.Text = "Conexión a la base de datos";
             // 
@@ -54,7 +54,7 @@ namespace TrabajoIntegrador
             // txtServer
             // 
             this.txtServer.Location = new System.Drawing.Point(213, 82);
-            this.txtServer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtServer.Margin = new System.Windows.Forms.Padding(4);
             this.txtServer.Name = "txtServer";
             this.txtServer.Size = new System.Drawing.Size(265, 22);
             this.txtServer.TabIndex = 2;
@@ -73,7 +73,7 @@ namespace TrabajoIntegrador
             // txtPuerto
             // 
             this.txtPuerto.Location = new System.Drawing.Point(213, 119);
-            this.txtPuerto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPuerto.Margin = new System.Windows.Forms.Padding(4);
             this.txtPuerto.Name = "txtPuerto";
             this.txtPuerto.Size = new System.Drawing.Size(265, 22);
             this.txtPuerto.TabIndex = 4;
@@ -93,7 +93,7 @@ namespace TrabajoIntegrador
             // 
             this.txtBaseDatos.Enabled = false;
             this.txtBaseDatos.Location = new System.Drawing.Point(213, 156);
-            this.txtBaseDatos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBaseDatos.Margin = new System.Windows.Forms.Padding(4);
             this.txtBaseDatos.Name = "txtBaseDatos";
             this.txtBaseDatos.Size = new System.Drawing.Size(265, 22);
             this.txtBaseDatos.TabIndex = 6;
@@ -112,7 +112,7 @@ namespace TrabajoIntegrador
             // txtUsuario
             // 
             this.txtUsuario.Location = new System.Drawing.Point(213, 193);
-            this.txtUsuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtUsuario.Margin = new System.Windows.Forms.Padding(4);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(265, 22);
             this.txtUsuario.TabIndex = 8;
@@ -131,7 +131,7 @@ namespace TrabajoIntegrador
             // txtPassword
             // 
             this.txtPassword.Location = new System.Drawing.Point(213, 230);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(4);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(265, 22);
@@ -141,7 +141,7 @@ namespace TrabajoIntegrador
             // btnConectar
             // 
             this.btnConectar.Location = new System.Drawing.Point(292, 283);
-            this.btnConectar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnConectar.Margin = new System.Windows.Forms.Padding(4);
             this.btnConectar.Name = "btnConectar";
             this.btnConectar.Size = new System.Drawing.Size(188, 43);
             this.btnConectar.TabIndex = 11;
@@ -152,7 +152,7 @@ namespace TrabajoIntegrador
             // btnSalir
             // 
             this.btnSalir.Location = new System.Drawing.Point(57, 283);
-            this.btnSalir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(4);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(188, 43);
             this.btnSalir.TabIndex = 12;
@@ -164,6 +164,7 @@ namespace TrabajoIntegrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Gainsboro;
             this.ClientSize = new System.Drawing.Size(533, 369);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnConectar);
@@ -179,7 +180,7 @@ namespace TrabajoIntegrador
             this.Controls.Add(this.lblServer);
             this.Controls.Add(this.lblTitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "ConfiguracionConexion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

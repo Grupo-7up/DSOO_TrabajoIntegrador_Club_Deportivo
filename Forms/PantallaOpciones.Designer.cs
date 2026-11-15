@@ -106,6 +106,7 @@ namespace TrabajoIntegrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Gainsboro;
             this.ClientSize = new System.Drawing.Size(560, 505);
             this.Controls.Add(this.btn_salir);
             this.Controls.Add(this.btn_pagarCuota);

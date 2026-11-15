@@ -83,7 +83,6 @@ namespace TrabajoIntegrador
             // lbl_contrasena
             // 
             this.lbl_contrasena.AutoSize = true;
-            this.lbl_contrasena.BackColor = System.Drawing.SystemColors.Control;
             this.lbl_contrasena.Location = new System.Drawing.Point(146, 159);
             this.lbl_contrasena.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_contrasena.Name = "lbl_contrasena";
@@ -94,7 +93,6 @@ namespace TrabajoIntegrador
             // lbl_usuarioRequired
             // 
             this.lbl_usuarioRequired.AutoSize = true;
-            this.lbl_usuarioRequired.BackColor = System.Drawing.SystemColors.Control;
             this.lbl_usuarioRequired.ForeColor = System.Drawing.Color.Red;
             this.lbl_usuarioRequired.Location = new System.Drawing.Point(200, 78);
             this.lbl_usuarioRequired.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -106,7 +104,6 @@ namespace TrabajoIntegrador
             // lbl_contrasenaRequired
             // 
             this.lbl_contrasenaRequired.AutoSize = true;
-            this.lbl_contrasenaRequired.BackColor = System.Drawing.SystemColors.Control;
             this.lbl_contrasenaRequired.ForeColor = System.Drawing.Color.Red;
             this.lbl_contrasenaRequired.Location = new System.Drawing.Point(222, 159);
             this.lbl_contrasenaRequired.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -131,6 +128,7 @@ namespace TrabajoIntegrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Gainsboro;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(495, 379);
             this.Controls.Add(this.btn_salir);

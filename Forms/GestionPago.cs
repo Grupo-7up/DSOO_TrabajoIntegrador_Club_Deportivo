@@ -340,5 +340,15 @@ namespace TrabajoIntegrador
                 RecalcularMonto();
             }
         }
+
+        private void panelPago_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void lblCuotasDetalle_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
